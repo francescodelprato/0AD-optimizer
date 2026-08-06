@@ -84,6 +84,10 @@ h2 {
 .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #6c9b66; }
 
 .page-grid {
+  display: block;
+}
+
+.analysis-grid {
   display: grid;
   grid-template-columns: 310px minmax(0, 1fr);
   gap: 22px;
@@ -192,7 +196,7 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 .recommendation-detail { display: block; margin-top: 3px; color: var(--muted); font-size: 0.75rem; line-height: 1.4; }
 .recommendation-score { color: var(--accent-dark); font-size: 0.78rem; font-weight: 800; white-space: nowrap; }
 
-.roster-section { grid-column: 1 / -1; padding: 24px; }
+.roster-section { margin-top: 22px; padding: 24px; }
 .roster-section .section-heading { margin-bottom: 15px; }
 .roster-hint { min-height: 20px; margin-bottom: 13px; color: var(--muted); font-size: 0.76rem; }
 .roster-hint.warning { color: var(--accent-dark); }
@@ -211,9 +215,8 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 
 @media (max-width: 900px) {
   .site-header { padding-top: 42px; }
-  .page-grid { grid-template-columns: 1fr; }
+  .analysis-grid { grid-template-columns: 1fr; }
   .controls { position: static; }
-  .roster-section { grid-column: auto; }
 }
 
 @media (max-width: 560px) {
