@@ -97,13 +97,12 @@ h2 {
 .panel {
   border: 1px solid rgba(222, 216, 204, 0.9);
   border-radius: 16px;
-  background: rgba(255, 253, 248, 0.9);
+  background: var(--panel);
   box-shadow: var(--shadow);
 }
 
 .controls {
-  position: sticky;
-  top: 18px;
+  position: static;
   padding: 24px;
 }
 
@@ -216,7 +215,6 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 @media (max-width: 900px) {
   .site-header { padding-top: 42px; }
   .analysis-grid { grid-template-columns: 1fr; }
-  .controls { position: static; }
 }
 
 @media (max-width: 560px) {
