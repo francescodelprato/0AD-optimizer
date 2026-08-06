@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A small Pareto-frontier explorer for 0 A.D. army compositions.">
+    <title>0 A.D. — Army frontier</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="eyebrow">0 A.D. × Pareto</div>
+      <h1>Find the shape of your army.</h1>
+      <p class="lede">
+        Compare baseline army compositions under the same population and resource envelope.
+        The frontier keeps the options that are not plainly worse on both selected dimensions.
+      </p>
+      <div class="source-strip">
+        <span class="status-dot"></span>
+        <span id="source-summary">Loading the official 0 A.D. snapshot…</span>
+      </div>
+    </header>
+
+    <main class="page-grid">
+      <aside class="controls panel">
+        <div class="section-heading">
+          <div class="eyebrow">01 / Constraints</div>
+          <h2>Set the envelope</h2>
+        </div>
+
+        <label class="field">
+          <span class="field-label">Civilisation</span>
+          <select id="civilisation"></select>
+        </label>
+
+        <label class="field">
+          <span class="field-label"><span>Army population</span><output id="population-output"></output></span>
+          <input id="population" type="range" min="8" max="120" step="1" value="24">
+          <span class="range-note">Every candidate uses this population exactly. Raise the resource ceilings for larger armies.</span>
+        </label>
+
+        <div class="field-group">
+          <div class="field-label">Resource ceilings</div>
+          <div class="budget-grid">
+            <label><span>Food</span><input id="food" type="number" min="0" step="50" value="2400"></label>
+            <label><span>Wood</span><input id="wood" type="number" min="0" step="50" value="1800"></label>
+            <label><span>Stone</span><input id="stone" type="number" min="0" step="50" value="600"></label>
+            <label><span>Metal</span><input id="metal" type="number" min="0" step="50" value="900"></label>
+          </div>
+        </div>
+
+        <div class="section-heading compact-heading">
+          <div class="eyebrow">02 / View</div>
+          <h2>Choose the trade-off</h2>
+        </div>
+
+        <div class="axis-grid">
+          <label class="field">
+            <span class="field-label">Horizontal axis</span>
+            <select id="x-axis">
+              <option value="dps">Raw attack DPS</option>
+              <option value="health">Total health</option>
+              <option value="range">Average attack range</option>
+              <option value="speed">Average speed</option>
+              <option value="armor">Average resistance</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field-label">Vertical axis</span>
+            <select id="y-axis">
+              <option value="health">Total health</option>
+              <option value="dps">Raw attack DPS</option>
+              <option value="range">Average attack range</option>
+              <option value="speed">Average speed</option>
+              <option value="armor">Average resistance</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="field-group preferences">
+          <div class="field-label">Player preference weights</div>
+          <label class="weight-row"><span>Damage</span><input id="weight-dps" type="range" min="0" max="100" value="40"><output id="weight-dps-output">40</output></label>
+          <label class="weight-row"><span>Health</span><input id="weight-health" type="range" min="0" max="100" value="35"><output id="weight-health-output">35</output></label>
+          <label class="weight-row"><span>Reach</span><input id="weight-range" type="range" min="0" max="100" value="15"><output id="weight-range-output">15</output></label>
+          <label class="weight-row"><span>Speed</span><input id="weight-speed" type="range" min="0" max="100" value="10"><output id="weight-speed-output">10</output></label>
+          <span class="range-note">Weights rank the frontier. They do not change which points are efficient on the chart.</span>
+        </div>
+
+        <div class="model-note">
+          <strong>What is modelled?</strong>
+          Base template costs, population, health, resistance, attack damage, repeat time, range, and walk speed.
+          Counters, armour interaction, technologies, formations, terrain, production time, and micro are not modelled yet.
+        </div>
+      </aside>
+
+      <section class="results-column">
+        <div class="result-header">
+          <div>
+            <div class="eyebrow">03 / Frontier</div>
+            <h2 id="result-title">Athenians under pressure</h2>
+          </div>
+          <div class="result-counts">
+            <span><strong id="feasible-count">—</strong> feasible</span>
+            <span><strong id="frontier-count">—</strong> frontier</span>
+          </div>
+        </div>
+
+        <div class="chart-panel panel">
+          <div class="chart-caption">
+            <span>Each faint dot is one legal composition. The line is the non-dominated set.</span>
+            <span id="search-status" class="search-status">Calculating…</span>
+          </div>
+          <canvas id="frontier-chart" aria-label="Pareto frontier chart"></canvas>
+          <div class="chart-axis-labels"><span id="chart-x-label">Raw attack DPS</span><span id="chart-y-label">Total health</span></div>
+        </div>
+
+        <div class="best-fit panel">
+          <div class="eyebrow">Best fit for your weights</div>
+          <div class="best-fit-body">
+            <div>
+              <h2 id="best-fit-title">—</h2>
+              <p id="best-fit-mix" class="mix-line">—</p>
+            </div>
+            <div id="best-fit-metrics" class="metric-grid"></div>
+          </div>
+        </div>
+
+        <div class="recommendations">
+          <div class="section-heading compact-heading">
+            <div class="eyebrow">04 / Options</div>
+            <h2>Other efficient armies</h2>
+          </div>
+          <div id="recommendation-list" class="recommendation-list"></div>
+        </div>
+      </section>
+
+      <section class="roster-section panel">
+        <div class="section-heading">
+          <div class="eyebrow">05 / Choice set</div>
+          <h2>Unit pool</h2>
+          <p>Check up to six baseline unit types. The search is exhaustive over this checked pool.</p>
+        </div>
+        <div id="roster-hint" class="roster-hint"></div>
+        <div id="unit-roster" class="unit-roster"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Prototype. Numbers are a transparent proxy, not a battle simulator.</span>
+      <a href="https://play0ad.com/" target="_blank" rel="noreferrer">0 A.D. official site ↗</a>
+    </footer>
+
+    <script src="app.js?v=3" defer></script>
+  </body>
+</html>
