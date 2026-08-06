@@ -24,7 +24,7 @@ python3 scripts/extract_units.py \
   --out data/units.json
 ```
 
-The extractor resolves the XML parent chain used by the game. It keeps baseline (`*_b.xml`) non-hero, non-siege soldier templates for the playable civilisations. Each unit keeps its source template path.
+The extractor resolves the XML parent chain used by the game. It keeps baseline (`*_b.xml`) non-hero, non-siege soldier templates for the playable civilisations. Each unit keeps its source template path and source-defined `Identity/Icon` path.
 
 ## What the prototype does
 
@@ -54,3 +54,7 @@ python3 -m unittest discover -s tests -v
 - [0 A.D. official site](https://play0ad.com/)
 - [0 A.D. official source repository](https://gitea.wildfiregames.com/0ad/0ad)
 - [Mario meets Pareto](https://www.mayerowitz.io/blog/mario-meets-pareto)
+
+## Portrait attribution
+
+The unit portraits in `assets/portraits/units/` come from the official 0 A.D. art data at the snapshot commit recorded in `data/units.json`. The checked-in files are resized 96px display copies. The art is Copyright Wildfire Games and is distributed under the [Creative Commons Attribution-ShareAlike 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/), as described by the [0 A.D. art license](https://gitea.wildfiregames.com/0ad/0ad/src/commit/d6bdf51d8360cd1aadc0491c433d538fc5d77f91/binaries/data/mods/public/art/LICENSE.txt).

@@ -33,6 +33,12 @@ class SnapshotTests(unittest.TestCase):
                 self.assertTrue(set(unit["cost"]).issubset(resources))
                 self.assertTrue(unit["source_path"].endswith(".xml"))
 
+    def test_units_have_source_defined_portraits(self):
+        for unit in self.snapshot["units"]:
+            with self.subTest(unit=unit["id"]):
+                self.assertRegex(unit["portrait"], r"^units/.+\.png$")
+                self.assertTrue((ROOT / "assets" / "portraits" / unit["portrait"]).is_file())
+
     def test_population_control_supports_large_armies(self):
         index = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn('id="population" type="range" min="8" max="120"', index)

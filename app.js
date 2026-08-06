@@ -69,6 +69,21 @@ function unitGlyph(unit) {
   return "⚔";
 }
 
+function unitPortraitPath(unit) {
+  return unit.portrait ? `assets/portraits/${unit.portrait}` : "";
+}
+
+function unitVisual(unit) {
+  const portraitPath = unitPortraitPath(unit);
+  const portrait = portraitPath
+    ? `<img class="unit-portrait" data-unit-portrait src="${escapeHtml(portraitPath)}" alt="" loading="lazy">`
+    : "";
+  return `<span class="unit-visual" aria-hidden="true">
+    ${portrait}
+    <span class="unit-glyph"${portrait ? " hidden" : ""}>${unitGlyph(unit)}</span>
+  </span>`;
+}
+
 function unitFamily(unit) {
   return unitIsCavalry(unit) ? "cavalry" : "infantry";
 }
@@ -306,7 +321,7 @@ function renderUnitRoster() {
     const stats = `${number(unit.attack_dps, 1)} DPS · ${number(unit.health, 0)} HP · ${number(unit.attack_range, 0)} range`;
     return `<label class="unit-card${checked ? " is-selected" : ""}">
       <input type="checkbox" data-unit-id="${escapeHtml(unit.id)}" ${checked ? "checked" : ""}>
-      <span class="unit-glyph">${unitGlyph(unit)}</span>
+      ${unitVisual(unit)}
       <span class="unit-card-main">
         <span class="unit-name">${escapeHtml(unit.name)}</span>
         <span class="unit-role">${escapeHtml(unit.role)} · ${unitFamily(unit)} · ${escapeHtml(unit.attack_type)}</span>
@@ -314,6 +329,12 @@ function renderUnitRoster() {
       </span>
     </label>`;
   }).join("");
+  $("#unit-roster").querySelectorAll("img[data-unit-portrait]").forEach((image) => {
+    image.addEventListener("error", () => {
+      image.hidden = true;
+      image.nextElementSibling.hidden = false;
+    }, { once: true });
+  });
   const count = state.selectedIds.length;
   $("#roster-hint").textContent = `${count} of ${state.units.length} units selected. Choose up to ${MAX_POOL_SIZE}; these units define the comparison.`;
   $("#roster-hint").classList.toggle("warning", count >= MAX_POOL_SIZE);

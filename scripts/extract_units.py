@@ -124,6 +124,12 @@ def _number(root: ET.Element, path: str, default: float = 0.0) -> float:
         return default
 
 
+def _portrait_path(root: ET.Element) -> str:
+    """Return the source-relative portrait path declared by the template."""
+    icon = _text(root, "Identity/Icon")
+    return icon if icon.startswith("units/") else ""
+
+
 def _tokens(value: str) -> list[str]:
     return [token for token in re.split(r"\s+", value.strip()) if token]
 
@@ -187,6 +193,7 @@ def _unit_from_template(resolver: TemplateResolver, template_name: str, civ: str
         "cost": {resource: round(value, 3) for resource, value in resources.items() if value},
         "rank": _text(root, "Identity/Rank", "Basic"),
         "identity_classes": identity_classes,
+        "portrait": _portrait_path(root),
     }
 
 
