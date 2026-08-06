@@ -16,7 +16,14 @@ const CIVILISATION_NAMES = {
   spart: "Spartans",
 };
 
-const RESOURCE_ICONS = { food: "food", wood: "wood", stone: "stone", metal: "metal" };
+const RESOURCE_ICONS = {
+  food: { label: "Food", path: "assets/resources/food.png" },
+  wood: { label: "Wood", path: "assets/resources/wood.png" },
+  stone: { label: "Stone", path: "assets/resources/stone.png" },
+  metal: { label: "Metal", path: "assets/resources/metal.png" },
+};
+const POPULATION_MIN = 8;
+const POPULATION_MAX = 120;
 const MAX_POOL_SIZE = 6;
 const MAX_COMPOSITIONS = 400000;
 
@@ -62,6 +69,16 @@ function unitIsCavalry(unit) {
   return unit.identity_classes.includes("FastMoving") || unit.id.includes("/cavalry_") || unit.id.includes("/elephant_");
 }
 
+function unitIsChampion(unit) {
+  return unit.identity_classes.includes("Champion")
+    || unit.class_tokens.includes("Champion")
+    || unit.rank === "Champion";
+}
+
+function unitTierLabel(unit) {
+  return unitIsChampion(unit) ? "Champion" : "Non-champion";
+}
+
 function unitGlyph(unit) {
   if (unit.attack_type === "ranged" && unitIsCavalry(unit)) return "🏹";
   if (unit.attack_type === "ranged") return "➶";
@@ -88,19 +105,29 @@ function unitFamily(unit) {
   return unitIsCavalry(unit) ? "cavalry" : "infantry";
 }
 
-function costText(unitOrComposition) {
-  const cost = unitOrComposition.cost;
-  return Object.entries(cost)
-    .filter(([, value]) => value > 0)
-    .map(([resource, value]) => `${number(value, 0)} ${RESOURCE_ICONS[resource]}`)
-    .join(" · ") || "no resource cost";
+function resourceCostMarkup(resource, value) {
+  const icon = RESOURCE_ICONS[resource];
+  return `<span class="resource-cost" title="${escapeHtml(icon.label)}" aria-label="${number(value, 0)} ${escapeHtml(icon.label)}">
+    <img class="resource-icon" src="${escapeHtml(icon.path)}" alt="" width="18" height="18" decoding="async">
+    <span>${number(value, 0)}</span>
+  </span>`;
 }
 
-function compositionCostText(composition) {
-  return Object.entries(composition.resources)
+function costsMarkup(cost) {
+  const entries = Object.entries(cost)
     .filter(([, value]) => value > 0)
-    .map(([resource, value]) => `${number(value, 0)} ${RESOURCE_ICONS[resource]}`)
-    .join(" · ") || "no resource cost";
+    .map(([resource, value]) => resourceCostMarkup(resource, value));
+  return entries.length
+    ? `<span class="resource-costs">${entries.join('<span class="resource-divider" aria-hidden="true">·</span>')}</span>`
+    : "no resource cost";
+}
+
+function costMarkup(unit) {
+  return costsMarkup(unit.cost);
+}
+
+function compositionCostMarkup(composition) {
+  return costsMarkup(composition.resources);
 }
 
 function selectedUnits() {
@@ -148,16 +175,46 @@ function updateWeightOutputs() {
   }
 }
 
+function setPopulationValue(value, updateNumberInput = true) {
+  const range = $("#population");
+  const min = Number(range.min) || POPULATION_MIN;
+  const max = Number(range.max) || POPULATION_MAX;
+  const next = Math.min(max, Math.max(min, Math.round(Number(value) || min)));
+  range.value = next;
+  if (updateNumberInput) $("#population-input").value = next;
+  $("#population-output").value = next;
+  $("#population-output").textContent = next;
+  return next;
+}
+
+function handlePopulationRangeInput() {
+  setPopulationValue($("#population").value);
+  scheduleRecalculate();
+}
+
+function handlePopulationNumberInput() {
+  const rawValue = $("#population-input").value.trim();
+  if (!rawValue || !Number.isFinite(Number(rawValue))) return;
+  setPopulationValue(rawValue, false);
+  scheduleRecalculate();
+}
+
+function handlePopulationNumberChange() {
+  const rawValue = $("#population-input").value.trim();
+  setPopulationValue(rawValue || $("#population").value);
+  recalculateImmediately();
+}
+
 function compositionLabel(composition, units) {
   return composition.counts
-    .map((count, index) => count ? `${count}× ${units[index].name}` : null)
+    .map((count, index) => count ? `${count}× ${units[index].name} (${unitTierLabel(units[index])})` : null)
     .filter(Boolean)
     .join(" + ");
 }
 
 function compositionMix(composition, units) {
   return composition.counts
-    .map((count, index) => count ? `${count} ${units[index].role} ${unitFamily(units[index])}` : null)
+    .map((count, index) => count ? `${count} ${unitTierLabel(units[index])} ${units[index].role} ${unitFamily(units[index])}` : null)
     .filter(Boolean)
     .join(" · ");
 }
@@ -299,9 +356,7 @@ function addScores(compositions, weights) {
 function recalculate() {
   updateWeightOutputs();
   const units = selectedUnits();
-  const targetPopulation = Number($("#population").value);
-  $("#population-output").value = targetPopulation;
-  $("#population-output").textContent = targetPopulation;
+  const targetPopulation = setPopulationValue($("#population").value, document.activeElement !== $("#population-input"));
   const budgets = readBudgets();
   const xKey = $("#x-axis").value;
   const yKey = $("#y-axis").value;
@@ -324,8 +379,8 @@ function renderUnitRoster() {
       ${unitVisual(unit)}
       <span class="unit-card-main">
         <span class="unit-name">${escapeHtml(unit.name)}</span>
-        <span class="unit-role">${escapeHtml(unit.role)} · ${unitFamily(unit)} · ${escapeHtml(unit.attack_type)}</span>
-        <span class="unit-stats"><span>${stats}</span><span>${escapeHtml(costText(unit))}</span></span>
+        <span class="unit-role"><span class="unit-tier${unitIsChampion(unit) ? " is-champion" : ""}">${unitTierLabel(unit)}</span><span>${escapeHtml(unit.role)} · ${unitFamily(unit)} · ${escapeHtml(unit.attack_type)}</span></span>
+        <span class="unit-stats"><span>${stats}</span><span>${costMarkup(unit)}</span></span>
       </span>
     </label>`;
   }).join("");
@@ -353,7 +408,7 @@ function renderBestFit(composition, units) {
     return;
   }
   $("#best-fit-title").textContent = `${number(composition.score * 100, 0)} / 100 match`;
-  $("#best-fit-mix").textContent = `${compositionLabel(composition, units)}. ${compositionCostText(composition)}.`;
+  $("#best-fit-mix").innerHTML = `${escapeHtml(compositionLabel(composition, units))}. <span class="mix-costs">${compositionCostMarkup(composition)}</span>.`;
   $("#best-fit-metrics").innerHTML = ["dps", "health", "range", "speed"].map((key) => metricMarkup(composition, key)).join("");
 }
 
@@ -367,7 +422,7 @@ function renderRecommendations(units) {
     const isSelected = composition === state.selected;
     return `<button class="recommendation${isSelected ? " is-selected" : ""}" data-frontier-index="${index}">
       <span class="recommendation-rank">${String(index + 1).padStart(2, "0")}</span>
-      <span><span class="recommendation-name">${escapeHtml(compositionMix(composition, units))}</span><span class="recommendation-detail">${number(composition.dps, 1)} DPS · ${number(composition.health, 0)} HP · ${compositionCostText(composition)}</span></span>
+      <span><span class="recommendation-name">${escapeHtml(compositionMix(composition, units))}</span><span class="recommendation-detail">${number(composition.dps, 1)} DPS · ${number(composition.health, 0)} HP · ${compositionCostMarkup(composition)}</span></span>
       <span class="recommendation-score">${number(composition.score * 100, 0)}% match</span>
     </button>`;
   }).join("");
@@ -520,10 +575,14 @@ function wireControls() {
     renderUnitRoster();
     recalculate();
   });
-  ["population", "food", "wood", "stone", "metal", "x-axis", "y-axis", "weight-dps", "weight-health", "weight-range", "weight-speed"].forEach((id) => {
+  ["food", "wood", "stone", "metal", "x-axis", "y-axis", "weight-dps", "weight-health", "weight-range", "weight-speed"].forEach((id) => {
     $("#" + id).addEventListener("input", scheduleRecalculate);
     $("#" + id).addEventListener("change", recalculateImmediately);
   });
+  $("#population").addEventListener("input", handlePopulationRangeInput);
+  $("#population").addEventListener("change", recalculateImmediately);
+  $("#population-input").addEventListener("input", handlePopulationNumberInput);
+  $("#population-input").addEventListener("change", handlePopulationNumberChange);
   $("#unit-roster").addEventListener("change", handleUnitChange);
   $("#frontier-chart").addEventListener("click", (event) => {
     const rect = event.currentTarget.getBoundingClientRect();

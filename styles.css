@@ -162,10 +162,20 @@ input[type="number"] {
 
 input[type="range"] { width: 100%; accent-color: var(--accent); }
 .range-note { display: block; margin-top: 6px; color: var(--muted); font-size: 0.72rem; line-height: 1.4; }
+.population-controls { display: grid; grid-template-columns: minmax(0, 1fr) 92px; gap: 10px; align-items: center; }
+.population-number { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 5px; align-items: center; color: var(--muted); font-size: 0.68rem; }
+.population-number input { min-height: 34px; padding: 6px 7px; }
 
 .budget-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
 .budget-grid label { color: var(--muted); font-size: 0.72rem; }
 .budget-grid input { margin-top: 4px; min-height: 34px; }
+.resource-label { display: flex; align-items: center; gap: 5px; }
+.resource-label img { width: 18px; height: 18px; object-fit: contain; }
+
+.resource-costs { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.resource-cost { display: inline-flex; align-items: center; gap: 3px; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.resource-icon { width: 18px; height: 18px; object-fit: contain; vertical-align: middle; }
+.resource-divider { color: var(--line); }
 
 .axis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .axis-grid select { font-size: 0.76rem; }
@@ -250,9 +260,13 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 [hidden] { display: none !important; }
 .unit-card-main { grid-column: 3; min-width: 0; }
 .unit-name { display: -webkit-box; overflow: hidden; min-height: 2.2em; font-size: 0.86rem; font-weight: 800; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
-.unit-role { display: block; margin-top: 2px; color: var(--muted); font-size: 0.68rem; }
+.unit-role { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin-top: 2px; color: var(--muted); font-size: 0.68rem; }
+.unit-tier { display: inline-flex; align-items: center; border: 1px solid rgba(46, 100, 128, 0.22); border-radius: 999px; padding: 2px 6px; background: rgba(46, 100, 128, 0.1); color: var(--blue); font-size: 0.61rem; font-weight: 800; line-height: 1.2; white-space: nowrap; }
+.unit-tier.is-champion { border-color: rgba(186, 77, 43, 0.32); background: rgba(186, 77, 43, 0.12); color: var(--accent-dark); }
 .unit-stats { display: flex; flex-wrap: wrap; gap: 5px 9px; margin-top: 9px; color: var(--muted); font-size: 0.68rem; line-height: 1.4; }
-.unit-stats span { white-space: nowrap; }
+.unit-stats > span { white-space: nowrap; }
+.unit-stats .resource-costs { color: var(--muted); }
+.mix-costs { display: inline-block; margin-left: 3px; }
 
 .site-footer { display: flex; justify-content: space-between; gap: 15px; padding: 25px 0 42px; }
 

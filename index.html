@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A small Pareto-frontier explorer for 0 A.D. army compositions.">
     <title>0 A.D. — Army frontier</title>
-    <link rel="stylesheet" href="styles.css?v=4">
+    <link rel="stylesheet" href="styles.css?v=5">
   </head>
   <body>
     <header class="site-header">
@@ -51,18 +51,21 @@
 
         <label class="field">
           <span class="field-label"><span>Army size</span><output id="population-output"></output></span>
-          <input id="population" type="range" min="8" max="120" step="1" value="24" aria-describedby="population-help">
-          <span class="range-note" id="population-help">Every army uses this many population slots.</span>
+          <span class="population-controls">
+            <input id="population" type="range" min="8" max="120" step="1" value="24" aria-label="Army size slider" aria-describedby="population-help">
+            <span class="population-number"><span>Exact</span><input id="population-input" type="number" min="8" max="120" step="1" value="24" inputmode="numeric" aria-label="Exact army size" aria-describedby="population-help"></span>
+          </span>
+          <span class="range-note" id="population-help">Every army uses this many population slots. Drag the slider or type an exact value.</span>
         </label>
 
         <div class="field-group">
           <div class="field-label">Resource budget</div>
           <span class="field-help" id="budget-help">The maximum resources an army may spend.</span>
           <div class="budget-grid">
-            <label><span>Food</span><input id="food" type="number" min="0" step="50" value="2400" aria-describedby="budget-help"></label>
-            <label><span>Wood</span><input id="wood" type="number" min="0" step="50" value="1800" aria-describedby="budget-help"></label>
-            <label><span>Stone</span><input id="stone" type="number" min="0" step="50" value="600" aria-describedby="budget-help"></label>
-            <label><span>Metal</span><input id="metal" type="number" min="0" step="50" value="900" aria-describedby="budget-help"></label>
+            <label><span class="resource-label"><img src="assets/resources/food.png" alt="" width="18" height="18">Food</span><input id="food" type="number" min="0" step="50" value="2400" aria-describedby="budget-help"></label>
+            <label><span class="resource-label"><img src="assets/resources/wood.png" alt="" width="18" height="18">Wood</span><input id="wood" type="number" min="0" step="50" value="1800" aria-describedby="budget-help"></label>
+            <label><span class="resource-label"><img src="assets/resources/stone.png" alt="" width="18" height="18">Stone</span><input id="stone" type="number" min="0" step="50" value="600" aria-describedby="budget-help"></label>
+            <label><span class="resource-label"><img src="assets/resources/metal.png" alt="" width="18" height="18">Metal</span><input id="metal" type="number" min="0" step="50" value="900" aria-describedby="budget-help"></label>
           </div>
         </div>
 
@@ -165,7 +168,7 @@
         <div class="section-heading">
           <div class="eyebrow">06 / CHOOSE UNITS</div>
           <h2>Build your unit pool</h2>
-          <p>Choose up to six units. The planner compares armies made from these units. Each card uses the official 0 A.D. portrait when one is available.</p>
+          <p>Choose up to six units. The planner compares armies made from these units. Each card shows the official portrait and clearly marks Champion or Non-champion status.</p>
         </div>
         <div id="roster-hint" class="roster-hint"></div>
         <div id="unit-roster" class="unit-roster"></div>
@@ -177,6 +180,6 @@
       <a href="https://play0ad.com/" target="_blank" rel="noreferrer">0 A.D. official site ↗</a>
     </footer>
 
-    <script src="app.js?v=5" defer></script>
+    <script src="app.js?v=6" defer></script>
   </body>
 </html>

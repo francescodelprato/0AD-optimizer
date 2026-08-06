@@ -42,6 +42,20 @@ class SnapshotTests(unittest.TestCase):
     def test_population_control_supports_large_armies(self):
         index = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn('id="population" type="range" min="8" max="120"', index)
+        self.assertIn('id="population-input" type="number" min="8" max="120"', index)
+
+    def test_resource_icons_are_available(self):
+        index = (ROOT / "index.html").read_text(encoding="utf-8")
+        app = (ROOT / "app.js").read_text(encoding="utf-8")
+        for resource in ("food", "wood", "stone", "metal"):
+            with self.subTest(resource=resource):
+                self.assertIn(f'assets/resources/{resource}.png', index)
+                self.assertIn(f'assets/resources/{resource}.png', app)
+                self.assertTrue((ROOT / "assets" / "resources" / f"{resource}.png").is_file())
+
+    def test_unit_tier_labels_are_rendered(self):
+        app = (ROOT / "app.js").read_text(encoding="utf-8")
+        self.assertIn('return unitIsChampion(unit) ? "Champion" : "Non-champion"', app)
 
 
 if __name__ == "__main__":

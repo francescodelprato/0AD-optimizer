@@ -30,6 +30,8 @@ The extractor resolves the XML parent chain used by the game. It keeps baseline 
 
 - Selects a civilisation and up to six unit types.
 - Fixes the army population exactly, from 8 to 120.
+- Marks Champion and Non-champion units from the source template classes.
+- Uses official 0 A.D. resource icons in budgets and cost summaries.
 - Applies food, wood, stone, and metal ceilings.
 - Enumerates every composition in the checked unit pool.
 - Shows a two-dimensional Pareto frontier.
