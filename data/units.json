@@ -1,0 +1,3437 @@
+{
+  "schema_version": 1,
+  "game": "0 A.D.",
+  "source": {
+    "repository": "https://gitea.wildfiregames.com/0ad/0ad",
+    "commit": "d6bdf51d8360cd1aadc0491c433d538fc5d77f91",
+    "scope": "Baseline (_b) non-hero, non-siege soldier templates with resolved XML inheritance."
+  },
+  "resources": [
+    "food",
+    "wood",
+    "stone",
+    "metal"
+  ],
+  "civilisations": [
+    "achae",
+    "athen",
+    "brit",
+    "cart",
+    "gaul",
+    "germ",
+    "han",
+    "iber",
+    "kush",
+    "mace",
+    "maur",
+    "ptol",
+    "rome",
+    "sele",
+    "spart"
+  ],
+  "units": [
+    {
+      "id": "units/achae/cavalry_archer_b",
+      "civ": "achae",
+      "name": "Parthian Horse Archer",
+      "role": "Archer",
+      "class_tokens": [
+        "Archer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 7.5,
+      "attack_dps": 6.0,
+      "attack_range": 60.0,
+      "health": 100.0,
+      "speed": 15.3,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/achae/cavalry_archer_b.xml"
+    },
+    {
+      "id": "units/achae/cavalry_axeman_b",
+      "civ": "achae",
+      "name": "Hyrcanian Cavalry",
+      "role": "Soldier",
+      "class_tokens": [
+        "Axeman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 13.5,
+      "attack_dps": 13.5,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 20.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 2.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 40.0,
+        "metal": 10.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/achae/cavalry_axeman_b.xml"
+    },
+    {
+      "id": "units/achae/cavalry_javelineer_b",
+      "civ": "achae",
+      "name": "Median Light Cavalry",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 18.0,
+      "attack_dps": 12.0,
+      "attack_range": 30.0,
+      "health": 100.0,
+      "speed": 16.2,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/achae/cavalry_javelineer_b.xml"
+    },
+    {
+      "id": "units/achae/cavalry_spearman_b",
+      "civ": "achae",
+      "name": "Cappadocian Cavalry",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.5,
+      "attack_dps": 9.2,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/achae/cavalry_spearman_b.xml"
+    },
+    {
+      "id": "units/achae/infantry_archer_b",
+      "civ": "achae",
+      "name": "Sogdian Archer",
+      "role": "Archer",
+      "class_tokens": [
+        "Archer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 7.2,
+      "attack_dps": 5.76,
+      "attack_range": 60.0,
+      "health": 50.0,
+      "speed": 10.3,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/achae/infantry_archer_b.xml"
+    },
+    {
+      "id": "units/achae/infantry_javelineer_b",
+      "civ": "achae",
+      "name": "Lydian Auxiliary",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 16.0,
+      "attack_dps": 10.667,
+      "attack_range": 30.0,
+      "health": 50.0,
+      "speed": 11.4,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/achae/infantry_javelineer_b.xml"
+    },
+    {
+      "id": "units/achae/infantry_spearman_b",
+      "civ": "achae",
+      "name": "Shield Bearer",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.5,
+      "attack_dps": 8.5,
+      "attack_range": 4.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/achae/infantry_spearman_b.xml"
+    },
+    {
+      "id": "units/athen/cavalry_javelineer_b",
+      "civ": "athen",
+      "name": "Cavalry Javelineer",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 18.0,
+      "attack_dps": 12.0,
+      "attack_range": 30.0,
+      "health": 100.0,
+      "speed": 16.2,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/athen/cavalry_javelineer_b.xml"
+    },
+    {
+      "id": "units/athen/cavalry_swordsman_b",
+      "civ": "athen",
+      "name": "Greek Cavalry",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 9.0,
+      "attack_dps": 12.0,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 20.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 2.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 40.0,
+        "metal": 10.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/athen/cavalry_swordsman_b.xml"
+    },
+    {
+      "id": "units/athen/infantry_archer_b",
+      "civ": "athen",
+      "name": "Cretan Mercenary Archer",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 10.12,
+      "attack_dps": 8.096,
+      "attack_range": 60.0,
+      "health": 50.0,
+      "speed": 10.3,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/athen/infantry_archer_b.xml"
+    },
+    {
+      "id": "units/athen/infantry_javelineer_b",
+      "civ": "athen",
+      "name": "Thracian Peltast",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 19.8,
+      "attack_dps": 13.2,
+      "attack_range": 30.0,
+      "health": 50.0,
+      "speed": 11.4,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/athen/infantry_javelineer_b.xml"
+    },
+    {
+      "id": "units/athen/infantry_marine_archer_b",
+      "civ": "athen",
+      "name": "Cretan Mercenary Archer",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 10.12,
+      "attack_dps": 8.096,
+      "attack_range": 60.0,
+      "health": 50.0,
+      "speed": 10.3,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/athen/infantry_marine_archer_b.xml"
+    },
+    {
+      "id": "units/athen/infantry_slinger_b",
+      "civ": "athen",
+      "name": "Athenian Slinger Militia",
+      "role": "Slinger",
+      "class_tokens": [
+        "Slinger"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 12.6,
+      "attack_dps": 8.4,
+      "attack_range": 45.0,
+      "health": 50.0,
+      "speed": 10.8,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 20.0,
+        "stone": 30.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/athen/infantry_slinger_b.xml"
+    },
+    {
+      "id": "units/athen/infantry_spearman_b",
+      "civ": "athen",
+      "name": "Athenian Hoplite",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.5,
+      "attack_dps": 8.5,
+      "attack_range": 4.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/athen/infantry_spearman_b.xml"
+    },
+    {
+      "id": "units/brit/cavalry_javelineer_b",
+      "civ": "brit",
+      "name": "Raiding Cavalry",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 18.0,
+      "attack_dps": 12.0,
+      "attack_range": 30.0,
+      "health": 100.0,
+      "speed": 16.2,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/brit/cavalry_javelineer_b.xml"
+    },
+    {
+      "id": "units/brit/cavalry_swordsman_b",
+      "civ": "brit",
+      "name": "Celtic Cavalry",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 9.0,
+      "attack_dps": 12.0,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 20.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 2.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 40.0,
+        "metal": 10.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/brit/cavalry_swordsman_b.xml"
+    },
+    {
+      "id": "units/brit/infantry_javelineer_b",
+      "civ": "brit",
+      "name": "Infantry Javelineer",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 16.0,
+      "attack_dps": 10.667,
+      "attack_range": 30.0,
+      "health": 50.0,
+      "speed": 11.4,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/brit/infantry_javelineer_b.xml"
+    },
+    {
+      "id": "units/brit/infantry_slinger_b",
+      "civ": "brit",
+      "name": "Celtic Slinger",
+      "role": "Slinger",
+      "class_tokens": [
+        "Slinger"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 12.6,
+      "attack_dps": 8.4,
+      "attack_range": 45.0,
+      "health": 50.0,
+      "speed": 10.8,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 20.0,
+        "stone": 30.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/brit/infantry_slinger_b.xml"
+    },
+    {
+      "id": "units/brit/infantry_spearman_b",
+      "civ": "brit",
+      "name": "Celtic Spearman",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.5,
+      "attack_dps": 8.5,
+      "attack_range": 4.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/brit/infantry_spearman_b.xml"
+    },
+    {
+      "id": "units/cart/cavalry_javelineer_b",
+      "civ": "cart",
+      "name": "Numidian Cavalry",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 18.0,
+      "attack_dps": 12.0,
+      "attack_range": 30.0,
+      "health": 100.0,
+      "speed": 17.82,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/cart/cavalry_javelineer_b.xml"
+    },
+    {
+      "id": "units/cart/cavalry_spearman_ital_b",
+      "civ": "cart",
+      "name": "Italic Cavalry",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 13.75,
+      "attack_dps": 11.0,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 20.0,
+        "metal": 90.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/cart/cavalry_spearman_ital_b.xml"
+    },
+    {
+      "id": "units/cart/cavalry_swordsman_gaul_b",
+      "civ": "cart",
+      "name": "Gallic Mercenary Cavalry",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 12.1,
+      "attack_dps": 16.133,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 20.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 2.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 20.0,
+        "metal": 90.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/cart/cavalry_swordsman_gaul_b.xml"
+    },
+    {
+      "id": "units/cart/cavalry_swordsman_iber_b",
+      "civ": "cart",
+      "name": "Iberian Heavy Cavalry",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 12.1,
+      "attack_dps": 16.133,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 20.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 2.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 20.0,
+        "metal": 90.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/cart/cavalry_swordsman_iber_b.xml"
+    },
+    {
+      "id": "units/cart/infantry_archer_b",
+      "civ": "cart",
+      "name": "Mauritanian Archer",
+      "role": "Archer",
+      "class_tokens": [
+        "Archer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 7.2,
+      "attack_dps": 5.76,
+      "attack_range": 60.0,
+      "health": 50.0,
+      "speed": 10.3,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/cart/infantry_archer_b.xml"
+    },
+    {
+      "id": "units/cart/infantry_javelineer_iber_b",
+      "civ": "cart",
+      "name": "Iberian Mercenary Skirmisher",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 19.8,
+      "attack_dps": 13.2,
+      "attack_range": 30.0,
+      "health": 50.0,
+      "speed": 11.4,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/cart/infantry_javelineer_iber_b.xml"
+    },
+    {
+      "id": "units/cart/infantry_slinger_iber_b",
+      "civ": "cart",
+      "name": "Balearic Slinger",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 17.039,
+      "attack_dps": 9.737,
+      "attack_range": 50.0,
+      "health": 50.0,
+      "speed": 10.8,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 75.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/cart/infantry_slinger_iber_b.xml"
+    },
+    {
+      "id": "units/cart/infantry_spearman_b",
+      "civ": "cart",
+      "name": "Libyan Spearman",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.5,
+      "attack_dps": 8.5,
+      "attack_range": 4.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/cart/infantry_spearman_b.xml"
+    },
+    {
+      "id": "units/cart/infantry_spearman_ital_b",
+      "civ": "cart",
+      "name": "Samnite Spearman",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 10.45,
+      "attack_dps": 10.45,
+      "attack_range": 4.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/cart/infantry_spearman_ital_b.xml"
+    },
+    {
+      "id": "units/cart/infantry_swordsman_gaul_b",
+      "civ": "cart",
+      "name": "Gallic Mercenary Swordsman",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.0,
+      "attack_dps": 14.667,
+      "attack_range": 3.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/cart/infantry_swordsman_gaul_b.xml"
+    },
+    {
+      "id": "units/cart/infantry_swordsman_ital_b",
+      "civ": "cart",
+      "name": "Samnite Swordsman",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.0,
+      "attack_dps": 14.667,
+      "attack_range": 3.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/cart/infantry_swordsman_ital_b.xml"
+    },
+    {
+      "id": "units/gaul/cavalry_javelineer_b",
+      "civ": "gaul",
+      "name": "Cavalry Javelineer",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 18.0,
+      "attack_dps": 12.0,
+      "attack_range": 30.0,
+      "health": 100.0,
+      "speed": 16.2,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/cavalry_javelineer_b.xml"
+    },
+    {
+      "id": "units/gaul/cavalry_swordsman_b",
+      "civ": "gaul",
+      "name": "Cavalry Swordsman",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 9.0,
+      "attack_dps": 12.0,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 20.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 2.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 40.0,
+        "metal": 10.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/cavalry_swordsman_b.xml"
+    },
+    {
+      "id": "units/gaul/infantry_javelineer_b",
+      "civ": "gaul",
+      "name": "Infantry Javelineer",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 16.0,
+      "attack_dps": 10.667,
+      "attack_range": 30.0,
+      "health": 50.0,
+      "speed": 11.4,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/infantry_javelineer_b.xml"
+    },
+    {
+      "id": "units/gaul/infantry_slinger_b",
+      "civ": "gaul",
+      "name": "Slinger",
+      "role": "Slinger",
+      "class_tokens": [
+        "Slinger"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 12.6,
+      "attack_dps": 8.4,
+      "attack_range": 45.0,
+      "health": 50.0,
+      "speed": 10.8,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 20.0,
+        "stone": 30.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/infantry_slinger_b.xml"
+    },
+    {
+      "id": "units/gaul/infantry_spearman_b",
+      "civ": "gaul",
+      "name": "Spearman",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.5,
+      "attack_dps": 8.5,
+      "attack_range": 4.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/infantry_spearman_b.xml"
+    },
+    {
+      "id": "units/germ/cavalry_javelineer_b",
+      "civ": "germ",
+      "name": "Tigurinian Light Cavalry",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 18.0,
+      "attack_dps": 12.0,
+      "attack_range": 30.0,
+      "health": 100.0,
+      "speed": 16.2,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/germ/cavalry_javelineer_b.xml"
+    },
+    {
+      "id": "units/germ/cavalry_spearman_b",
+      "civ": "germ",
+      "name": "Cimbrian Spear Cavalry",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.5,
+      "attack_dps": 9.2,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/germ/cavalry_spearman_b.xml"
+    },
+    {
+      "id": "units/germ/infantry_javelineer_b",
+      "civ": "germ",
+      "name": "Ambronian Skirmisher",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 16.0,
+      "attack_dps": 10.667,
+      "attack_range": 30.0,
+      "health": 50.0,
+      "speed": 11.4,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/germ/infantry_javelineer_b.xml"
+    },
+    {
+      "id": "units/germ/infantry_slinger_b",
+      "civ": "germ",
+      "name": "Celto-Germanic Slinger",
+      "role": "Slinger",
+      "class_tokens": [
+        "Slinger"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 12.6,
+      "attack_dps": 8.4,
+      "attack_range": 45.0,
+      "health": 50.0,
+      "speed": 10.8,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 20.0,
+        "stone": 30.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/germ/infantry_slinger_b.xml"
+    },
+    {
+      "id": "units/germ/infantry_spearman_b",
+      "civ": "germ",
+      "name": "Cimbrian Spearman",
+      "role": "Soldier",
+      "class_tokens": [
+        "Guerilla"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.5,
+      "attack_dps": 8.5,
+      "attack_range": 4.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/germ/infantry_spearman_b.xml"
+    },
+    {
+      "id": "units/germ/infantry_swordsman_b",
+      "civ": "germ",
+      "name": "Teutonic Swordsman",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.0,
+      "attack_dps": 10.667,
+      "attack_range": 3.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 40.0,
+        "metal": 10.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/germ/infantry_swordsman_b.xml"
+    },
+    {
+      "id": "units/han/cavalry_archer_b",
+      "civ": "han",
+      "name": "Cavalry Archer",
+      "role": "Archer",
+      "class_tokens": [
+        "Archer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 7.5,
+      "attack_dps": 6.0,
+      "attack_range": 60.0,
+      "health": 100.0,
+      "speed": 15.3,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/han/cavalry_archer_b.xml"
+    },
+    {
+      "id": "units/han/cavalry_crossbowman_b",
+      "civ": "han",
+      "name": "Cavalry Crossbowman",
+      "role": "Soldier",
+      "class_tokens": [
+        "Crossbowman"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 25.0,
+      "attack_dps": 8.333,
+      "attack_range": 45.0,
+      "health": 100.0,
+      "speed": 14.4,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/han/cavalry_crossbowman_b.xml"
+    },
+    {
+      "id": "units/han/cavalry_spearman_b",
+      "civ": "han",
+      "name": "Cavalry Spearman",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.5,
+      "attack_dps": 9.2,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/han/cavalry_spearman_b.xml"
+    },
+    {
+      "id": "units/han/cavalry_swordsman_b",
+      "civ": "han",
+      "name": "Cavalry Swordsman",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 9.0,
+      "attack_dps": 12.0,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 20.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 2.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 40.0,
+        "metal": 10.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/han/cavalry_swordsman_b.xml"
+    },
+    {
+      "id": "units/han/infantry_archer_b",
+      "civ": "han",
+      "name": "Archer",
+      "role": "Archer",
+      "class_tokens": [
+        "Archer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 7.2,
+      "attack_dps": 5.76,
+      "attack_range": 60.0,
+      "health": 50.0,
+      "speed": 10.3,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/han/infantry_archer_b.xml"
+    },
+    {
+      "id": "units/han/infantry_crossbowman_b",
+      "civ": "han",
+      "name": "Infantry Crossbowman",
+      "role": "Soldier",
+      "class_tokens": [
+        "Crossbowman"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 24.0,
+      "attack_dps": 8.0,
+      "attack_range": 45.0,
+      "health": 50.0,
+      "speed": 10.0,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/han/infantry_crossbowman_b.xml"
+    },
+    {
+      "id": "units/han/infantry_pikeman_b",
+      "civ": "han",
+      "name": "Halberdier",
+      "role": "Pikeman",
+      "class_tokens": [
+        "Pikeman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 13.5,
+      "attack_dps": 6.75,
+      "attack_range": 8.0,
+      "health": 100.0,
+      "speed": 9.05,
+      "armor": 22.0,
+      "resistances": {
+        "hack": 4.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/han/infantry_pikeman_b.xml"
+    },
+    {
+      "id": "units/han/infantry_spearman_b",
+      "civ": "han",
+      "name": "Spearman",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.5,
+      "attack_dps": 8.5,
+      "attack_range": 4.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/han/infantry_spearman_b.xml"
+    },
+    {
+      "id": "units/han/infantry_swordsman_special_b",
+      "civ": "han",
+      "name": "Swordsman",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.0,
+      "attack_dps": 10.667,
+      "attack_range": 3.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 40.0,
+        "metal": 10.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/han/infantry_swordsman_special_b.xml"
+    },
+    {
+      "id": "units/iber/cavalry_javelineer_b",
+      "civ": "iber",
+      "name": "Cavalry Javelineer",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 18.0,
+      "attack_dps": 12.0,
+      "attack_range": 30.0,
+      "health": 100.0,
+      "speed": 16.2,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/iber/cavalry_javelineer_b.xml"
+    },
+    {
+      "id": "units/iber/cavalry_spearman_b",
+      "civ": "iber",
+      "name": "Cavalry Spearman",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.5,
+      "attack_dps": 9.2,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/iber/cavalry_spearman_b.xml"
+    },
+    {
+      "id": "units/iber/infantry_javelineer_b",
+      "civ": "iber",
+      "name": "Infantry Javelineer",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 16.0,
+      "attack_dps": 10.667,
+      "attack_range": 30.0,
+      "health": 50.0,
+      "speed": 11.4,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/iber/infantry_javelineer_b.xml"
+    },
+    {
+      "id": "units/iber/infantry_slinger_b",
+      "civ": "iber",
+      "name": "Slinger",
+      "role": "Slinger",
+      "class_tokens": [
+        "Slinger"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 12.6,
+      "attack_dps": 8.4,
+      "attack_range": 45.0,
+      "health": 50.0,
+      "speed": 10.8,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 20.0,
+        "stone": 30.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/iber/infantry_slinger_b.xml"
+    },
+    {
+      "id": "units/iber/infantry_spearman_b",
+      "civ": "iber",
+      "name": "Spearman",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.5,
+      "attack_dps": 8.5,
+      "attack_range": 4.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/iber/infantry_spearman_b.xml"
+    },
+    {
+      "id": "units/iber/infantry_swordsman_b",
+      "civ": "iber",
+      "name": "Swordsman",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.0,
+      "attack_dps": 10.667,
+      "attack_range": 3.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 40.0,
+        "metal": 10.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/iber/infantry_swordsman_b.xml"
+    },
+    {
+      "id": "units/kush/cavalry_javelineer_b",
+      "civ": "kush",
+      "name": "Napatan Light Cavalry",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 18.0,
+      "attack_dps": 12.0,
+      "attack_range": 30.0,
+      "health": 100.0,
+      "speed": 16.2,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/kush/cavalry_javelineer_b.xml"
+    },
+    {
+      "id": "units/kush/cavalry_javelineer_merc_b",
+      "civ": "kush",
+      "name": "Blemmye Desert Raider",
+      "role": "Soldier",
+      "class_tokens": [
+        "Camel"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 22.0,
+      "attack_dps": 14.667,
+      "attack_range": 30.0,
+      "health": 100.0,
+      "speed": 16.2,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 20.0,
+        "metal": 90.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/kush/cavalry_javelineer_merc_b.xml"
+    },
+    {
+      "id": "units/kush/cavalry_spearman_b",
+      "civ": "kush",
+      "name": "Meroitic Heavy Cavalry",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.5,
+      "attack_dps": 9.2,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/kush/cavalry_spearman_b.xml"
+    },
+    {
+      "id": "units/kush/infantry_archer_b",
+      "civ": "kush",
+      "name": "Nubian Archer",
+      "role": "Archer",
+      "class_tokens": [
+        "Archer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 7.2,
+      "attack_dps": 5.76,
+      "attack_range": 60.0,
+      "health": 50.0,
+      "speed": 10.3,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/kush/infantry_archer_b.xml"
+    },
+    {
+      "id": "units/kush/infantry_javelineer_merc_b",
+      "civ": "kush",
+      "name": "Noba Skirmisher",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 19.8,
+      "attack_dps": 13.2,
+      "attack_range": 30.0,
+      "health": 50.0,
+      "speed": 11.4,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/kush/infantry_javelineer_merc_b.xml"
+    },
+    {
+      "id": "units/kush/infantry_maceman_merc_b",
+      "civ": "kush",
+      "name": "Noba Maceman",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 14.3,
+      "attack_dps": 14.3,
+      "attack_range": 3.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 20.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/kush/infantry_maceman_merc_b.xml"
+    },
+    {
+      "id": "units/kush/infantry_pikeman_b",
+      "civ": "kush",
+      "name": "Meroitic Pikeman",
+      "role": "Pikeman",
+      "class_tokens": [
+        "Pikeman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.5,
+      "attack_dps": 5.75,
+      "attack_range": 8.0,
+      "health": 100.0,
+      "speed": 8.55,
+      "armor": 25.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 5.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/kush/infantry_pikeman_b.xml"
+    },
+    {
+      "id": "units/kush/infantry_spearman_b",
+      "civ": "kush",
+      "name": "Nubian Spearman",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.5,
+      "attack_dps": 8.5,
+      "attack_range": 4.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/kush/infantry_spearman_b.xml"
+    },
+    {
+      "id": "units/kush/infantry_swordsman_b",
+      "civ": "kush",
+      "name": "Meroitic Swordsman",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.0,
+      "attack_dps": 10.667,
+      "attack_range": 3.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 40.0,
+        "metal": 10.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/kush/infantry_swordsman_b.xml"
+    },
+    {
+      "id": "units/mace/cavalry_javelineer_b",
+      "civ": "mace",
+      "name": "Odrysian Skirmish Cavalry",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 22.0,
+      "attack_dps": 14.667,
+      "attack_range": 30.0,
+      "health": 100.0,
+      "speed": 16.2,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 20.0,
+        "metal": 90.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/mace/cavalry_javelineer_b.xml"
+    },
+    {
+      "id": "units/mace/cavalry_spearman_b",
+      "civ": "mace",
+      "name": "Thessalian Lancer",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.5,
+      "attack_dps": 9.2,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/mace/cavalry_spearman_b.xml"
+    },
+    {
+      "id": "units/mace/infantry_archer_b",
+      "civ": "mace",
+      "name": "Cretan Mercenary Archer",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 10.12,
+      "attack_dps": 8.096,
+      "attack_range": 60.0,
+      "health": 50.0,
+      "speed": 10.3,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/mace/infantry_archer_b.xml"
+    },
+    {
+      "id": "units/mace/infantry_javelineer_b",
+      "civ": "mace",
+      "name": "Agrianian Peltast",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 16.0,
+      "attack_dps": 10.667,
+      "attack_range": 30.0,
+      "health": 50.0,
+      "speed": 11.4,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/mace/infantry_javelineer_b.xml"
+    },
+    {
+      "id": "units/mace/infantry_pikeman_b",
+      "civ": "mace",
+      "name": "Foot Companion",
+      "role": "Pikeman",
+      "class_tokens": [
+        "Pikeman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.5,
+      "attack_dps": 5.75,
+      "attack_range": 8.0,
+      "health": 100.0,
+      "speed": 8.55,
+      "armor": 25.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 5.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/mace/infantry_pikeman_b.xml"
+    },
+    {
+      "id": "units/mace/infantry_slinger_b",
+      "civ": "mace",
+      "name": "Rhodian Slinger",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 14.96,
+      "attack_dps": 9.973,
+      "attack_range": 45.0,
+      "health": 50.0,
+      "speed": 10.8,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/mace/infantry_slinger_b.xml"
+    },
+    {
+      "id": "units/maur/cavalry_javelineer_b",
+      "civ": "maur",
+      "name": "Indian Light Cavalry",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 18.0,
+      "attack_dps": 12.0,
+      "attack_range": 30.0,
+      "health": 100.0,
+      "speed": 16.2,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/maur/cavalry_javelineer_b.xml"
+    },
+    {
+      "id": "units/maur/cavalry_swordsman_b",
+      "civ": "maur",
+      "name": "Indian Raiding Cavalry",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 9.0,
+      "attack_dps": 12.0,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 20.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 2.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 40.0,
+        "metal": 10.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/maur/cavalry_swordsman_b.xml"
+    },
+    {
+      "id": "units/maur/elephant_archer_b",
+      "civ": "maur",
+      "name": "Elephant Archer",
+      "role": "Archer",
+      "class_tokens": [
+        "Ranged",
+        "Archer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 15.0,
+      "attack_dps": 15.0,
+      "attack_range": 60.0,
+      "health": 200.0,
+      "speed": 9.0,
+      "armor": 22.0,
+      "resistances": {
+        "hack": 4.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 2.0,
+      "cost": {
+        "food": 175.0,
+        "wood": 75.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/maur/elephant_archer_b.xml"
+    },
+    {
+      "id": "units/maur/infantry_archer_b",
+      "civ": "maur",
+      "name": "Longbowman",
+      "role": "Archer",
+      "class_tokens": [
+        "Archer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 7.2,
+      "attack_dps": 5.76,
+      "attack_range": 60.0,
+      "health": 50.0,
+      "speed": 10.3,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/maur/infantry_archer_b.xml"
+    },
+    {
+      "id": "units/maur/infantry_spearman_b",
+      "civ": "maur",
+      "name": "Bamboo Spearman",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.5,
+      "attack_dps": 8.5,
+      "attack_range": 4.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/maur/infantry_spearman_b.xml"
+    },
+    {
+      "id": "units/maur/infantry_swordsman_b",
+      "civ": "maur",
+      "name": "Indian Swordsman",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.0,
+      "attack_dps": 10.667,
+      "attack_range": 3.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 40.0,
+        "metal": 10.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/maur/infantry_swordsman_b.xml"
+    },
+    {
+      "id": "units/ptol/cavalry_archer_b",
+      "civ": "ptol",
+      "name": "Nabataean Camel Archer",
+      "role": "Soldier",
+      "class_tokens": [
+        "Camel"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 7.5,
+      "attack_dps": 6.0,
+      "attack_range": 60.0,
+      "health": 100.0,
+      "speed": 15.3,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/cavalry_archer_b.xml"
+    },
+    {
+      "id": "units/ptol/cavalry_javelineer_merc_b",
+      "civ": "ptol",
+      "name": "Tarantine Settler Cavalry",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 22.0,
+      "attack_dps": 14.667,
+      "attack_range": 30.0,
+      "health": 100.0,
+      "speed": 16.2,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 20.0,
+        "metal": 90.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/cavalry_javelineer_merc_b.xml"
+    },
+    {
+      "id": "units/ptol/cavalry_spearman_merc_b",
+      "civ": "ptol",
+      "name": "Macedonian Settler Cavalry",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 13.75,
+      "attack_dps": 11.0,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 20.0,
+        "metal": 90.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/cavalry_spearman_merc_b.xml"
+    },
+    {
+      "id": "units/ptol/infantry_archer_b",
+      "civ": "ptol",
+      "name": "Cretan Mercenary Archer",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 10.12,
+      "attack_dps": 8.096,
+      "attack_range": 60.0,
+      "health": 50.0,
+      "speed": 10.3,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/infantry_archer_b.xml"
+    },
+    {
+      "id": "units/ptol/infantry_javelineer_b",
+      "civ": "ptol",
+      "name": "Mercenary Thureos Skirmisher",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 19.8,
+      "attack_dps": 13.2,
+      "attack_range": 30.0,
+      "health": 50.0,
+      "speed": 11.4,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/infantry_javelineer_b.xml"
+    },
+    {
+      "id": "units/ptol/infantry_pikeman_b",
+      "civ": "ptol",
+      "name": "Egyptian Pikeman",
+      "role": "Pikeman",
+      "class_tokens": [
+        "Pikeman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.5,
+      "attack_dps": 5.75,
+      "attack_range": 8.0,
+      "health": 100.0,
+      "speed": 8.55,
+      "armor": 25.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 5.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/infantry_pikeman_b.xml"
+    },
+    {
+      "id": "units/ptol/infantry_slinger_b",
+      "civ": "ptol",
+      "name": "Judean Slinger",
+      "role": "Slinger",
+      "class_tokens": [
+        "Slinger"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 12.6,
+      "attack_dps": 8.4,
+      "attack_range": 45.0,
+      "health": 50.0,
+      "speed": 10.8,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 20.0,
+        "stone": 30.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/infantry_slinger_b.xml"
+    },
+    {
+      "id": "units/ptol/infantry_spearman_merc_b",
+      "civ": "ptol",
+      "name": "Mercenary Thureos Spearman",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 10.45,
+      "attack_dps": 10.45,
+      "attack_range": 4.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/infantry_spearman_merc_b.xml"
+    },
+    {
+      "id": "units/ptol/infantry_swordsman_merc_b",
+      "civ": "ptol",
+      "name": "Gallic Mercenary Swordsman",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.0,
+      "attack_dps": 14.667,
+      "attack_range": 3.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/infantry_swordsman_merc_b.xml"
+    },
+    {
+      "id": "units/rome/cavalry_javelineer_auxiliary_b",
+      "civ": "rome",
+      "name": "Auxiliary Cavalry Javelineer",
+      "role": "Soldier",
+      "class_tokens": [
+        "Auxiliary"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 18.0,
+      "attack_dps": 12.0,
+      "attack_range": 30.0,
+      "health": 100.0,
+      "speed": 16.2,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/rome/cavalry_javelineer_auxiliary_b.xml"
+    },
+    {
+      "id": "units/rome/cavalry_javelineer_b",
+      "civ": "rome",
+      "name": "Allied Cavalry",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 18.0,
+      "attack_dps": 12.0,
+      "attack_range": 30.0,
+      "health": 100.0,
+      "speed": 16.2,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/rome/cavalry_javelineer_b.xml"
+    },
+    {
+      "id": "units/rome/cavalry_spearman_auxiliary_b",
+      "civ": "rome",
+      "name": "Auxiliary Cavalry Spearman",
+      "role": "Soldier",
+      "class_tokens": [
+        "Auxiliary"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.5,
+      "attack_dps": 9.2,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/rome/cavalry_spearman_auxiliary_b.xml"
+    },
+    {
+      "id": "units/rome/cavalry_spearman_b",
+      "civ": "rome",
+      "name": "Roman Cavalry",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.5,
+      "attack_dps": 9.2,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/rome/cavalry_spearman_b.xml"
+    },
+    {
+      "id": "units/rome/infantry_javelineer_b",
+      "civ": "rome",
+      "name": "Roman Skirmisher",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 16.0,
+      "attack_dps": 10.667,
+      "attack_range": 30.0,
+      "health": 50.0,
+      "speed": 11.4,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/rome/infantry_javelineer_b.xml"
+    },
+    {
+      "id": "units/rome/infantry_spearman_b",
+      "civ": "rome",
+      "name": "Veteran Spearman",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.5,
+      "attack_dps": 8.5,
+      "attack_range": 4.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/rome/infantry_spearman_b.xml"
+    },
+    {
+      "id": "units/rome/infantry_swordsman_b",
+      "civ": "rome",
+      "name": "Roman Swordsman",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.0,
+      "attack_dps": 10.667,
+      "attack_range": 3.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 40.0,
+        "metal": 10.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/rome/infantry_swordsman_b.xml"
+    },
+    {
+      "id": "units/sele/cavalry_archer_b",
+      "civ": "sele",
+      "name": "Dahae Horse Archer",
+      "role": "Archer",
+      "class_tokens": [
+        "Archer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 7.5,
+      "attack_dps": 6.0,
+      "attack_range": 60.0,
+      "health": 100.0,
+      "speed": 15.3,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/sele/cavalry_archer_b.xml"
+    },
+    {
+      "id": "units/sele/cavalry_javelineer_b",
+      "civ": "sele",
+      "name": "Militia Cavalry",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 18.0,
+      "attack_dps": 12.0,
+      "attack_range": 30.0,
+      "health": 100.0,
+      "speed": 16.2,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/sele/cavalry_javelineer_b.xml"
+    },
+    {
+      "id": "units/sele/cavalry_spearman_merc_b",
+      "civ": "sele",
+      "name": "Companion Cavalry",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 13.75,
+      "attack_dps": 11.0,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 20.0,
+        "metal": 90.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/sele/cavalry_spearman_merc_b.xml"
+    },
+    {
+      "id": "units/sele/infantry_archer_merc_b",
+      "civ": "sele",
+      "name": "Syrian Archer",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 10.12,
+      "attack_dps": 8.096,
+      "attack_range": 60.0,
+      "health": 50.0,
+      "speed": 10.3,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/sele/infantry_archer_merc_b.xml"
+    },
+    {
+      "id": "units/sele/infantry_javelineer_b",
+      "civ": "sele",
+      "name": "Arab Javelineer",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 16.0,
+      "attack_dps": 10.667,
+      "attack_range": 30.0,
+      "health": 50.0,
+      "speed": 11.4,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/sele/infantry_javelineer_b.xml"
+    },
+    {
+      "id": "units/sele/infantry_pikeman_b",
+      "civ": "sele",
+      "name": "Phalangite",
+      "role": "Pikeman",
+      "class_tokens": [
+        "Pikeman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.5,
+      "attack_dps": 5.75,
+      "attack_range": 8.0,
+      "health": 100.0,
+      "speed": 8.55,
+      "armor": 25.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 5.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/sele/infantry_pikeman_b.xml"
+    },
+    {
+      "id": "units/sele/infantry_spearman_b",
+      "civ": "sele",
+      "name": "Militia Thureos Spearman",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.5,
+      "attack_dps": 8.5,
+      "attack_range": 4.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/sele/infantry_spearman_b.xml"
+    },
+    {
+      "id": "units/sele/infantry_swordsman_merc_b",
+      "civ": "sele",
+      "name": "Thracian Mercenary Swordsman",
+      "role": "Soldier",
+      "class_tokens": [
+        "Mercenary"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.0,
+      "attack_dps": 14.667,
+      "attack_range": 3.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/sele/infantry_swordsman_merc_b.xml"
+    },
+    {
+      "id": "units/spart/cavalry_javelineer_b",
+      "civ": "spart",
+      "name": "Perioikoi Cavalryman",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 18.0,
+      "attack_dps": 12.0,
+      "attack_range": 30.0,
+      "health": 100.0,
+      "speed": 16.2,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 1.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/spart/cavalry_javelineer_b.xml"
+    },
+    {
+      "id": "units/spart/cavalry_spearman_b",
+      "civ": "spart",
+      "name": "Greek Allied Cavalry",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 11.5,
+      "attack_dps": 9.2,
+      "attack_range": 4.0,
+      "health": 160.0,
+      "speed": 18.0,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "FastMoving",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/spart/cavalry_spearman_b.xml"
+    },
+    {
+      "id": "units/spart/infantry_javelineer_b",
+      "civ": "spart",
+      "name": "Helot Skirmisher",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 16.0,
+      "attack_dps": 10.667,
+      "attack_range": 30.0,
+      "health": 50.0,
+      "speed": 11.4,
+      "armor": 12.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 1.0,
+        "crush": 10.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/spart/infantry_javelineer_b.xml"
+    },
+    {
+      "id": "units/spart/infantry_spearman_b",
+      "civ": "spart",
+      "name": "Perioikoi Hoplite",
+      "role": "Spearman",
+      "class_tokens": [
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 8.5,
+      "attack_dps": 8.5,
+      "attack_range": 4.0,
+      "health": 100.0,
+      "speed": 9.5,
+      "armor": 21.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Human",
+        "CitizenSoldier"
+      ],
+      "source_path": "binaries/data/mods/public/simulation/templates/units/spart/infantry_spearman_b.xml"
+    }
+  ],
+  "skipped": []
+}
