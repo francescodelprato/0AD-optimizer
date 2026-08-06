@@ -56,6 +56,7 @@ class SnapshotTests(unittest.TestCase):
     def test_unit_tier_labels_are_rendered(self):
         app = (ROOT / "app.js").read_text(encoding="utf-8")
         self.assertIn('return unitIsChampion(unit) ? "Champion" : "Non-champion"', app)
+        self.assertIn('`${count}× ${units[index].name} (${unitTierLabel(units[index])})`', app)
 
 
 if __name__ == "__main__":

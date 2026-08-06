@@ -214,7 +214,7 @@ function compositionLabel(composition, units) {
 
 function compositionMix(composition, units) {
   return composition.counts
-    .map((count, index) => count ? `${count} ${unitTierLabel(units[index])} ${units[index].role} ${unitFamily(units[index])}` : null)
+    .map((count, index) => count ? `${count}× ${units[index].name} (${unitTierLabel(units[index])})` : null)
     .filter(Boolean)
     .join(" · ");
 }
