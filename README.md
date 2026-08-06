@@ -24,7 +24,7 @@ python3 scripts/extract_units.py \
   --out data/units.json
 ```
 
-The extractor resolves the XML parent chain used by the game. It keeps baseline (`*_b.xml`) non-hero, non-siege soldier templates for the playable civilisations. Each unit keeps its source template path and source-defined `Identity/Icon` path.
+The extractor resolves the XML parent chain used by the game. It keeps baseline (`*_b.xml`) and Champion soldier templates, excluding heroes, healers, ships, and siege units, for the playable civilisations. Each unit keeps its source template path and source-defined `Identity/Icon` path.
 
 ## What the prototype does
 

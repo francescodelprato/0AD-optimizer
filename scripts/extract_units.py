@@ -65,11 +65,24 @@ class TemplateResolver:
         if overlay.attrib.get("replace") is not None:
             return copy.deepcopy(overlay)
 
-        if overlay.attrib.get("op") in {"add", "mul"} and len(overlay) == 0:
+        operation = overlay.attrib.get("op")
+        if operation in {"add", "mul", "add_round", "mul_round"} and len(overlay) == 0:
             old = float(base.text or "0")
             new = float(overlay.text or "0")
-            value = old + new if overlay.attrib["op"] == "add" else old * new
+            value = old + new if operation.startswith("add") else old * new
+            if operation.endswith("_round"):
+                value = round(value)
             base.text = f"{value:g}"
+            return base
+
+        if overlay.attrib.get("datatype") == "tokens" and len(overlay) == 0:
+            tokens = _tokens(base.text or "")
+            for token in _tokens(overlay.text or ""):
+                if token.startswith("-"):
+                    tokens = [existing for existing in tokens if existing != token[1:]]
+                elif token not in tokens:
+                    tokens.append(token)
+            base.text = " ".join(tokens)
             return base
 
         if len(overlay) == 0:
@@ -220,15 +233,24 @@ def extract(source_root: Path, civs: Iterable[str]) -> dict:
         if not civ_root.exists():
             skipped.append({"civ": civ, "reason": "missing unit directory"})
             continue
-        for path in sorted(civ_root.glob("*_b.xml")):
+        for path in sorted(civ_root.glob("*.xml")):
+            is_baseline_template = path.name.endswith("_b.xml")
+            is_champion_template = path.name.startswith("champion")
+            if not (is_baseline_template or is_champion_template):
+                continue
+            if is_champion_template and path.name.endswith("_dock.xml"):
+                continue
             template_name = str(path.relative_to(templates_root).with_suffix(""))
             try:
                 unit = _unit_from_template(resolver, template_name, civ)
             except TemplateError as exc:
                 skipped.append({"template": template_name, "reason": str(exc)})
                 continue
-            tokens = set(unit["identity_classes"])
-            is_soldier = bool(tokens & {"Soldier", "CitizenSoldier", "Champion"})
+            tokens = set(unit["identity_classes"]) | set(unit["class_tokens"])
+            is_champion = "Champion" in tokens
+            if "Hero" in tokens or (is_champion_template and not is_champion):
+                continue
+            is_soldier = bool(tokens & {"Soldier", "CitizenSoldier"})
             if not is_soldier or "Ship" in tokens or "Siege" in tokens:
                 continue
             unit["source_path"] = f"binaries/data/mods/public/simulation/templates/{template_name}.xml"
@@ -240,7 +262,7 @@ def extract(source_root: Path, civs: Iterable[str]) -> dict:
         "source": {
             "repository": "https://gitea.wildfiregames.com/0ad/0ad",
             "commit": _source_commit(source_root),
-            "scope": "Baseline (_b) non-hero, non-siege soldier templates with resolved XML inheritance.",
+            "scope": "Baseline (_b) and Champion non-hero, non-siege soldier templates with resolved XML inheritance.",
         },
         "resources": list(RESOURCES),
         "civilisations": list(civs),

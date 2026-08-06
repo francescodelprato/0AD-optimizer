@@ -14,7 +14,15 @@ class SnapshotTests(unittest.TestCase):
     def test_snapshot_has_source_and_units(self):
         self.assertEqual(self.snapshot["game"], "0 A.D.")
         self.assertRegex(self.snapshot["source"]["commit"], r"^[0-9a-f]{12,}$")
-        self.assertGreaterEqual(len(self.snapshot["units"]), 100)
+        self.assertGreaterEqual(len(self.snapshot["units"]), 150)
+
+    def test_snapshot_includes_champion_units(self):
+        champions = [unit for unit in self.snapshot["units"] if "Champion" in unit["class_tokens"]]
+        self.assertGreaterEqual(len(champions), 60)
+        champions_by_civ = {civ: 0 for civ in self.snapshot["civilisations"]}
+        for unit in champions:
+            champions_by_civ[unit["civ"]] += 1
+        self.assertTrue(all(count > 0 for count in champions_by_civ.values()), champions_by_civ)
 
     def test_every_playable_civilisation_has_a_choice_set(self):
         units_by_civ = {civ: 0 for civ in self.snapshot["civilisations"]}

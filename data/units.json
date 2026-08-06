@@ -4,7 +4,7 @@
   "source": {
     "repository": "https://gitea.wildfiregames.com/0ad/0ad",
     "commit": "d6bdf51d8360cd1aadc0491c433d538fc5d77f91",
-    "scope": "Baseline (_b) non-hero, non-siege soldier templates with resolved XML inheritance."
+    "scope": "Baseline (_b) and Champion non-hero, non-siege soldier templates with resolved XML inheritance."
   },
   "resources": [
     "food",
@@ -36,6 +36,10 @@
       "name": "Parthian Horse Archer",
       "role": "Archer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
         "Archer"
       ],
       "attack_type": "ranged",
@@ -57,6 +61,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -70,6 +77,10 @@
       "name": "Hyrcanian Cavalry",
       "role": "Soldier",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
         "Axeman"
       ],
       "attack_type": "melee",
@@ -92,6 +103,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -105,6 +119,10 @@
       "name": "Median Light Cavalry",
       "role": "Javelineer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -126,6 +144,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -139,6 +160,10 @@
       "name": "Cappadocian Cavalry",
       "role": "Spearman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -160,6 +185,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -168,11 +196,263 @@
       "source_path": "binaries/data/mods/public/simulation/templates/units/achae/cavalry_spearman_b.xml"
     },
     {
+      "id": "units/achae/champion_cavalry",
+      "civ": "achae",
+      "name": "Bactrian Heavy Lancer",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Melee",
+        "Spearman",
+        "Cataphract"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 22.0,
+      "attack_dps": 17.6,
+      "attack_range": 7.0,
+      "health": 260.0,
+      "speed": 14.4,
+      "armor": 37.0,
+      "resistances": {
+        "hack": 8.0,
+        "pierce": 9.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 150.0,
+        "wood": 80.0,
+        "metal": 110.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/achae/champion_cavalry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/achae/champion_cavalry.xml"
+    },
+    {
+      "id": "units/achae/champion_cavalry_archer",
+      "civ": "achae",
+      "name": "Bactrian Heavy Cavalry Archer",
+      "role": "Archer",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Ranged",
+        "Archer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 15.0,
+      "attack_dps": 12.0,
+      "attack_range": 60.0,
+      "health": 240.0,
+      "speed": 15.3,
+      "armor": 26.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 150.0,
+        "wood": 80.0,
+        "metal": 100.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/achae/champion_cavalry_archer.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/achae/champion_cavalry_archer.xml"
+    },
+    {
+      "id": "units/achae/champion_chariot",
+      "civ": "achae",
+      "name": "Babylonian Scythed Chariot",
+      "role": "Archer",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Ranged",
+        "Archer",
+        "Chariot"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 15.0,
+      "attack_dps": 12.0,
+      "attack_range": 60.0,
+      "health": 300.0,
+      "speed": 17.0,
+      "armor": 26.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 5.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 180.0,
+        "wood": 100.0,
+        "metal": 120.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/achae/chariot_archer.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/achae/champion_chariot.xml"
+    },
+    {
+      "id": "units/achae/champion_elephant",
+      "civ": "achae",
+      "name": "Indian War Elephant",
+      "role": "Soldier",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Elephant",
+        "Melee"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 83.6,
+      "attack_dps": 55.733,
+      "attack_range": 5.0,
+      "health": 1100.0,
+      "speed": 9.0,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 7.0,
+        "crush": 20.0
+      },
+      "population": 3.0,
+      "cost": {
+        "food": 330.0,
+        "metal": 220.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "IndianElephant"
+      ],
+      "portrait": "units/achae/champion_elephant.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/achae/champion_elephant.xml"
+    },
+    {
+      "id": "units/achae/champion_infantry",
+      "civ": "achae",
+      "name": "Persian Immortal",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Spearman",
+        "Immortal"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 15.725,
+      "attack_dps": 15.725,
+      "attack_range": 4.0,
+      "health": 120.0,
+      "speed": 9.5,
+      "armor": 29.0,
+      "resistances": {
+        "hack": 4.0,
+        "pierce": 5.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 30.0,
+        "metal": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/achae/champion_infantry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/achae/champion_infantry.xml"
+    },
+    {
+      "id": "units/achae/champion_infantry_archer_upgrade",
+      "civ": "achae",
+      "name": "Persian Immortal",
+      "role": "Archer",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Ranged",
+        "Archer",
+        "Immortal"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 12.24,
+      "attack_dps": 9.792,
+      "attack_range": 60.0,
+      "health": 120.0,
+      "speed": 9.064,
+      "armor": 25.0,
+      "resistances": {
+        "hack": 2.0,
+        "pierce": 3.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 30.0,
+        "metal": 50.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/achae/champion_infantry_archer.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/achae/champion_infantry_archer_upgrade.xml"
+    },
+    {
       "id": "units/achae/infantry_archer_b",
       "civ": "achae",
       "name": "Sogdian Archer",
       "role": "Archer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Archer"
       ],
       "attack_type": "ranged",
@@ -194,6 +474,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -206,6 +489,12 @@
       "name": "Lydian Auxiliary",
       "role": "Javelineer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -227,6 +516,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -239,6 +531,12 @@
       "name": "Shield Bearer",
       "role": "Spearman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -260,6 +558,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -272,6 +573,10 @@
       "name": "Cavalry Javelineer",
       "role": "Javelineer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -293,6 +598,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -306,6 +614,10 @@
       "name": "Greek Cavalry",
       "role": "Swordsman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
         "Swordsman"
       ],
       "attack_type": "melee",
@@ -328,6 +640,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -336,11 +651,138 @@
       "source_path": "binaries/data/mods/public/simulation/templates/units/athen/cavalry_swordsman_b.xml"
     },
     {
+      "id": "units/athen/champion_infantry",
+      "civ": "athen",
+      "name": "City Guard",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 18.5,
+      "attack_dps": 18.5,
+      "attack_range": 4.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/athen/champion_infantry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/athen/champion_infantry.xml"
+    },
+    {
+      "id": "units/athen/champion_marine",
+      "civ": "athen",
+      "name": "Athenian Marine",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 16.0,
+      "attack_dps": 21.333,
+      "attack_range": 3.0,
+      "health": 200.0,
+      "speed": 11.4,
+      "armor": 28.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 5.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 60.0,
+        "wood": 40.0,
+        "metal": 60.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/athen/champion_marine.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/athen/champion_marine.xml"
+    },
+    {
+      "id": "units/athen/champion_ranged",
+      "civ": "athen",
+      "name": "Scythian Archer",
+      "role": "Archer",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Ranged",
+        "Archer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 14.4,
+      "attack_dps": 11.52,
+      "attack_range": 60.0,
+      "health": 120.0,
+      "speed": 10.3,
+      "armor": 26.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/athen/champion_ranged.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/athen/champion_ranged.xml"
+    },
+    {
       "id": "units/athen/infantry_archer_b",
       "civ": "athen",
       "name": "Cretan Mercenary Archer",
-      "role": "Soldier",
+      "role": "Archer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
+        "Archer",
         "Mercenary"
       ],
       "attack_type": "ranged",
@@ -361,6 +803,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -371,8 +816,15 @@
       "id": "units/athen/infantry_javelineer_b",
       "civ": "athen",
       "name": "Thracian Peltast",
-      "role": "Soldier",
+      "role": "Javelineer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
+        "Javelineer",
         "Mercenary"
       ],
       "attack_type": "ranged",
@@ -393,6 +845,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -403,8 +858,15 @@
       "id": "units/athen/infantry_marine_archer_b",
       "civ": "athen",
       "name": "Cretan Mercenary Archer",
-      "role": "Soldier",
+      "role": "Archer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
+        "Archer",
         "Mercenary"
       ],
       "attack_type": "ranged",
@@ -425,6 +887,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -437,6 +902,12 @@
       "name": "Athenian Slinger Militia",
       "role": "Slinger",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Slinger"
       ],
       "attack_type": "ranged",
@@ -459,6 +930,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -471,6 +945,12 @@
       "name": "Athenian Hoplite",
       "role": "Spearman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -492,6 +972,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -504,6 +987,10 @@
       "name": "Raiding Cavalry",
       "role": "Javelineer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -525,6 +1012,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -538,6 +1028,10 @@
       "name": "Celtic Cavalry",
       "role": "Swordsman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
         "Swordsman"
       ],
       "attack_type": "melee",
@@ -560,6 +1054,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -568,11 +1065,99 @@
       "source_path": "binaries/data/mods/public/simulation/templates/units/brit/cavalry_swordsman_b.xml"
     },
     {
+      "id": "units/brit/champion_chariot",
+      "civ": "brit",
+      "name": "Celtic Chariot",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Ranged",
+        "Javelineer",
+        "Chariot"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 36.0,
+      "attack_dps": 24.0,
+      "attack_range": 30.0,
+      "health": 300.0,
+      "speed": 18.0,
+      "armor": 26.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 5.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 180.0,
+        "wood": 100.0,
+        "metal": 120.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/brit/champion_chariot.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/brit/champion_chariot.xml"
+    },
+    {
+      "id": "units/brit/champion_infantry_swordsman",
+      "civ": "brit",
+      "name": "Brythonic Champion",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 16.0,
+      "attack_dps": 21.333,
+      "attack_range": 3.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/brit/champion_infantry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/brit/champion_infantry_swordsman.xml"
+    },
+    {
       "id": "units/brit/infantry_javelineer_b",
       "civ": "brit",
       "name": "Infantry Javelineer",
       "role": "Javelineer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -594,6 +1179,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -606,6 +1194,12 @@
       "name": "Celtic Slinger",
       "role": "Slinger",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Slinger"
       ],
       "attack_type": "ranged",
@@ -628,6 +1222,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -640,6 +1237,12 @@
       "name": "Celtic Spearman",
       "role": "Spearman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -661,6 +1264,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -673,6 +1279,10 @@
       "name": "Numidian Cavalry",
       "role": "Javelineer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -694,6 +1304,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -705,8 +1318,13 @@
       "id": "units/cart/cavalry_spearman_ital_b",
       "civ": "cart",
       "name": "Italic Cavalry",
-      "role": "Soldier",
+      "role": "Spearman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
+        "Spearman",
         "Mercenary"
       ],
       "attack_type": "melee",
@@ -728,6 +1346,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -739,8 +1360,13 @@
       "id": "units/cart/cavalry_swordsman_gaul_b",
       "civ": "cart",
       "name": "Gallic Mercenary Cavalry",
-      "role": "Soldier",
+      "role": "Swordsman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
+        "Swordsman",
         "Mercenary"
       ],
       "attack_type": "melee",
@@ -762,6 +1388,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -773,8 +1402,13 @@
       "id": "units/cart/cavalry_swordsman_iber_b",
       "civ": "cart",
       "name": "Iberian Heavy Cavalry",
-      "role": "Soldier",
+      "role": "Swordsman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
+        "Swordsman",
         "Mercenary"
       ],
       "attack_type": "melee",
@@ -796,6 +1430,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -804,11 +1441,177 @@
       "source_path": "binaries/data/mods/public/simulation/templates/units/cart/cavalry_swordsman_iber_b.xml"
     },
     {
+      "id": "units/cart/champion_cavalry",
+      "civ": "cart",
+      "name": "Sacred Band Cavalry",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Melee",
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 22.0,
+      "attack_dps": 17.6,
+      "attack_range": 4.0,
+      "health": 260.0,
+      "speed": 18.0,
+      "armor": 31.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 150.0,
+        "wood": 80.0,
+        "metal": 100.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/cart/champion_cavalry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/cart/champion_cavalry.xml"
+    },
+    {
+      "id": "units/cart/champion_elephant",
+      "civ": "cart",
+      "name": "North African War Elephant",
+      "role": "Soldier",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Elephant",
+        "Melee"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 68.4,
+      "attack_dps": 45.6,
+      "attack_range": 5.0,
+      "health": 900.0,
+      "speed": 9.0,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 7.0,
+        "crush": 20.0
+      },
+      "population": 3.0,
+      "cost": {
+        "food": 270.0,
+        "metal": 180.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "AfricanElephant"
+      ],
+      "portrait": "units/cart/champion_elephant.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/cart/champion_elephant.xml"
+    },
+    {
+      "id": "units/cart/champion_infantry",
+      "civ": "cart",
+      "name": "Sacred Band Infantry",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 18.5,
+      "attack_dps": 18.5,
+      "attack_range": 4.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/cart/champion_infantry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/cart/champion_infantry.xml"
+    },
+    {
+      "id": "units/cart/champion_pikeman",
+      "civ": "cart",
+      "name": "Sacred Band Pikeman",
+      "role": "Pikeman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Pikeman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 23.0,
+      "attack_dps": 11.5,
+      "attack_range": 8.0,
+      "health": 200.0,
+      "speed": 8.55,
+      "armor": 36.0,
+      "resistances": {
+        "hack": 8.0,
+        "pierce": 8.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/cart/champion_infantry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/cart/champion_pikeman.xml"
+    },
+    {
       "id": "units/cart/infantry_archer_b",
       "civ": "cart",
       "name": "Mauritanian Archer",
       "role": "Archer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Archer"
       ],
       "attack_type": "ranged",
@@ -830,6 +1633,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -840,8 +1646,15 @@
       "id": "units/cart/infantry_javelineer_iber_b",
       "civ": "cart",
       "name": "Iberian Mercenary Skirmisher",
-      "role": "Soldier",
+      "role": "Javelineer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
+        "Javelineer",
         "Mercenary"
       ],
       "attack_type": "ranged",
@@ -862,6 +1675,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -872,8 +1688,15 @@
       "id": "units/cart/infantry_slinger_iber_b",
       "civ": "cart",
       "name": "Balearic Slinger",
-      "role": "Soldier",
+      "role": "Slinger",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
+        "Slinger",
         "Mercenary"
       ],
       "attack_type": "ranged",
@@ -894,6 +1717,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -906,6 +1732,12 @@
       "name": "Libyan Spearman",
       "role": "Spearman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -927,6 +1759,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -937,8 +1772,15 @@
       "id": "units/cart/infantry_spearman_ital_b",
       "civ": "cart",
       "name": "Samnite Spearman",
-      "role": "Soldier",
+      "role": "Spearman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
+        "Spearman",
         "Mercenary"
       ],
       "attack_type": "melee",
@@ -959,6 +1801,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -969,8 +1814,15 @@
       "id": "units/cart/infantry_swordsman_gaul_b",
       "civ": "cart",
       "name": "Gallic Mercenary Swordsman",
-      "role": "Soldier",
+      "role": "Swordsman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
+        "Swordsman",
         "Mercenary"
       ],
       "attack_type": "melee",
@@ -991,6 +1843,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1001,8 +1856,15 @@
       "id": "units/cart/infantry_swordsman_ital_b",
       "civ": "cart",
       "name": "Samnite Swordsman",
-      "role": "Soldier",
+      "role": "Swordsman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
+        "Swordsman",
         "Mercenary"
       ],
       "attack_type": "melee",
@@ -1023,6 +1885,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1035,6 +1900,10 @@
       "name": "Cavalry Javelineer",
       "role": "Javelineer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -1056,6 +1925,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -1069,6 +1941,10 @@
       "name": "Cavalry Swordsman",
       "role": "Swordsman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
         "Swordsman"
       ],
       "attack_type": "melee",
@@ -1091,6 +1967,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -1099,11 +1978,176 @@
       "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/cavalry_swordsman_b.xml"
     },
     {
+      "id": "units/gaul/champion_cavalry",
+      "civ": "gaul",
+      "name": "Gallic Noble Cavalry",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Melee",
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 22.0,
+      "attack_dps": 17.6,
+      "attack_range": 4.0,
+      "health": 260.0,
+      "speed": 18.0,
+      "armor": 31.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 150.0,
+        "wood": 80.0,
+        "metal": 100.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/gaul/champion_cavalry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/champion_cavalry.xml"
+    },
+    {
+      "id": "units/gaul/champion_fanatic",
+      "civ": "gaul",
+      "name": "Naked Fanatic",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 18.5,
+      "attack_dps": 18.5,
+      "attack_range": 4.0,
+      "health": 200.0,
+      "speed": 13.3,
+      "armor": 25.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 2.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 120.0,
+        "wood": 100.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/gaul/champion_fanatic.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/champion_fanatic.xml"
+    },
+    {
+      "id": "units/gaul/champion_infantry_swordsman",
+      "civ": "gaul",
+      "name": "Champion Swordsman",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 16.0,
+      "attack_dps": 21.333,
+      "attack_range": 3.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/gaul/champion_infantry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/champion_infantry_swordsman.xml"
+    },
+    {
+      "id": "units/gaul/champion_infantry_trumpeter",
+      "civ": "gaul",
+      "name": "Champion Infantry Trumpeter",
+      "role": "Soldier",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Trumpeter"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 18.0,
+      "attack_dps": 18.0,
+      "attack_range": 3.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 30.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 5.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 180.0,
+        "metal": 120.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/gaul/champion_swordsman_carnyx.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/champion_infantry_trumpeter.xml"
+    },
+    {
       "id": "units/gaul/infantry_javelineer_b",
       "civ": "gaul",
       "name": "Infantry Javelineer",
       "role": "Javelineer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -1125,6 +2169,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1137,6 +2184,12 @@
       "name": "Slinger",
       "role": "Slinger",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Slinger"
       ],
       "attack_type": "ranged",
@@ -1159,6 +2212,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1171,6 +2227,12 @@
       "name": "Spearman",
       "role": "Spearman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -1192,6 +2254,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1204,6 +2269,10 @@
       "name": "Tigurinian Light Cavalry",
       "role": "Javelineer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -1225,6 +2294,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -1238,6 +2310,10 @@
       "name": "Cimbrian Spear Cavalry",
       "role": "Spearman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -1259,6 +2335,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -1267,11 +2346,141 @@
       "source_path": "binaries/data/mods/public/simulation/templates/units/germ/cavalry_spearman_b.xml"
     },
     {
+      "id": "units/germ/champion_cavalry",
+      "civ": "germ",
+      "name": "Cimbrian Noble Cavalry",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Melee",
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 18.0,
+      "attack_dps": 24.0,
+      "attack_range": 4.0,
+      "health": 260.0,
+      "speed": 18.0,
+      "armor": 31.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 5.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 150.0,
+        "wood": 80.0,
+        "metal": 100.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/germ/champion_cavalry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/germ/champion_cavalry.xml"
+    },
+    {
+      "id": "units/germ/champion_infantry_axeman",
+      "civ": "germ",
+      "name": "Cimbri Raider",
+      "role": "Soldier",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Axeman",
+        "Guerilla"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 24.0,
+      "attack_dps": 24.0,
+      "attack_range": 3.0,
+      "health": 160.0,
+      "speed": 11.4,
+      "armor": 31.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 5.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 60.0,
+        "wood": 60.0,
+        "metal": 100.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/germ/champion_infantry_axeman.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/germ/champion_infantry_axeman.xml"
+    },
+    {
+      "id": "units/germ/champion_infantry_maceman",
+      "civ": "germ",
+      "name": "Cimbrian Clubman",
+      "role": "Maceman",
+      "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Infantry",
+        "Melee",
+        "Maceman",
+        "Champion"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 12.0,
+      "attack_dps": 12.0,
+      "attack_range": 3.0,
+      "health": 100.0,
+      "speed": 11.4,
+      "armor": 18.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 2.0,
+        "crush": 15.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 50.0,
+        "wood": 30.0,
+        "stone": 20.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "CitizenSoldier"
+      ],
+      "portrait": "units/germ/infantry_clubman.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/germ/champion_infantry_maceman.xml"
+    },
+    {
       "id": "units/germ/infantry_javelineer_b",
       "civ": "germ",
       "name": "Ambronian Skirmisher",
       "role": "Javelineer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -1293,6 +2502,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1305,6 +2517,12 @@
       "name": "Celto-Germanic Slinger",
       "role": "Slinger",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Slinger"
       ],
       "attack_type": "ranged",
@@ -1327,6 +2545,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1337,8 +2558,15 @@
       "id": "units/germ/infantry_spearman_b",
       "civ": "germ",
       "name": "Cimbrian Spearman",
-      "role": "Soldier",
+      "role": "Spearman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
+        "Spearman",
         "Guerilla"
       ],
       "attack_type": "melee",
@@ -1360,6 +2588,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1372,6 +2603,12 @@
       "name": "Teutonic Swordsman",
       "role": "Swordsman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Swordsman"
       ],
       "attack_type": "melee",
@@ -1394,6 +2631,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1406,6 +2646,10 @@
       "name": "Cavalry Archer",
       "role": "Archer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
         "Archer"
       ],
       "attack_type": "ranged",
@@ -1427,6 +2671,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -1440,6 +2687,10 @@
       "name": "Cavalry Crossbowman",
       "role": "Soldier",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
         "Crossbowman"
       ],
       "attack_type": "ranged",
@@ -1461,6 +2712,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -1474,6 +2728,10 @@
       "name": "Cavalry Spearman",
       "role": "Spearman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -1495,6 +2753,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -1508,6 +2769,10 @@
       "name": "Cavalry Swordsman",
       "role": "Swordsman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
         "Swordsman"
       ],
       "attack_type": "melee",
@@ -1530,6 +2795,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -1538,11 +2806,220 @@
       "source_path": "binaries/data/mods/public/simulation/templates/units/han/cavalry_swordsman_b.xml"
     },
     {
+      "id": "units/han/champion_cavalry_spearman_academy",
+      "civ": "han",
+      "name": "Youzhou Cavalry",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Melee",
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 22.0,
+      "attack_dps": 17.6,
+      "attack_range": 4.0,
+      "health": 260.0,
+      "speed": 18.0,
+      "armor": 31.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 150.0,
+        "wood": 80.0,
+        "metal": 100.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/han/champion_cavalry_spearman.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/han/champion_cavalry_spearman_academy.xml"
+    },
+    {
+      "id": "units/han/champion_chariot_academy",
+      "civ": "han",
+      "name": "Han War Chariot",
+      "role": "Archer",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Ranged",
+        "Archer",
+        "Chariot"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 15.0,
+      "attack_dps": 12.0,
+      "attack_range": 60.0,
+      "health": 300.0,
+      "speed": 17.0,
+      "armor": 26.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 5.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 180.0,
+        "wood": 100.0,
+        "metal": 120.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/han/chariot.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/han/champion_chariot_academy.xml"
+    },
+    {
+      "id": "units/han/champion_infantry_archer_academy",
+      "civ": "han",
+      "name": "Palace Guard Archer",
+      "role": "Archer",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Ranged",
+        "Archer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 14.4,
+      "attack_dps": 11.52,
+      "attack_range": 60.0,
+      "health": 120.0,
+      "speed": 10.3,
+      "armor": 26.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/han/champion_infantry_archer.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/han/champion_infantry_archer_academy.xml"
+    },
+    {
+      "id": "units/han/champion_infantry_crossbowman_academy",
+      "civ": "han",
+      "name": "Champion Infantry Crossbowman",
+      "role": "Soldier",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Ranged",
+        "Crossbowman"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 30.0,
+      "attack_dps": 10.0,
+      "attack_range": 60.0,
+      "health": 120.0,
+      "speed": 9.6,
+      "armor": 26.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/han/champion_infantry_crossbowman.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/han/champion_infantry_crossbowman_academy.xml"
+    },
+    {
+      "id": "units/han/champion_infantry_spearman_academy",
+      "civ": "han",
+      "name": "Tiger Guard Spearman",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 18.5,
+      "attack_dps": 18.5,
+      "attack_range": 4.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/han/champion_infantry_swordsman.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/han/champion_infantry_spearman_academy.xml"
+    },
+    {
       "id": "units/han/infantry_archer_b",
       "civ": "han",
       "name": "Archer",
       "role": "Archer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Archer"
       ],
       "attack_type": "ranged",
@@ -1564,6 +3041,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1576,6 +3056,12 @@
       "name": "Infantry Crossbowman",
       "role": "Soldier",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Crossbowman"
       ],
       "attack_type": "ranged",
@@ -1597,6 +3083,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1609,6 +3098,12 @@
       "name": "Halberdier",
       "role": "Pikeman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Pikeman"
       ],
       "attack_type": "melee",
@@ -1630,6 +3125,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1642,6 +3140,12 @@
       "name": "Spearman",
       "role": "Spearman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -1663,6 +3167,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1675,6 +3182,12 @@
       "name": "Swordsman",
       "role": "Swordsman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Swordsman"
       ],
       "attack_type": "melee",
@@ -1697,6 +3210,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1709,6 +3225,10 @@
       "name": "Cavalry Javelineer",
       "role": "Javelineer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -1730,6 +3250,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -1743,6 +3266,10 @@
       "name": "Cavalry Spearman",
       "role": "Spearman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -1764,6 +3291,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -1772,11 +3302,98 @@
       "source_path": "binaries/data/mods/public/simulation/templates/units/iber/cavalry_spearman_b.xml"
     },
     {
+      "id": "units/iber/champion_cavalry",
+      "civ": "iber",
+      "name": "Champion Cavalry Javelineer",
+      "role": "Javelineer",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Ranged",
+        "Javelineer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 25.0,
+      "attack_dps": 16.667,
+      "attack_range": 30.0,
+      "health": 240.0,
+      "speed": 16.2,
+      "armor": 26.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 150.0,
+        "wood": 80.0,
+        "metal": 100.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/iber/champion_cavalry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/iber/champion_cavalry.xml"
+    },
+    {
+      "id": "units/iber/champion_infantry_swordsman",
+      "civ": "iber",
+      "name": "Champion Swordsman",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 16.0,
+      "attack_dps": 21.333,
+      "attack_range": 3.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/iber/champion_infantry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/iber/champion_infantry_swordsman.xml"
+    },
+    {
       "id": "units/iber/infantry_javelineer_b",
       "civ": "iber",
       "name": "Infantry Javelineer",
       "role": "Javelineer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -1798,6 +3415,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1810,6 +3430,12 @@
       "name": "Slinger",
       "role": "Slinger",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Slinger"
       ],
       "attack_type": "ranged",
@@ -1832,6 +3458,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1844,6 +3473,12 @@
       "name": "Spearman",
       "role": "Spearman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -1865,6 +3500,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1877,6 +3515,12 @@
       "name": "Swordsman",
       "role": "Swordsman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Swordsman"
       ],
       "attack_type": "melee",
@@ -1899,6 +3543,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -1911,6 +3558,10 @@
       "name": "Napatan Light Cavalry",
       "role": "Javelineer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -1932,6 +3583,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -1943,8 +3597,14 @@
       "id": "units/kush/cavalry_javelineer_merc_b",
       "civ": "kush",
       "name": "Blemmye Desert Raider",
-      "role": "Soldier",
+      "role": "Javelineer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
+        "Javelineer",
+        "Mercenary",
         "Camel"
       ],
       "attack_type": "ranged",
@@ -1966,6 +3626,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -1979,6 +3642,10 @@
       "name": "Meroitic Heavy Cavalry",
       "role": "Spearman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -2000,6 +3667,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -2008,11 +3678,219 @@
       "source_path": "binaries/data/mods/public/simulation/templates/units/kush/cavalry_spearman_b.xml"
     },
     {
+      "id": "units/kush/champion_cavalry",
+      "civ": "kush",
+      "name": "Noble Cavalry",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Melee",
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 22.0,
+      "attack_dps": 17.6,
+      "attack_range": 4.0,
+      "health": 260.0,
+      "speed": 18.0,
+      "armor": 31.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 150.0,
+        "wood": 80.0,
+        "metal": 100.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/kush/champion_cavalry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/kush/champion_cavalry.xml"
+    },
+    {
+      "id": "units/kush/champion_elephant",
+      "civ": "kush",
+      "name": "Meroitic War Elephant",
+      "role": "Soldier",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Elephant",
+        "Melee"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 68.4,
+      "attack_dps": 45.6,
+      "attack_range": 5.0,
+      "health": 900.0,
+      "speed": 9.0,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 7.0,
+        "crush": 20.0
+      },
+      "population": 3.0,
+      "cost": {
+        "food": 270.0,
+        "metal": 180.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "AfricanElephant"
+      ],
+      "portrait": "units/kush/champion_elephant.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/kush/champion_elephant.xml"
+    },
+    {
+      "id": "units/kush/champion_infantry_amun",
+      "civ": "kush",
+      "name": "Napatan Temple Guard",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 16.0,
+      "attack_dps": 21.333,
+      "attack_range": 3.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "AmunGuard"
+      ],
+      "portrait": "units/kush/champion_amun.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/kush/champion_infantry_amun.xml"
+    },
+    {
+      "id": "units/kush/champion_infantry_apedemak",
+      "civ": "kush",
+      "name": "Meroitic Temple Guard",
+      "role": "Soldier",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Axeman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 24.0,
+      "attack_dps": 24.0,
+      "attack_range": 3.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 31.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "ApedemakGuard"
+      ],
+      "portrait": "units/kush/champion_apedemak.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/kush/champion_infantry_apedemak.xml"
+    },
+    {
+      "id": "units/kush/champion_infantry_archer",
+      "civ": "kush",
+      "name": "Noble Archer",
+      "role": "Archer",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Ranged",
+        "Archer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 14.4,
+      "attack_dps": 11.52,
+      "attack_range": 60.0,
+      "health": 120.0,
+      "speed": 10.3,
+      "armor": 26.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/kush/champion_archer.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/kush/champion_infantry_archer.xml"
+    },
+    {
       "id": "units/kush/infantry_archer_b",
       "civ": "kush",
       "name": "Nubian Archer",
       "role": "Archer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Archer"
       ],
       "attack_type": "ranged",
@@ -2034,6 +3912,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2044,8 +3925,15 @@
       "id": "units/kush/infantry_javelineer_merc_b",
       "civ": "kush",
       "name": "Noba Skirmisher",
-      "role": "Soldier",
+      "role": "Javelineer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
+        "Javelineer",
         "Mercenary"
       ],
       "attack_type": "ranged",
@@ -2066,6 +3954,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2076,8 +3967,15 @@
       "id": "units/kush/infantry_maceman_merc_b",
       "civ": "kush",
       "name": "Noba Maceman",
-      "role": "Soldier",
+      "role": "Maceman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
+        "Maceman",
         "Mercenary"
       ],
       "attack_type": "melee",
@@ -2098,6 +3996,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2110,6 +4011,12 @@
       "name": "Meroitic Pikeman",
       "role": "Pikeman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Pikeman"
       ],
       "attack_type": "melee",
@@ -2131,6 +4038,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2143,6 +4053,12 @@
       "name": "Nubian Spearman",
       "role": "Spearman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -2164,6 +4080,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2176,6 +4095,12 @@
       "name": "Meroitic Swordsman",
       "role": "Swordsman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Swordsman"
       ],
       "attack_type": "melee",
@@ -2198,6 +4123,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2208,8 +4136,13 @@
       "id": "units/mace/cavalry_javelineer_b",
       "civ": "mace",
       "name": "Odrysian Skirmish Cavalry",
-      "role": "Soldier",
+      "role": "Javelineer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
+        "Javelineer",
         "Mercenary"
       ],
       "attack_type": "ranged",
@@ -2231,6 +4164,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -2244,6 +4180,10 @@
       "name": "Thessalian Lancer",
       "role": "Spearman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -2265,6 +4205,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -2273,11 +4216,220 @@
       "source_path": "binaries/data/mods/public/simulation/templates/units/mace/cavalry_spearman_b.xml"
     },
     {
+      "id": "units/mace/champion_cavalry",
+      "civ": "mace",
+      "name": "Companion Cavalry",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Melee",
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 22.0,
+      "attack_dps": 17.6,
+      "attack_range": 4.0,
+      "health": 260.0,
+      "speed": 18.0,
+      "armor": 31.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 150.0,
+        "wood": 80.0,
+        "metal": 100.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/mace/champion_cavalry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/mace/champion_cavalry.xml"
+    },
+    {
+      "id": "units/mace/champion_infantry_crossbowman",
+      "civ": "mace",
+      "name": "Champion Infantry Crossbowman",
+      "role": "Soldier",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Ranged",
+        "Crossbowman"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 30.0,
+      "attack_dps": 10.0,
+      "attack_range": 60.0,
+      "health": 120.0,
+      "speed": 9.6,
+      "armor": 26.0,
+      "resistances": {
+        "hack": 3.0,
+        "pierce": 3.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/mace/champion_infantry_crossbowman.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/mace/champion_infantry_crossbowman.xml"
+    },
+    {
+      "id": "units/mace/champion_infantry_spearman",
+      "civ": "mace",
+      "name": "Macedonian Shield Bearer",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 18.5,
+      "attack_dps": 18.5,
+      "attack_range": 4.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/mace/hypaspist.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/mace/champion_infantry_spearman.xml"
+    },
+    {
+      "id": "units/mace/champion_infantry_spearman_02",
+      "civ": "mace",
+      "name": "Macedonian Shield Bearer",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 20.35,
+      "attack_dps": 20.35,
+      "attack_range": 4.0,
+      "health": 220.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/mace/argyraspidai.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/mace/champion_infantry_spearman_02.xml"
+    },
+    {
+      "id": "units/mace/champion_infantry_swordsman",
+      "civ": "mace",
+      "name": "Thracian Black Cloak",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Swordsman",
+        "Longsword"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 10.0,
+      "attack_dps": 10.0,
+      "attack_range": 5.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/thrac/champion_infantry_swordsman.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/mace/champion_infantry_swordsman.xml"
+    },
+    {
       "id": "units/mace/infantry_archer_b",
       "civ": "mace",
       "name": "Cretan Mercenary Archer",
-      "role": "Soldier",
+      "role": "Archer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
+        "Archer",
         "Mercenary"
       ],
       "attack_type": "ranged",
@@ -2298,6 +4450,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2310,6 +4465,12 @@
       "name": "Agrianian Peltast",
       "role": "Javelineer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -2331,6 +4492,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2343,6 +4507,12 @@
       "name": "Foot Companion",
       "role": "Pikeman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Pikeman"
       ],
       "attack_type": "melee",
@@ -2364,6 +4534,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2374,8 +4547,15 @@
       "id": "units/mace/infantry_slinger_b",
       "civ": "mace",
       "name": "Rhodian Slinger",
-      "role": "Soldier",
+      "role": "Slinger",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
+        "Slinger",
         "Mercenary"
       ],
       "attack_type": "ranged",
@@ -2396,6 +4576,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2408,6 +4591,10 @@
       "name": "Indian Light Cavalry",
       "role": "Javelineer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -2429,6 +4616,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -2442,6 +4632,10 @@
       "name": "Indian Raiding Cavalry",
       "role": "Swordsman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
         "Swordsman"
       ],
       "attack_type": "melee",
@@ -2464,6 +4658,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -2472,11 +4669,213 @@
       "source_path": "binaries/data/mods/public/simulation/templates/units/maur/cavalry_swordsman_b.xml"
     },
     {
+      "id": "units/maur/champion_chariot",
+      "civ": "maur",
+      "name": "War Chariot",
+      "role": "Archer",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Ranged",
+        "Archer",
+        "Chariot"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 15.0,
+      "attack_dps": 12.0,
+      "attack_range": 60.0,
+      "health": 300.0,
+      "speed": 17.0,
+      "armor": 26.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 5.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 180.0,
+        "wood": 100.0,
+        "metal": 120.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/maur/champion_chariot.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/maur/champion_chariot.xml"
+    },
+    {
+      "id": "units/maur/champion_elephant",
+      "civ": "maur",
+      "name": "Indian War Elephant",
+      "role": "Soldier",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Elephant",
+        "Melee"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 83.6,
+      "attack_dps": 55.733,
+      "attack_range": 5.0,
+      "health": 1100.0,
+      "speed": 9.0,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 7.0,
+        "crush": 20.0
+      },
+      "population": 3.0,
+      "cost": {
+        "food": 330.0,
+        "metal": 220.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "IndianElephant"
+      ],
+      "portrait": "units/maur/champion_elephant.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/maur/champion_elephant.xml"
+    },
+    {
+      "id": "units/maur/champion_infantry_maceman",
+      "civ": "maur",
+      "name": "Warrior",
+      "role": "Maceman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Maceman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 24.0,
+      "attack_dps": 24.0,
+      "attack_range": 3.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 31.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/maur/champion_maceman.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/maur/champion_infantry_maceman.xml"
+    },
+    {
+      "id": "units/maur/champion_maiden",
+      "civ": "maur",
+      "name": "Maiden Guard",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 16.0,
+      "attack_dps": 21.333,
+      "attack_range": 3.0,
+      "health": 160.0,
+      "speed": 11.7,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 8.0,
+        "pierce": 4.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 100.0,
+        "metal": 90.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/maur/champion_maiden.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/maur/champion_maiden.xml"
+    },
+    {
+      "id": "units/maur/champion_maiden_archer",
+      "civ": "maur",
+      "name": "Maiden Guard Archer",
+      "role": "Archer",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Ranged",
+        "Archer"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 15.5,
+      "attack_dps": 8.857,
+      "attack_range": 45.0,
+      "health": 90.0,
+      "speed": 12.3,
+      "armor": 25.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 4.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "wood": 100.0,
+        "metal": 90.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/maur/champion_maiden_archer.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/maur/champion_maiden_archer.xml"
+    },
+    {
       "id": "units/maur/elephant_archer_b",
       "civ": "maur",
       "name": "Elephant Archer",
       "role": "Archer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Elephant",
         "Ranged",
         "Archer"
       ],
@@ -2499,6 +4898,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2511,6 +4913,12 @@
       "name": "Longbowman",
       "role": "Archer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Archer"
       ],
       "attack_type": "ranged",
@@ -2532,6 +4940,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2544,6 +4955,12 @@
       "name": "Bamboo Spearman",
       "role": "Spearman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -2565,6 +4982,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2577,6 +4997,12 @@
       "name": "Indian Swordsman",
       "role": "Swordsman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Swordsman"
       ],
       "attack_type": "melee",
@@ -2599,6 +5025,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2609,8 +5038,13 @@
       "id": "units/ptol/cavalry_archer_b",
       "civ": "ptol",
       "name": "Nabataean Camel Archer",
-      "role": "Soldier",
+      "role": "Archer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
+        "Archer",
         "Camel"
       ],
       "attack_type": "ranged",
@@ -2632,6 +5066,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -2643,8 +5080,13 @@
       "id": "units/ptol/cavalry_javelineer_merc_b",
       "civ": "ptol",
       "name": "Tarantine Settler Cavalry",
-      "role": "Soldier",
+      "role": "Javelineer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
+        "Javelineer",
         "Mercenary"
       ],
       "attack_type": "ranged",
@@ -2666,6 +5108,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -2677,8 +5122,13 @@
       "id": "units/ptol/cavalry_spearman_merc_b",
       "civ": "ptol",
       "name": "Macedonian Settler Cavalry",
-      "role": "Soldier",
+      "role": "Spearman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
+        "Spearman",
         "Mercenary"
       ],
       "attack_type": "melee",
@@ -2700,6 +5150,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -2708,11 +5161,138 @@
       "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/cavalry_spearman_merc_b.xml"
     },
     {
+      "id": "units/ptol/champion_cavalry",
+      "civ": "ptol",
+      "name": "Royal Guard Cavalry",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Melee",
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 22.0,
+      "attack_dps": 17.6,
+      "attack_range": 4.0,
+      "health": 260.0,
+      "speed": 18.0,
+      "armor": 31.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 150.0,
+        "wood": 80.0,
+        "metal": 100.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/ptol/champion_cavalry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/champion_cavalry.xml"
+    },
+    {
+      "id": "units/ptol/champion_elephant",
+      "civ": "ptol",
+      "name": "Towered War Elephant",
+      "role": "Soldier",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Elephant",
+        "Melee"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 68.4,
+      "attack_dps": 45.6,
+      "attack_range": 5.0,
+      "health": 900.0,
+      "speed": 9.0,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 7.0,
+        "crush": 20.0
+      },
+      "population": 3.0,
+      "cost": {
+        "food": 270.0,
+        "metal": 180.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "AfricanElephant"
+      ],
+      "portrait": "units/ptol/champion_elephant.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/champion_elephant.xml"
+    },
+    {
+      "id": "units/ptol/champion_infantry_pikeman",
+      "civ": "ptol",
+      "name": "Royal Guard Infantry",
+      "role": "Pikeman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Pikeman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 23.0,
+      "attack_dps": 11.5,
+      "attack_range": 8.0,
+      "health": 200.0,
+      "speed": 8.55,
+      "armor": 36.0,
+      "resistances": {
+        "hack": 8.0,
+        "pierce": 8.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/ptol/champion_infantry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/champion_infantry_pikeman.xml"
+    },
+    {
       "id": "units/ptol/infantry_archer_b",
       "civ": "ptol",
       "name": "Cretan Mercenary Archer",
-      "role": "Soldier",
+      "role": "Archer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
+        "Archer",
         "Mercenary"
       ],
       "attack_type": "ranged",
@@ -2733,6 +5313,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2743,8 +5326,15 @@
       "id": "units/ptol/infantry_javelineer_b",
       "civ": "ptol",
       "name": "Mercenary Thureos Skirmisher",
-      "role": "Soldier",
+      "role": "Javelineer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
+        "Javelineer",
         "Mercenary"
       ],
       "attack_type": "ranged",
@@ -2765,6 +5355,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2777,6 +5370,12 @@
       "name": "Egyptian Pikeman",
       "role": "Pikeman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Pikeman"
       ],
       "attack_type": "melee",
@@ -2798,6 +5397,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2810,6 +5412,12 @@
       "name": "Judean Slinger",
       "role": "Slinger",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Slinger"
       ],
       "attack_type": "ranged",
@@ -2832,6 +5440,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2842,8 +5453,15 @@
       "id": "units/ptol/infantry_spearman_merc_b",
       "civ": "ptol",
       "name": "Mercenary Thureos Spearman",
-      "role": "Soldier",
+      "role": "Spearman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
+        "Spearman",
         "Mercenary"
       ],
       "attack_type": "melee",
@@ -2864,6 +5482,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2874,8 +5495,15 @@
       "id": "units/ptol/infantry_swordsman_merc_b",
       "civ": "ptol",
       "name": "Gallic Mercenary Swordsman",
-      "role": "Soldier",
+      "role": "Swordsman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
+        "Swordsman",
         "Mercenary"
       ],
       "attack_type": "melee",
@@ -2896,6 +5524,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -2906,8 +5537,13 @@
       "id": "units/rome/cavalry_javelineer_auxiliary_b",
       "civ": "rome",
       "name": "Auxiliary Cavalry Javelineer",
-      "role": "Soldier",
+      "role": "Javelineer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
+        "Javelineer",
         "Auxiliary"
       ],
       "attack_type": "ranged",
@@ -2929,6 +5565,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -2942,6 +5581,10 @@
       "name": "Allied Cavalry",
       "role": "Javelineer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -2963,6 +5606,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -2974,8 +5620,13 @@
       "id": "units/rome/cavalry_spearman_auxiliary_b",
       "civ": "rome",
       "name": "Auxiliary Cavalry Spearman",
-      "role": "Soldier",
+      "role": "Spearman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
+        "Spearman",
         "Auxiliary"
       ],
       "attack_type": "melee",
@@ -2997,6 +5648,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -3010,6 +5664,10 @@
       "name": "Roman Cavalry",
       "role": "Spearman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -3031,6 +5689,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -3039,11 +5700,340 @@
       "source_path": "binaries/data/mods/public/simulation/templates/units/rome/cavalry_spearman_b.xml"
     },
     {
+      "id": "units/rome/champion_cavalry",
+      "civ": "rome",
+      "name": "Consular Bodyguard",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Melee",
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 18.0,
+      "attack_dps": 24.0,
+      "attack_range": 4.0,
+      "health": 260.0,
+      "speed": 18.0,
+      "armor": 31.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 5.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 150.0,
+        "wood": 80.0,
+        "metal": 100.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/rome/champion_cavalry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/rome/champion_cavalry.xml"
+    },
+    {
+      "id": "units/rome/champion_infantry_swordsman",
+      "civ": "rome",
+      "name": "Italic Heavy Infantry",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 16.0,
+      "attack_dps": 21.333,
+      "attack_range": 3.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/rome/champion_infantry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/rome/champion_infantry_swordsman.xml"
+    },
+    {
+      "id": "units/rome/champion_infantry_swordsman_02",
+      "civ": "rome",
+      "name": "Marian Legionary",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 16.0,
+      "attack_dps": 21.333,
+      "attack_range": 3.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/rome/champion_legion_marian.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/rome/champion_infantry_swordsman_02.xml"
+    },
+    {
+      "id": "units/rome/champion_infantry_swordsman_03",
+      "civ": "rome",
+      "name": "Marian Legionary",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 18.5,
+      "attack_dps": 24.667,
+      "attack_range": 3.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/rome/champion_legion_imperial.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/rome/champion_infantry_swordsman_03.xml"
+    },
+    {
+      "id": "units/rome/champion_infantry_swordsman_04",
+      "civ": "rome",
+      "name": "Roman Centurion",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 20.0,
+      "attack_dps": 26.667,
+      "attack_range": 3.0,
+      "health": 140.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/rome/champion_legion_centurio.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/rome/champion_infantry_swordsman_04.xml"
+    },
+    {
+      "id": "units/rome/champion_infantry_swordsman_05",
+      "civ": "rome",
+      "name": "Praetorian Guard",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 25.0,
+      "attack_dps": 33.333,
+      "attack_range": 3.0,
+      "health": 180.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/rome/champion_legion_centurio.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/rome/champion_infantry_swordsman_05.xml"
+    },
+    {
+      "id": "units/rome/champion_infantry_swordsman_centurion",
+      "civ": "rome",
+      "name": "Roman Centurion",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Swordsman",
+        "Centurion"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 16.0,
+      "attack_dps": 21.333,
+      "attack_range": 3.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 120.0,
+        "wood": 60.0,
+        "metal": 100.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/rome/champion_infantry_centurion.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/rome/champion_infantry_swordsman_centurion.xml"
+    },
+    {
+      "id": "units/rome/champion_infantry_swordsman_first",
+      "civ": "rome",
+      "name": "First Cohort Legionary",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Swordsman",
+        "Legionary"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 16.0,
+      "attack_dps": 21.333,
+      "attack_range": 3.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/rome/champion_infantry_first.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/rome/champion_infantry_swordsman_first.xml"
+    },
+    {
       "id": "units/rome/infantry_javelineer_b",
       "civ": "rome",
       "name": "Roman Skirmisher",
       "role": "Javelineer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -3065,6 +6055,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -3077,6 +6070,12 @@
       "name": "Veteran Spearman",
       "role": "Spearman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -3098,6 +6097,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -3110,6 +6112,12 @@
       "name": "Roman Swordsman",
       "role": "Swordsman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Swordsman"
       ],
       "attack_type": "melee",
@@ -3132,6 +6140,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -3144,6 +6155,10 @@
       "name": "Dahae Horse Archer",
       "role": "Archer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
         "Archer"
       ],
       "attack_type": "ranged",
@@ -3165,6 +6180,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -3178,6 +6196,10 @@
       "name": "Militia Cavalry",
       "role": "Javelineer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -3199,6 +6221,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -3210,8 +6235,13 @@
       "id": "units/sele/cavalry_spearman_merc_b",
       "civ": "sele",
       "name": "Companion Cavalry",
-      "role": "Soldier",
+      "role": "Spearman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
+        "Spearman",
         "Mercenary"
       ],
       "attack_type": "melee",
@@ -3233,6 +6263,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -3241,11 +6274,221 @@
       "source_path": "binaries/data/mods/public/simulation/templates/units/sele/cavalry_spearman_merc_b.xml"
     },
     {
+      "id": "units/sele/champion_cavalry",
+      "civ": "sele",
+      "name": "Seleucid Cataphract",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Melee",
+        "Spearman",
+        "Cataphract"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 22.0,
+      "attack_dps": 17.6,
+      "attack_range": 7.0,
+      "health": 260.0,
+      "speed": 14.4,
+      "armor": 37.0,
+      "resistances": {
+        "hack": 8.0,
+        "pierce": 9.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 150.0,
+        "wood": 80.0,
+        "metal": 110.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/sele/champion_cavalry.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/sele/champion_cavalry.xml"
+    },
+    {
+      "id": "units/sele/champion_chariot",
+      "civ": "sele",
+      "name": "Scythed Chariot",
+      "role": "Archer",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Cavalry",
+        "Ranged",
+        "Archer",
+        "Chariot"
+      ],
+      "attack_type": "ranged",
+      "attack_damage": 15.0,
+      "attack_dps": 12.0,
+      "attack_range": 60.0,
+      "health": 300.0,
+      "speed": 17.0,
+      "armor": 26.0,
+      "resistances": {
+        "hack": 1.0,
+        "pierce": 5.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 180.0,
+        "wood": 100.0,
+        "metal": 120.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "FastMoving"
+      ],
+      "portrait": "units/sele/champion_chariot.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/sele/champion_chariot.xml"
+    },
+    {
+      "id": "units/sele/champion_elephant",
+      "civ": "sele",
+      "name": "Armored War Elephant",
+      "role": "Soldier",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Elephant",
+        "Melee"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 83.6,
+      "attack_dps": 55.733,
+      "attack_range": 5.0,
+      "health": 1100.0,
+      "speed": 9.0,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 5.0,
+        "pierce": 7.0,
+        "crush": 20.0
+      },
+      "population": 3.0,
+      "cost": {
+        "food": 330.0,
+        "metal": 220.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human",
+        "IndianElephant"
+      ],
+      "portrait": "units/sele/champion_elephant.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/sele/champion_elephant.xml"
+    },
+    {
+      "id": "units/sele/champion_infantry_pikeman",
+      "civ": "sele",
+      "name": "Silver Shield",
+      "role": "Pikeman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Pikeman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 23.0,
+      "attack_dps": 11.5,
+      "attack_range": 8.0,
+      "health": 200.0,
+      "speed": 8.55,
+      "armor": 36.0,
+      "resistances": {
+        "hack": 8.0,
+        "pierce": 8.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/sele/champion_pikeman.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/sele/champion_infantry_pikeman.xml"
+    },
+    {
+      "id": "units/sele/champion_infantry_swordsman",
+      "civ": "sele",
+      "name": "Romanized Heavy Swordsman",
+      "role": "Swordsman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Swordsman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 16.0,
+      "attack_dps": 21.333,
+      "attack_range": 3.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/sele/champion_swordsman.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/sele/champion_infantry_swordsman.xml"
+    },
+    {
       "id": "units/sele/infantry_archer_merc_b",
       "civ": "sele",
       "name": "Syrian Archer",
-      "role": "Soldier",
+      "role": "Archer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
+        "Archer",
         "Mercenary"
       ],
       "attack_type": "ranged",
@@ -3266,6 +6509,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -3278,6 +6524,12 @@
       "name": "Arab Javelineer",
       "role": "Javelineer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -3299,6 +6551,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -3311,6 +6566,12 @@
       "name": "Phalangite",
       "role": "Pikeman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Pikeman"
       ],
       "attack_type": "melee",
@@ -3332,6 +6593,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -3344,6 +6608,12 @@
       "name": "Militia Thureos Spearman",
       "role": "Spearman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -3365,6 +6635,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -3375,8 +6648,15 @@
       "id": "units/sele/infantry_swordsman_merc_b",
       "civ": "sele",
       "name": "Thracian Mercenary Swordsman",
-      "role": "Soldier",
+      "role": "Swordsman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
+        "Swordsman",
         "Mercenary"
       ],
       "attack_type": "melee",
@@ -3397,6 +6677,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -3409,6 +6692,10 @@
       "name": "Perioikoi Cavalryman",
       "role": "Javelineer",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -3430,6 +6717,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -3443,6 +6733,10 @@
       "name": "Greek Allied Cavalry",
       "role": "Spearman",
       "class_tokens": [
+        "Citizen",
+        "Soldier",
+        "Cavalry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -3464,6 +6758,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "FastMoving",
         "CitizenSoldier"
@@ -3472,11 +6769,137 @@
       "source_path": "binaries/data/mods/public/simulation/templates/units/spart/cavalry_spearman_b.xml"
     },
     {
+      "id": "units/spart/champion_infantry_pike",
+      "civ": "spart",
+      "name": "Spartan Pikeman",
+      "role": "Pikeman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Pikeman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 23.0,
+      "attack_dps": 11.5,
+      "attack_range": 8.0,
+      "health": 200.0,
+      "speed": 8.55,
+      "armor": 36.0,
+      "resistances": {
+        "hack": 8.0,
+        "pierce": 8.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/spart/champion_infantry_pike.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/spart/champion_infantry_pike.xml"
+    },
+    {
+      "id": "units/spart/champion_infantry_spear",
+      "civ": "spart",
+      "name": "Spartan Hoplite",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 18.5,
+      "attack_dps": 20.556,
+      "attack_range": 4.0,
+      "health": 200.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/spart/champion_infantry_spear.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/spart/champion_infantry_spear.xml"
+    },
+    {
+      "id": "units/spart/champion_infantry_spear_olympian",
+      "civ": "spart",
+      "name": "Spartan Olympic Hoplite",
+      "role": "Spearman",
+      "class_tokens": [
+        "Soldier",
+        "Champion",
+        "Infantry",
+        "Melee",
+        "Spearman"
+      ],
+      "attack_type": "melee",
+      "attack_damage": 22.2,
+      "attack_dps": 24.667,
+      "attack_range": 4.0,
+      "health": 240.0,
+      "speed": 9.5,
+      "armor": 32.0,
+      "resistances": {
+        "hack": 6.0,
+        "pierce": 6.0,
+        "crush": 20.0
+      },
+      "population": 1.0,
+      "cost": {
+        "food": 80.0,
+        "wood": 60.0,
+        "metal": 80.0
+      },
+      "rank": "Basic",
+      "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
+        "Human"
+      ],
+      "portrait": "units/spart/champion_infantry_olympian.png",
+      "source_path": "binaries/data/mods/public/simulation/templates/units/spart/champion_infantry_spear_olympian.xml"
+    },
+    {
       "id": "units/spart/infantry_javelineer_b",
       "civ": "spart",
       "name": "Helot Skirmisher",
       "role": "Javelineer",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Ranged",
         "Javelineer"
       ],
       "attack_type": "ranged",
@@ -3498,6 +6921,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
@@ -3510,6 +6936,12 @@
       "name": "Perioikoi Hoplite",
       "role": "Spearman",
       "class_tokens": [
+        "Builder",
+        "Citizen",
+        "Worker",
+        "Soldier",
+        "Infantry",
+        "Melee",
         "Spearman"
       ],
       "attack_type": "melee",
@@ -3531,6 +6963,9 @@
       },
       "rank": "Basic",
       "identity_classes": [
+        "Unit",
+        "Organic",
+        "ConquestCritical",
         "Human",
         "CitizenSoldier"
       ],
