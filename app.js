@@ -21,11 +21,11 @@ const MAX_POOL_SIZE = 6;
 const MAX_COMPOSITIONS = 400000;
 
 const AXES = {
-  dps: { label: "Raw attack DPS", short: "DPS", digits: 1 },
+  dps: { label: "Damage per second (DPS)", short: "DPS", digits: 1 },
   health: { label: "Total health", short: "health", digits: 0 },
-  range: { label: "Average attack range", short: "range", digits: 1 },
-  speed: { label: "Average speed", short: "speed", digits: 1 },
-  armor: { label: "Average resistance", short: "resistance", digits: 1 },
+  range: { label: "Attack range", short: "range", digits: 1 },
+  speed: { label: "Movement speed", short: "speed", digits: 1 },
+  armor: { label: "Resistance", short: "resistance", digits: 1 },
 };
 
 const state = {
@@ -129,7 +129,7 @@ function readWeights() {
 function updateWeightOutputs() {
   for (const key of ["dps", "health", "range", "speed"]) {
     $("#weight-" + key + "-output").value = $("#weight-" + key).value;
-    $("#weight-" + key + "-output").textContent = $("#weight-" + key).value;
+    $("#weight-" + key + "-output").textContent = `${$("#weight-" + key).value}%`;
   }
 }
 
@@ -315,7 +315,7 @@ function renderUnitRoster() {
     </label>`;
   }).join("");
   const count = state.selectedIds.length;
-  $("#roster-hint").textContent = `${count} of ${state.units.length} unit types checked. The default pool selects a small set of contrasting roles so the first search stays readable.`;
+  $("#roster-hint").textContent = `${count} of ${state.units.length} units selected. Choose up to ${MAX_POOL_SIZE}; these units define the comparison.`;
   $("#roster-hint").classList.toggle("warning", count >= MAX_POOL_SIZE);
 }
 
@@ -326,12 +326,12 @@ function metricMarkup(composition, key) {
 
 function renderBestFit(composition, units) {
   if (!composition) {
-    $("#best-fit-title").textContent = "No legal composition";
-    $("#best-fit-mix").textContent = "Increase a resource ceiling or check more unit types.";
+    $("#best-fit-title").textContent = "No legal army found";
+    $("#best-fit-mix").textContent = "Try increasing a resource budget or selecting a different unit pool.";
     $("#best-fit-metrics").innerHTML = "";
     return;
   }
-  $("#best-fit-title").textContent = `${number(composition.score * 100, 0)} / 100 fit`;
+  $("#best-fit-title").textContent = `${number(composition.score * 100, 0)} / 100 match`;
   $("#best-fit-mix").textContent = `${compositionLabel(composition, units)}. ${compositionCostText(composition)}.`;
   $("#best-fit-metrics").innerHTML = ["dps", "health", "range", "speed"].map((key) => metricMarkup(composition, key)).join("");
 }
@@ -339,7 +339,7 @@ function renderBestFit(composition, units) {
 function renderRecommendations(units) {
   const list = $("#recommendation-list");
   if (!state.frontier.length) {
-    list.innerHTML = `<div class="roster-hint">No legal composition satisfies the current constraints.</div>`;
+    list.innerHTML = `<div class="roster-hint">No legal army satisfies the current limits.</div>`;
     return;
   }
   list.innerHTML = state.frontier.slice(0, 8).map((composition, index) => {
@@ -347,7 +347,7 @@ function renderRecommendations(units) {
     return `<button class="recommendation${isSelected ? " is-selected" : ""}" data-frontier-index="${index}">
       <span class="recommendation-rank">${String(index + 1).padStart(2, "0")}</span>
       <span><span class="recommendation-name">${escapeHtml(compositionMix(composition, units))}</span><span class="recommendation-detail">${number(composition.dps, 1)} DPS · ${number(composition.health, 0)} HP · ${compositionCostText(composition)}</span></span>
-      <span class="recommendation-score">${number(composition.score * 100, 0)}</span>
+      <span class="recommendation-score">${number(composition.score * 100, 0)}% match</span>
     </button>`;
   }).join("");
   list.querySelectorAll("button").forEach((button) => {
@@ -444,12 +444,14 @@ function drawChart(xKey, yKey) {
 }
 
 function renderResults(units, xKey, yKey) {
-  $("#result-title").textContent = `${CIVILISATION_NAMES[state.civ] || state.civ} under pressure`;
+  $("#result-title").textContent = `${CIVILISATION_NAMES[state.civ] || state.civ}: efficient armies`;
   $("#feasible-count").textContent = number(state.compositions.length, 0);
   $("#frontier-count").textContent = number(state.frontier.length, 0);
   $("#chart-x-label").textContent = AXES[xKey].label;
   $("#chart-y-label").textContent = AXES[yKey].label;
-  $("#search-status").textContent = state.truncated ? `Search capped at ${number(MAX_COMPOSITIONS, 0)} candidates` : "Exhaustive over checked units";
+  $("#search-status").textContent = state.truncated
+    ? `Search limit reached at ${number(MAX_COMPOSITIONS, 0)} armies; results are approximate`
+    : "All checked combinations searched";
   renderBestFit(state.selected, units);
   renderRecommendations(units);
   drawChart(xKey, yKey);
@@ -461,7 +463,7 @@ function handleUnitChange(event) {
   if (event.target.checked && !state.selectedIds.includes(id)) {
     if (state.selectedIds.length >= MAX_POOL_SIZE) {
       event.target.checked = false;
-      $("#roster-hint").textContent = `The exhaustive search is limited to ${MAX_POOL_SIZE} checked unit types. Uncheck one before adding another.`;
+      $("#roster-hint").textContent = `You can compare up to ${MAX_POOL_SIZE} units at once. Unselect one before adding another.`;
       $("#roster-hint").classList.add("warning");
       return;
     }
@@ -533,7 +535,7 @@ async function init() {
     civSelect.value = state.civ;
     state.units = state.data.units.filter((unit) => unit.civ === state.civ);
     state.selectedIds = pickDefaultPool(state.units);
-    $("#source-summary").textContent = `0 A.D. source snapshot ${state.data.source.commit.slice(0, 12)} · ${state.data.units.length} baseline units`;
+    $("#source-summary").textContent = `0 A.D. snapshot ${state.data.source.commit.slice(0, 12)} · ${state.data.units.length} units`;
     wireControls();
     renderUnitRoster();
     recalculate();
