@@ -5,17 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A small Pareto-frontier explorer for 0 A.D. army compositions.">
     <title>0 A.D. — Army frontier</title>
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=3">
   </head>
   <body>
     <header class="site-header">
       <div class="eyebrow">0 A.D. × Pareto</div>
-      <h1>Find the shape of your army.</h1>
+      <h1>Build an army. See the trade-offs.</h1>
       <p class="lede">
-        Compare baseline army compositions under the same population and resource envelope.
-        The frontier keeps the options that are not plainly worse on both selected dimensions.
+        Pick a civilisation, choose a small set of units, and compare every legal army under the same population and resource budget.
       </p>
-      <div class="source-strip">
+      <div class="how-it-works" aria-label="How to use the army planner">
+        <div class="how-step">
+          <span class="how-step-number">1</span>
+          <span><strong>Set the limits</strong><small>Population and resources</small></span>
+        </div>
+        <div class="how-step">
+          <span class="how-step-number">2</span>
+          <span><strong>Choose the units</strong><small>Build a comparison pool</small></span>
+        </div>
+        <div class="how-step">
+          <span class="how-step-number">3</span>
+          <span><strong>Read the options</strong><small>Find your preferred trade-off</small></span>
+        </div>
+      </div>
+      <div class="source-strip" role="status" aria-live="polite">
         <span class="status-dot"></span>
         <span id="source-summary">Loading the official 0 A.D. snapshot…</span>
       </div>
@@ -25,98 +38,109 @@
       <div class="analysis-grid">
         <aside class="controls panel">
         <div class="section-heading">
-          <div class="eyebrow">01 / Constraints</div>
-          <h2>Set the envelope</h2>
+          <div class="eyebrow">01 / BUILD</div>
+          <h2 id="controls-title">Set your army</h2>
+          <p>These limits define which armies are allowed.</p>
         </div>
 
         <label class="field">
           <span class="field-label">Civilisation</span>
+          <span class="field-help">Units come from this faction.</span>
           <select id="civilisation"></select>
         </label>
 
         <label class="field">
-          <span class="field-label"><span>Army population</span><output id="population-output"></output></span>
-          <input id="population" type="range" min="8" max="120" step="1" value="24">
-          <span class="range-note">Every candidate uses this population exactly. Raise the resource ceilings for larger armies.</span>
+          <span class="field-label"><span>Army size</span><output id="population-output"></output></span>
+          <input id="population" type="range" min="8" max="120" step="1" value="24" aria-describedby="population-help">
+          <span class="range-note" id="population-help">Every army uses this many population slots.</span>
         </label>
 
         <div class="field-group">
-          <div class="field-label">Resource ceilings</div>
+          <div class="field-label">Resource budget</div>
+          <span class="field-help" id="budget-help">The maximum resources an army may spend.</span>
           <div class="budget-grid">
-            <label><span>Food</span><input id="food" type="number" min="0" step="50" value="2400"></label>
-            <label><span>Wood</span><input id="wood" type="number" min="0" step="50" value="1800"></label>
-            <label><span>Stone</span><input id="stone" type="number" min="0" step="50" value="600"></label>
-            <label><span>Metal</span><input id="metal" type="number" min="0" step="50" value="900"></label>
+            <label><span>Food</span><input id="food" type="number" min="0" step="50" value="2400" aria-describedby="budget-help"></label>
+            <label><span>Wood</span><input id="wood" type="number" min="0" step="50" value="1800" aria-describedby="budget-help"></label>
+            <label><span>Stone</span><input id="stone" type="number" min="0" step="50" value="600" aria-describedby="budget-help"></label>
+            <label><span>Metal</span><input id="metal" type="number" min="0" step="50" value="900" aria-describedby="budget-help"></label>
           </div>
         </div>
 
         <div class="section-heading compact-heading">
-          <div class="eyebrow">02 / View</div>
-          <h2>Choose the trade-off</h2>
+          <div class="eyebrow">02 / COMPARE</div>
+          <h2>Compare trade-offs</h2>
+          <p>Choose what the chart should put on each axis.</p>
         </div>
 
         <div class="axis-grid">
           <label class="field">
-            <span class="field-label">Horizontal axis</span>
+            <span class="field-label">X axis</span>
             <select id="x-axis">
-              <option value="dps">Raw attack DPS</option>
+              <option value="dps">Damage per second (DPS)</option>
               <option value="health">Total health</option>
-              <option value="range">Average attack range</option>
-              <option value="speed">Average speed</option>
-              <option value="armor">Average resistance</option>
+              <option value="range">Attack range</option>
+              <option value="speed">Movement speed</option>
+              <option value="armor">Resistance</option>
             </select>
           </label>
           <label class="field">
-            <span class="field-label">Vertical axis</span>
+            <span class="field-label">Y axis</span>
             <select id="y-axis">
               <option value="health">Total health</option>
-              <option value="dps">Raw attack DPS</option>
-              <option value="range">Average attack range</option>
-              <option value="speed">Average speed</option>
-              <option value="armor">Average resistance</option>
+              <option value="dps">Damage per second (DPS)</option>
+              <option value="range">Attack range</option>
+              <option value="speed">Movement speed</option>
+              <option value="armor">Resistance</option>
             </select>
           </label>
         </div>
 
         <div class="field-group preferences">
-          <div class="field-label">Player preference weights</div>
+          <div class="field-label">What matters to you?</div>
+          <span class="field-help">Rank the efficient armies by your priorities.</span>
           <label class="weight-row"><span>Damage</span><input id="weight-dps" type="range" min="0" max="100" value="40"><output id="weight-dps-output">40</output></label>
           <label class="weight-row"><span>Health</span><input id="weight-health" type="range" min="0" max="100" value="35"><output id="weight-health-output">35</output></label>
           <label class="weight-row"><span>Reach</span><input id="weight-range" type="range" min="0" max="100" value="15"><output id="weight-range-output">15</output></label>
           <label class="weight-row"><span>Speed</span><input id="weight-speed" type="range" min="0" max="100" value="10"><output id="weight-speed-output">10</output></label>
-          <span class="range-note">Weights rank the frontier. They do not change which points are efficient on the chart.</span>
+          <span class="range-note">These priorities rank the results. They do not change which armies are legal.</span>
         </div>
 
-        <div class="model-note">
-          <strong>What is modelled?</strong>
-          Base template costs, population, health, resistance, attack damage, repeat time, range, and walk speed.
-          Counters, armour interaction, technologies, formations, terrain, production time, and micro are not modelled yet.
-        </div>
+        <details class="model-note">
+          <summary>How this estimate works</summary>
+          <p>Uses unit costs, population, health, resistance, attack damage, attack timing, range, and movement speed.</p>
+          <p>It does not yet model counters, armour interaction, technologies, formations, terrain, production time, or micro.</p>
+        </details>
         </aside>
 
         <section class="results-column">
         <div class="result-header">
           <div>
-            <div class="eyebrow">03 / Frontier</div>
-            <h2 id="result-title">Athenians under pressure</h2>
+            <div class="eyebrow">03 / RESULTS</div>
+            <h2 id="result-title">Athenians: efficient armies</h2>
+            <p class="result-summary">Legal armies appear as dots. The line keeps choices that are not beaten on both measures.</p>
           </div>
-          <div class="result-counts">
-            <span><strong id="feasible-count">—</strong> feasible</span>
-            <span><strong id="frontier-count">—</strong> frontier</span>
+          <div class="result-counts" aria-live="polite">
+            <span><strong id="feasible-count">—</strong> legal armies</span>
+            <span><strong id="frontier-count">—</strong> efficient choices</span>
           </div>
         </div>
 
         <div class="chart-panel panel">
           <div class="chart-caption">
-            <span>Each faint dot is one legal composition. The line is the non-dominated set.</span>
-            <span id="search-status" class="search-status">Calculating…</span>
+            <span id="chart-help">Dots are legal armies. The line shows the efficient trade-offs.</span>
+            <span id="search-status" class="search-status" role="status" aria-live="polite">Calculating…</span>
           </div>
-          <canvas id="frontier-chart" aria-label="Pareto frontier chart"></canvas>
+          <div class="chart-legend" aria-label="Chart legend">
+            <span><i class="legend-dot"></i> Legal army</span>
+            <span><i class="legend-line"></i> Efficient trade-off</span>
+            <span><i class="legend-selected"></i> Selected army</span>
+          </div>
+          <canvas id="frontier-chart" aria-label="Army trade-off chart" aria-describedby="chart-help"></canvas>
           <div class="chart-axis-labels"><span id="chart-x-label">Raw attack DPS</span><span id="chart-y-label">Total health</span></div>
         </div>
 
         <div class="best-fit panel">
-          <div class="eyebrow">Best fit for your weights</div>
+          <div class="eyebrow">04 / SUGGESTED START</div>
           <div class="best-fit-body">
             <div>
               <h2 id="best-fit-title">—</h2>
@@ -128,8 +152,9 @@
 
         <div class="recommendations">
           <div class="section-heading compact-heading">
-            <div class="eyebrow">04 / Options</div>
-            <h2>Other efficient armies</h2>
+            <div class="eyebrow">05 / OPTIONS</div>
+            <h2>Other efficient choices</h2>
+            <p>Click an option to see it on the chart and inspect its costs.</p>
           </div>
           <div id="recommendation-list" class="recommendation-list"></div>
         </div>
@@ -138,9 +163,9 @@
 
       <section class="roster-section panel">
         <div class="section-heading">
-          <div class="eyebrow">05 / Choice set</div>
-          <h2>Unit pool</h2>
-          <p>Check up to six baseline unit types. The search is exhaustive over this checked pool.</p>
+          <div class="eyebrow">06 / CHOOSE UNITS</div>
+          <h2>Build your unit pool</h2>
+          <p>Choose up to six units. The planner compares armies made from these units.</p>
         </div>
         <div id="roster-hint" class="roster-hint"></div>
         <div id="unit-roster" class="unit-roster"></div>
@@ -148,10 +173,10 @@
     </main>
 
     <footer class="site-footer">
-      <span>Prototype. Numbers are a transparent proxy, not a battle simulator.</span>
+      <span>Quick comparison for 0 A.D. — not a battle simulator.</span>
       <a href="https://play0ad.com/" target="_blank" rel="noreferrer">0 A.D. official site ↗</a>
     </footer>
 
-    <script src="app.js?v=3" defer></script>
+    <script src="app.js?v=4" defer></script>
   </body>
 </html>
