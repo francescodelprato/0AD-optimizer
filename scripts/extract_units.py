@@ -210,6 +210,28 @@ def _unit_from_template(resolver: TemplateResolver, template_name: str, civ: str
     }
 
 
+def _unit_signature(unit: dict) -> tuple:
+    """Identify one displayed gameplay choice, independent of its template path."""
+    return (
+        unit["civ"],
+        unit["name"],
+        unit["role"],
+        tuple(unit["class_tokens"]),
+        tuple(unit["identity_classes"]),
+        unit["attack_type"],
+        unit["attack_damage"],
+        unit["attack_dps"],
+        unit["attack_range"],
+        unit["health"],
+        unit["speed"],
+        unit["armor"],
+        tuple(sorted(unit["resistances"].items())),
+        unit["population"],
+        tuple(sorted(unit["cost"].items())),
+        unit["rank"],
+    )
+
+
 def _source_commit(source_root: Path) -> str:
     try:
         return subprocess.check_output(
@@ -227,6 +249,7 @@ def extract(source_root: Path, civs: Iterable[str]) -> dict:
 
     resolver = TemplateResolver(templates_root)
     units: list[dict] = []
+    seen_signatures: set[tuple] = set()
     skipped: list[dict[str, str]] = []
     for civ in civs:
         civ_root = units_root / civ
@@ -253,6 +276,10 @@ def extract(source_root: Path, civs: Iterable[str]) -> dict:
             is_soldier = bool(tokens & {"Soldier", "CitizenSoldier"})
             if not is_soldier or "Ship" in tokens or "Siege" in tokens:
                 continue
+            signature = _unit_signature(unit)
+            if signature in seen_signatures:
+                continue
+            seen_signatures.add(signature)
             unit["source_path"] = f"binaries/data/mods/public/simulation/templates/{template_name}.xml"
             units.append(unit)
 

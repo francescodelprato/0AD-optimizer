@@ -24,6 +24,17 @@ class SnapshotTests(unittest.TestCase):
             champions_by_civ[unit["civ"]] += 1
         self.assertTrue(all(count > 0 for count in champions_by_civ.values()), champions_by_civ)
 
+    def test_snapshot_has_no_identical_choices_within_a_civilisation(self):
+        signatures = []
+        for unit in self.snapshot["units"]:
+            comparable = {
+                key: value
+                for key, value in unit.items()
+                if key not in {"id", "portrait", "source_path"}
+            }
+            signatures.append(json.dumps(comparable, sort_keys=True))
+        self.assertEqual(len(signatures), len(set(signatures)))
+
     def test_every_playable_civilisation_has_a_choice_set(self):
         units_by_civ = {civ: 0 for civ in self.snapshot["civilisations"]}
         for unit in self.snapshot["units"]:
