@@ -41,16 +41,36 @@ const AXES = {
   dpsPerPressure: { label: "DPS per stock used", short: "DPS / stock", digits: 1 },
   healthPerPressure: { label: "Health per stock used", short: "HP / stock", digits: 0 },
 };
+const POSTURES = {
+  raw: {
+    label: "Raw power",
+    strength: 0,
+    help: "Rank only by your DPS, health, reach, and speed priorities. Mono-unit armies can be the correct result.",
+  },
+  generalist: {
+    label: "General-purpose",
+    strength: 0.3,
+    help: "Keep strong armies, but favor coverage across frontline, ranged, and mobile roles.",
+  },
+  robust: {
+    label: "Robust",
+    strength: 0.5,
+    help: "Put more weight on role breadth and balanced unit shares when the opponent is unknown.",
+  },
+};
+const POSTURE_ROLES = ["frontline", "ranged", "mobile"];
 
 const state = {
   data: null,
   civ: "athen",
   era: "all",
   constraintMode: "explore",
+  posture: "generalist",
   units: [],
   selectedIds: [],
   compositions: [],
   frontier: [],
+  rawFrontier: [],
   selected: null,
   chartPoints: [],
   truncated: false,
@@ -122,6 +142,35 @@ function unitFamily(unit) {
   return unitIsCavalry(unit) ? "cavalry" : "infantry";
 }
 
+function unitPostureRole(unit) {
+  if (unit.attack_type === "ranged") return "ranged";
+  if (unitFamily(unit) === "cavalry") return "mobile";
+  return "frontline";
+}
+
+function compositionPostureMetrics(composition, units) {
+  const availableRoles = new Set(units.map(unitPostureRole));
+  const roleCounts = Object.fromEntries(POSTURE_ROLES.map((role) => [role, 0]));
+  for (const [index, unit] of units.entries()) {
+    roleCounts[unitPostureRole(unit)] += composition.counts[index];
+  }
+  const activeRoles = POSTURE_ROLES.filter((role) => availableRoles.has(role) && roleCounts[role] > 0);
+  const roleCoverage = availableRoles.size ? activeRoles.length / availableRoles.size : 1;
+  const totalRoleUnits = activeRoles.reduce((sum, role) => sum + roleCounts[role], 0);
+  const largestRoleShare = totalRoleUnits
+    ? Math.max(...activeRoles.map((role) => roleCounts[role] / totalRoleUnits))
+    : 1;
+  const idealLargestShare = availableRoles.size ? 1 / availableRoles.size : 1;
+  const roleBalance = availableRoles.size <= 1
+    ? 1
+    : Math.max(0, (1 - largestRoleShare) / (1 - idealLargestShare));
+  const unitTypes = composition.counts.filter((count) => count > 0).length;
+  const diversityDenominator = Math.max(1, Math.min(MAX_POOL_SIZE, units.length) - 1);
+  const unitDiversity = Math.min(1, Math.max(0, (unitTypes - 1) / diversityDenominator));
+  const breadth = 0.5 * roleCoverage + 0.35 * roleBalance + 0.15 * unitDiversity;
+  return { roleCoverage, roleBalance, unitTypes, unitDiversity, breadth };
+}
+
 function resourceCostMarkup(resource, value) {
   const icon = RESOURCE_ICONS[resource];
   return `<span class="resource-cost" title="${escapeHtml(icon.label)}" aria-label="${number(value, 0)} ${escapeHtml(icon.label)}">
@@ -155,6 +204,12 @@ function resourcePressureMarkup(composition) {
     ${binding ? `<img class="resource-icon" src="${escapeHtml(binding.path)}" alt="">` : ""}
     ${number(composition.resourcePressure * 100, 0)}% ${binding ? escapeHtml(binding.label.toLowerCase()) : "stock"} stock
   </span>`;
+}
+
+function postureMarkup(composition) {
+  if (state.posture === "raw" || !composition.postureMetrics) return "";
+  const metrics = composition.postureMetrics;
+  return `<span class="posture-note">${metrics.unitTypes} unit types · ${number(metrics.roleCoverage * 100, 0)}% role coverage</span>`;
 }
 
 function selectedUnits() {
@@ -239,6 +294,11 @@ function renderAxisOptions() {
   $("#axis-help").textContent = isAffordabilityMode()
     ? "Stock-relative axes use the tightest share of your available resources. Resource types stay separate."
     : "Resource costs stay visible in the army cards. No stock cap is applied in this view.";
+}
+
+function renderPostureHelp() {
+  const posture = POSTURES[state.posture] || POSTURES.raw;
+  $("#posture-help").textContent = posture.help;
 }
 
 function readWeights() {
@@ -418,6 +478,35 @@ function paretoFront(compositions, xKey, yKey) {
   return frontier;
 }
 
+function topCompositions(compositions, metric, limit) {
+  const top = [];
+  for (const composition of compositions) {
+    const value = metric(composition);
+    let insertion = 0;
+    while (insertion < top.length && metric(top[insertion]) >= value) insertion += 1;
+    if (insertion >= limit) continue;
+    top.splice(insertion, 0, composition);
+    if (top.length > limit) top.pop();
+  }
+  return top;
+}
+
+function buildPostureChoices(compositions, rawFrontier) {
+  if (state.posture === "raw") return [...rawFrontier];
+  const choices = new Set(rawFrontier);
+  for (const composition of topCompositions(compositions, (candidate) => candidate.score, 16)) choices.add(composition);
+  for (const composition of topCompositions(compositions, (candidate) => candidate.postureScore, 12)) choices.add(composition);
+
+  const bestByUnitTypes = new Map();
+  for (const composition of compositions) {
+    const key = composition.postureMetrics.unitTypes;
+    const existing = bestByUnitTypes.get(key);
+    if (!existing || composition.score > existing.score) bestByUnitTypes.set(key, composition);
+  }
+  for (const composition of bestByUnitTypes.values()) choices.add(composition);
+  return [...choices];
+}
+
 function valueBounds(values) {
   let min = Infinity;
   let max = -Infinity;
@@ -428,7 +517,7 @@ function valueBounds(values) {
   return { min, max };
 }
 
-function addScores(compositions, weights) {
+function addScores(compositions, weights, units) {
   const keys = Object.keys(weights);
   const bounds = Object.fromEntries(keys.map((key) => {
     const values = compositions.map((composition) => composition[key]);
@@ -444,7 +533,11 @@ function addScores(compositions, weights) {
       score += weight * normalized;
       totalWeight += weight;
     }
-    composition.score = totalWeight ? score / totalWeight : 0;
+    composition.rawScore = totalWeight ? score / totalWeight : 0;
+    composition.postureMetrics = compositionPostureMetrics(composition, units);
+    composition.postureScore = composition.postureMetrics.breadth;
+    const posture = POSTURES[state.posture] || POSTURES.raw;
+    composition.score = composition.rawScore * (1 - posture.strength) + composition.postureScore * posture.strength;
   }
 }
 
@@ -458,8 +551,9 @@ function recalculate() {
   const { compositions, truncated } = enumerateCompositions(units, targetPopulation, budgets);
   state.compositions = compositions;
   state.truncated = truncated;
-  addScores(compositions, readWeights());
-  state.frontier = paretoFront(compositions, xKey, yKey).sort((a, b) => b.score - a.score);
+  addScores(compositions, readWeights(), units);
+  state.rawFrontier = paretoFront(compositions, xKey, yKey);
+  state.frontier = buildPostureChoices(compositions, state.rawFrontier).sort((a, b) => b.score - a.score);
   state.selected = state.frontier[0] || null;
   renderResults(units, xKey, yKey);
 }
@@ -507,7 +601,7 @@ function renderBestFit(composition, units) {
     return;
   }
   $("#best-fit-title").textContent = `${number(composition.score * 100, 0)} / 100 match`;
-  $("#best-fit-mix").innerHTML = `${escapeHtml(compositionLabel(composition, units))}. <span class="mix-costs">Cost: ${compositionCostMarkup(composition)}</span> ${resourcePressureMarkup(composition)}`;
+  $("#best-fit-mix").innerHTML = `${escapeHtml(compositionLabel(composition, units))}. <span class="mix-costs">Cost: ${compositionCostMarkup(composition)}</span> ${resourcePressureMarkup(composition)} ${postureMarkup(composition)}`;
   const metricKeys = isAffordabilityMode()
     ? ["dps", "health", "dpsPerPressure", "healthPerPressure", "range", "speed"]
     : ["dps", "health", "range", "speed"];
@@ -525,7 +619,7 @@ function renderRecommendations(units) {
     const isSelected = composition === state.selected;
     return `<button class="recommendation${isSelected ? " is-selected" : ""}" data-frontier-index="${index}">
       <span class="recommendation-rank">${String(index + 1).padStart(2, "0")}</span>
-      <span><span class="recommendation-name">${escapeHtml(compositionMix(composition, units))}</span><span class="recommendation-detail">${number(composition.dps, 1)} DPS · ${number(composition.health, 0)} HP · ${compositionCostMarkup(composition)} ${resourcePressureMarkup(composition)}</span></span>
+      <span><span class="recommendation-name">${escapeHtml(compositionMix(composition, units))}</span><span class="recommendation-detail">${number(composition.dps, 1)} DPS · ${number(composition.health, 0)} HP · ${compositionCostMarkup(composition)} ${resourcePressureMarkup(composition)} ${postureMarkup(composition)}</span></span>
       <span class="recommendation-score">${number(composition.score * 100, 0)}% match</span>
     </button>`;
   }).join("");
@@ -588,7 +682,7 @@ function drawChart(xKey, yKey) {
     context.fill();
   }
 
-  const frontierForLine = [...state.frontier].sort((a, b) => a[xKey] - b[xKey]);
+  const frontierForLine = [...state.rawFrontier].sort((a, b) => a[xKey] - b[xKey]);
   context.strokeStyle = style.getPropertyValue("--accent").trim() || "#ba4d2b";
   context.lineWidth = 2;
   context.beginPath();
@@ -604,10 +698,16 @@ function drawChart(xKey, yKey) {
     x: mapX(composition[xKey]),
     y: mapY(composition[yKey]),
   }));
+  const rawFrontier = new Set(state.rawFrontier);
   for (const point of state.chartPoints) {
-    context.fillStyle = point.composition === state.selected ? "#7a2f1d" : "#ba4d2b";
+    const isRawFrontier = rawFrontier.has(point.composition);
+    context.fillStyle = point.composition === state.selected
+      ? "#7a2f1d"
+      : isRawFrontier || state.posture === "raw"
+        ? "#ba4d2b"
+        : "#2e6480";
     context.beginPath();
-    context.arc(point.x, point.y, point.composition === state.selected ? 5 : 3, 0, Math.PI * 2);
+    context.arc(point.x, point.y, point.composition === state.selected ? 5 : isRawFrontier ? 3 : 4, 0, Math.PI * 2);
     context.fill();
   }
 
@@ -623,19 +723,32 @@ function drawChart(xKey, yKey) {
 }
 
 function renderResults(units, xKey, yKey) {
-  $("#result-title").textContent = `${CIVILISATION_NAMES[state.civ] || state.civ}: ${isAffordabilityMode() ? "affordable trade-offs" : "combat trade-offs"}`;
+  const posture = POSTURES[state.posture] || POSTURES.raw;
+  const postureAware = state.posture !== "raw";
+  const resultLabel = postureAware
+    ? `${isAffordabilityMode() ? "affordable " : ""}${posture.label.toLowerCase()} choices`
+    : isAffordabilityMode() ? "affordable trade-offs" : "combat trade-offs";
+  $("#result-title").textContent = `${CIVILISATION_NAMES[state.civ] || state.civ}: ${resultLabel}`;
   $("#feasible-count").textContent = number(state.compositions.length, 0);
   $("#feasible-label").textContent = state.truncated ? "candidate armies" : "legal armies";
   $("#frontier-count").textContent = number(state.frontier.length, 0);
+  $("#frontier-label").textContent = postureAware ? "posture choices" : "efficient choices";
+  $("#frontier-legend-label").textContent = postureAware ? "Raw combat frontier" : "Efficient frontier";
+  $("#posture-legend").hidden = !postureAware;
   $("#chart-x-label").textContent = AXES[xKey].label;
   $("#chart-y-label").textContent = AXES[yKey].label;
-  $("#frontier-chart").setAttribute("aria-label", `${AXES[xKey].label} versus ${AXES[yKey].label}; ${number(state.frontier.length, 0)} frontier choices among ${number(state.compositions.length, 0)} ${state.truncated ? "candidate" : "legal"} armies.`);
+  $("#frontier-chart").setAttribute("aria-label", `${AXES[xKey].label} versus ${AXES[yKey].label}; ${number(state.frontier.length, 0)} ${postureAware ? "posture" : "frontier"} choices among ${number(state.compositions.length, 0)} ${state.truncated ? "candidate" : "legal"} armies.`);
+  const postureContext = postureAware ? ` Suggestions favor ${posture.label.toLowerCase()} armies for an unknown opponent.` : "";
   $(".result-summary").textContent = isAffordabilityMode()
-    ? "Only armies within the available stock are shown. The tightest resource is reported for each choice."
-    : "Population and era define the search. Resource costs are shown for comparison; no stock cap is applied.";
+    ? `Only armies within the available stock are shown. The tightest resource is reported for each choice.${postureContext}`
+    : `Population and era define the search. Resource costs are shown for comparison; no stock cap is applied.${postureContext}`;
   const stockAxisView = [xKey, yKey].some((key) => key.endsWith("PerPressure"));
   $("#chart-help").textContent = stockAxisView
-    ? "Stock-relative axes use the tightest share of available resources. Resource types stay separate."
+    ? postureAware
+      ? "Stock-relative axes use the tightest share of available resources. Highlighted choices add role breadth."
+      : "Stock-relative axes use the tightest share of available resources. Resource types stay separate."
+    : postureAware
+      ? "Dots are legal or affordable armies. The line is the raw combat frontier; highlighted points add role breadth."
     : isAffordabilityMode()
       ? "Dots are affordable armies. The line shows the efficient trade-offs."
       : "Dots are population-legal armies. The line shows the efficient trade-offs.";
@@ -704,6 +817,11 @@ function wireControls() {
     renderAxisOptions();
     recalculateImmediately();
   });
+  $("#posture").addEventListener("change", (event) => {
+    state.posture = event.target.value;
+    renderPostureHelp();
+    recalculateImmediately();
+  });
   ["food", "wood", "stone", "metal", "x-axis", "y-axis", "weight-dps", "weight-health", "weight-range", "weight-speed"].forEach((id) => {
     $("#" + id).addEventListener("input", scheduleRecalculate);
     $("#" + id).addEventListener("change", recalculateImmediately);
@@ -743,6 +861,7 @@ async function init() {
     civSelect.innerHTML = state.data.civilisations.map((civ) => `<option value="${escapeHtml(civ)}">${escapeHtml(CIVILISATION_NAMES[civ] || civ.toUpperCase())}</option>`).join("");
     civSelect.value = state.civ;
     renderAxisOptions();
+    renderPostureHelp();
     updateUnitPool(true);
     $("#source-summary").textContent = `0 A.D. snapshot ${state.data.source.commit.slice(0, 12)} · ${state.data.units.length} units`;
     wireControls();

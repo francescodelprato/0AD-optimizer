@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A small Pareto-frontier explorer for 0 A.D. army compositions.">
     <title>0 A.D. — Army frontier</title>
-    <link rel="stylesheet" href="styles.css?v=7">
+    <link rel="stylesheet" href="styles.css?v=8">
   </head>
   <body>
     <header class="site-header">
@@ -120,6 +120,17 @@
         </div>
         <span class="range-note" id="axis-help">Resource costs stay visible in the army cards. Stock-relative axes appear when you check available stock.</span>
 
+        <label class="field posture-field">
+          <span class="field-label">Army posture</span>
+          <span class="field-help">Choose how the suggestions handle an unknown opponent.</span>
+          <select id="posture">
+            <option value="generalist">General-purpose</option>
+            <option value="raw">Raw power</option>
+            <option value="robust">Robust</option>
+          </select>
+          <span class="range-note" id="posture-help">Keep strong armies, but favor coverage across frontline, ranged, and mobile roles.</span>
+        </label>
+
         <div class="field-group preferences">
           <div class="field-label">What matters to you?</div>
           <span class="field-help">Rank the efficient armies by your priorities.</span>
@@ -133,6 +144,7 @@
         <details class="model-note">
           <summary>How this estimate works</summary>
           <p>Uses unit costs, population, health, resistance, attack damage, attack timing, range, and movement speed.</p>
+          <p>Raw power ranks those combat measures only. General-purpose and Robust gently reward frontline, ranged, and mobile role coverage; they do not guess the opponent.</p>
           <p>Explore mode leaves stock uncapped. Available-stock mode keeps food, wood, stone, and metal separate and reports the tightest stock share.</p>
           <p>It does not yet model counters, armour interaction, technologies, formations, terrain, production time, or micro.</p>
         </details>
@@ -142,12 +154,12 @@
         <div class="result-header">
           <div>
             <div class="eyebrow">03 / RESULTS</div>
-            <h2 id="result-title">Athenians: efficient armies</h2>
+            <h2 id="result-title">Athenians: general-purpose choices</h2>
             <p class="result-summary">Legal armies appear as dots. The line keeps choices that are not beaten on both measures.</p>
           </div>
           <div class="result-counts" aria-live="polite">
             <span><strong id="feasible-count">—</strong> <span id="feasible-label">legal armies</span></span>
-            <span><strong id="frontier-count">—</strong> efficient choices</span>
+            <span><strong id="frontier-count">—</strong> <span id="frontier-label">posture choices</span></span>
           </div>
         </div>
 
@@ -158,7 +170,8 @@
           </div>
           <div class="chart-legend" aria-label="Chart legend">
             <span><i class="legend-dot"></i> Legal army</span>
-            <span><i class="legend-line"></i> Efficient trade-off</span>
+            <span><i class="legend-line"></i> <span id="frontier-legend-label">Raw combat frontier</span></span>
+            <span id="posture-legend" hidden><i class="legend-posture"></i> Posture-aware choice</span>
             <span><i class="legend-selected"></i> Selected army</span>
           </div>
           <canvas id="frontier-chart" aria-label="Army trade-off chart" aria-describedby="chart-help"></canvas>
@@ -203,6 +216,6 @@
       <a href="https://play0ad.com/" target="_blank" rel="noreferrer">0 A.D. official site ↗</a>
     </footer>
 
-    <script src="app.js?v=9" defer></script>
+    <script src="app.js?v=10" defer></script>
   </body>
 </html>

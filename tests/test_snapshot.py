@@ -82,10 +82,16 @@ class SnapshotTests(unittest.TestCase):
         self.assertIn('value="explore"', index)
         self.assertIn('value="affordability"', index)
         self.assertIn('id="affordability-controls"', index)
+        self.assertIn('id="posture"', index)
+        self.assertIn('value="raw"', index)
+        self.assertIn('value="generalist"', index)
+        self.assertIn('value="robust"', index)
         self.assertIn("unitAllowedByEra", app)
         self.assertIn("resourcePressureFor", app)
         self.assertIn("dpsPerPressure", app)
         self.assertIn("healthPerPressure", app)
+        self.assertIn("compositionPostureMetrics", app)
+        self.assertIn("rawFrontier", app)
 
     def test_exploration_mode_does_not_require_resource_caps(self):
         app = (ROOT / "app.js").read_text(encoding="utf-8")
