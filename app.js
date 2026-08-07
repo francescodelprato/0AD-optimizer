@@ -22,12 +22,15 @@ const RESOURCE_ICONS = {
   stone: { label: "Stone", path: "assets/resources/stone.png" },
   metal: { label: "Metal", path: "assets/resources/metal.png" },
 };
+const RESOURCE_KEYS = Object.keys(RESOURCE_ICONS);
 const POPULATION_MIN = 8;
 const POPULATION_MAX = 120;
 const MAX_POOL_SIZE = 6;
 const MAX_COMPOSITIONS = 400000;
 const PHASE_ORDER = { village: 0, town: 1, city: 2 };
 const PHASE_LABELS = { village: "Village", town: "Town", city: "City" };
+const RAW_AXIS_KEYS = ["dps", "health", "range", "speed", "armor"];
+const STOCK_AXIS_KEYS = ["dpsPerPressure", "healthPerPressure"];
 
 const AXES = {
   dps: { label: "Damage per second (DPS)", short: "DPS", digits: 1 },
@@ -35,14 +38,15 @@ const AXES = {
   range: { label: "Attack range", short: "range", digits: 1 },
   speed: { label: "Movement speed", short: "speed", digits: 1 },
   armor: { label: "Resistance", short: "resistance", digits: 1 },
-  dpsPerResource: { label: "DPS per 100 total resources", short: "DPS / 100 res.", digits: 2 },
-  healthPerResource: { label: "Health per 100 total resources", short: "HP / 100 res.", digits: 1 },
+  dpsPerPressure: { label: "DPS per stock used", short: "DPS / stock", digits: 1 },
+  healthPerPressure: { label: "Health per stock used", short: "HP / stock", digits: 0 },
 };
 
 const state = {
   data: null,
   civ: "athen",
   era: "all",
+  constraintMode: "explore",
   units: [],
   selectedIds: [],
   compositions: [],
@@ -143,6 +147,16 @@ function compositionCostMarkup(composition) {
   return costsMarkup(composition.resources);
 }
 
+function resourcePressureMarkup(composition) {
+  if (!isAffordabilityMode() || composition.resourcePressure === null || !Number.isFinite(composition.resourcePressure)) return "";
+  const binding = RESOURCE_ICONS[composition.bindingResource];
+  const pressureClass = composition.resourcePressure >= 0.9 ? " is-tight" : "";
+  return `<span class="resource-pressure${pressureClass}" title="The tightest share of available stock used by this army.">
+    ${binding ? `<img class="resource-icon" src="${escapeHtml(binding.path)}" alt="">` : ""}
+    ${number(composition.resourcePressure * 100, 0)}% ${binding ? escapeHtml(binding.label.toLowerCase()) : "stock"} stock
+  </span>`;
+}
+
 function selectedUnits() {
   return state.units.filter((unit) => state.selectedIds.includes(unit.id));
 }
@@ -188,7 +202,43 @@ function updateUnitPool(resetSelection = false) {
 }
 
 function readBudgets() {
-  return Object.fromEntries(["food", "wood", "stone", "metal"].map((resource) => [resource, Math.max(0, Number($("#" + resource).value) || 0)]));
+  return Object.fromEntries(RESOURCE_KEYS.map((resource) => [resource, Math.max(0, Number($("#" + resource).value) || 0)]));
+}
+
+function isAffordabilityMode() {
+  return state.constraintMode === "affordability";
+}
+
+function resourcePressureFor(resources, budgets) {
+  let pressure = 0;
+  let bindingResource = null;
+  for (const resource of RESOURCE_KEYS) {
+    const cost = resources[resource] || 0;
+    const budget = budgets[resource] || 0;
+    const share = budget > 0 ? cost / budget : cost > 0 ? Infinity : 0;
+    if (share > pressure) {
+      pressure = share;
+      bindingResource = resource;
+    }
+  }
+  return { pressure, bindingResource };
+}
+
+function axisKeys() {
+  return isAffordabilityMode() ? [...RAW_AXIS_KEYS, ...STOCK_AXIS_KEYS] : RAW_AXIS_KEYS;
+}
+
+function renderAxisOptions() {
+  const available = axisKeys();
+  for (const [selector, fallback] of [["#x-axis", "dps"], ["#y-axis", "health"]]) {
+    const select = $(selector);
+    const previous = select.value;
+    select.innerHTML = available.map((key) => `<option value="${key}">${escapeHtml(AXES[key].label)}</option>`).join("");
+    select.value = available.includes(previous) ? previous : fallback;
+  }
+  $("#axis-help").textContent = isAffordabilityMode()
+    ? "Stock-relative axes use the tightest share of your available resources. Resource types stay separate."
+    : "Resource costs stay visible in the army cards. No stock cap is applied in this view.";
 }
 
 function readWeights() {
@@ -258,18 +308,22 @@ function fitsResources(resources, budgets) {
 function enumerateCompositions(units, targetPopulation, budgets) {
   const compositions = [];
   const counts = Array(units.length).fill(0);
-  const resourceKeys = Object.keys(budgets);
-  const resources = Object.fromEntries(resourceKeys.map((resource) => [resource, 0]));
+  const enforceBudgets = isAffordabilityMode();
+  const resources = Object.fromEntries(RESOURCE_KEYS.map((resource) => [resource, 0]));
   const totals = { population: 0, unitCount: 0, dps: 0, health: 0, range: 0, speed: 0, armor: 0 };
   let truncated = false;
-  const minimumCostPerPopulation = Array.from({ length: units.length + 1 }, () => Object.fromEntries(resourceKeys.map((resource) => [resource, Infinity])));
+  const minimumCostPerPopulation = enforceBudgets
+    ? Array.from({ length: units.length + 1 }, () => Object.fromEntries(RESOURCE_KEYS.map((resource) => [resource, Infinity])))
+    : null;
 
-  for (let index = units.length - 1; index >= 0; index -= 1) {
-    for (const resource of resourceKeys) {
-      minimumCostPerPopulation[index][resource] = Math.min(
-        minimumCostPerPopulation[index + 1][resource],
-        (units[index].cost[resource] || 0) / units[index].population,
-      );
+  if (enforceBudgets) {
+    for (let index = units.length - 1; index >= 0; index -= 1) {
+      for (const resource of RESOURCE_KEYS) {
+        minimumCostPerPopulation[index][resource] = Math.min(
+          minimumCostPerPopulation[index + 1][resource],
+          (units[index].cost[resource] || 0) / units[index].population,
+        );
+      }
     }
   }
 
@@ -277,7 +331,8 @@ function enumerateCompositions(units, targetPopulation, budgets) {
     if (remainingPopulation < -1e-8) return false;
     if (remainingPopulation <= 1e-8) return true;
     if (nextIndex >= units.length) return false;
-    return resourceKeys.every((resource) => (
+    if (!enforceBudgets) return true;
+    return RESOURCE_KEYS.every((resource) => (
       resources[resource] + remainingPopulation * minimumCostPerPopulation[nextIndex][resource] <= budgets[resource] + 1e-8
     ));
   };
@@ -288,7 +343,10 @@ function enumerateCompositions(units, targetPopulation, budgets) {
       return;
     }
     const unitCount = totals.unitCount;
-    const totalResources = resourceKeys.reduce((sum, resource) => sum + resources[resource], 0);
+    const pressureInfo = enforceBudgets
+      ? resourcePressureFor(resources, budgets)
+      : { pressure: null, bindingResource: null };
+    const pressure = pressureInfo.pressure;
     compositions.push({
       counts: counts.slice(),
       resources: { ...resources },
@@ -299,9 +357,10 @@ function enumerateCompositions(units, targetPopulation, budgets) {
       range: unitCount ? totals.range / unitCount : 0,
       speed: unitCount ? totals.speed / unitCount : 0,
       armor: unitCount ? totals.armor / unitCount : 0,
-      totalResources,
-      dpsPerResource: totalResources ? (totals.dps * 100) / totalResources : 0,
-      healthPerResource: totalResources ? (totals.health * 100) / totalResources : 0,
+      resourcePressure: pressure,
+      bindingResource: pressureInfo.bindingResource,
+      dpsPerPressure: pressure > 0 && Number.isFinite(pressure) ? totals.dps / pressure : totals.dps,
+      healthPerPressure: pressure > 0 && Number.isFinite(pressure) ? totals.health / pressure : totals.health,
     });
   };
 
@@ -312,7 +371,7 @@ function enumerateCompositions(units, targetPopulation, budgets) {
     const maxCount = Math.floor((remainingPopulation + 1e-8) / unit.population);
     for (let count = 0; count <= maxCount; count += 1) {
       counts[index] = count;
-      for (const resource of resourceKeys) resources[resource] += count * (unit.cost[resource] || 0);
+      for (const resource of RESOURCE_KEYS) resources[resource] += count * (unit.cost[resource] || 0);
       totals.population += count * unit.population;
       totals.unitCount += count;
       totals.dps += count * unit.attack_dps;
@@ -322,7 +381,7 @@ function enumerateCompositions(units, targetPopulation, budgets) {
       totals.armor += count * unit.armor;
 
       const remainingAfterChoice = remainingPopulation - count * unit.population;
-      if (fitsResources(resources, budgets) && canComplete(index + 1, remainingAfterChoice)) {
+      if ((!enforceBudgets || fitsResources(resources, budgets)) && canComplete(index + 1, remainingAfterChoice)) {
         if (isLast) {
           if (Math.abs(remainingPopulation - count * unit.population) < 1e-8) addComposition();
         } else {
@@ -330,7 +389,7 @@ function enumerateCompositions(units, targetPopulation, budgets) {
         }
       }
 
-      for (const resource of resourceKeys) resources[resource] -= count * (unit.cost[resource] || 0);
+      for (const resource of RESOURCE_KEYS) resources[resource] -= count * (unit.cost[resource] || 0);
       totals.population -= count * unit.population;
       totals.unitCount -= count;
       totals.dps -= count * unit.attack_dps;
@@ -440,26 +499,33 @@ function metricMarkup(composition, key) {
 function renderBestFit(composition, units) {
   if (!composition) {
     $("#best-fit-title").textContent = "No legal army found";
-    $("#best-fit-mix").textContent = "Try increasing a resource budget or selecting a different unit pool.";
+    $("#best-fit-mix").textContent = isAffordabilityMode()
+      ? "Try increasing available stock or selecting a different unit pool."
+      : "Try selecting a different unit pool or lowering the army size.";
+    $("#best-fit-metrics").classList.remove("is-compact");
     $("#best-fit-metrics").innerHTML = "";
     return;
   }
   $("#best-fit-title").textContent = `${number(composition.score * 100, 0)} / 100 match`;
-  $("#best-fit-mix").innerHTML = `${escapeHtml(compositionLabel(composition, units))}. <span class="mix-costs">${compositionCostMarkup(composition)}</span>.`;
-  $("#best-fit-metrics").innerHTML = ["dps", "health", "dpsPerResource", "healthPerResource", "range", "speed"].map((key) => metricMarkup(composition, key)).join("");
+  $("#best-fit-mix").innerHTML = `${escapeHtml(compositionLabel(composition, units))}. <span class="mix-costs">Cost: ${compositionCostMarkup(composition)}</span> ${resourcePressureMarkup(composition)}`;
+  const metricKeys = isAffordabilityMode()
+    ? ["dps", "health", "dpsPerPressure", "healthPerPressure", "range", "speed"]
+    : ["dps", "health", "range", "speed"];
+  $("#best-fit-metrics").classList.toggle("is-compact", !isAffordabilityMode());
+  $("#best-fit-metrics").innerHTML = metricKeys.map((key) => metricMarkup(composition, key)).join("");
 }
 
 function renderRecommendations(units) {
   const list = $("#recommendation-list");
   if (!state.frontier.length) {
-    list.innerHTML = `<div class="roster-hint">No legal army satisfies the current limits.</div>`;
+    list.innerHTML = `<div class="roster-hint">${isAffordabilityMode() ? "No army fits the available stock." : "No army matches the current population and unit pool."}</div>`;
     return;
   }
   list.innerHTML = state.frontier.slice(0, 8).map((composition, index) => {
     const isSelected = composition === state.selected;
     return `<button class="recommendation${isSelected ? " is-selected" : ""}" data-frontier-index="${index}">
       <span class="recommendation-rank">${String(index + 1).padStart(2, "0")}</span>
-      <span><span class="recommendation-name">${escapeHtml(compositionMix(composition, units))}</span><span class="recommendation-detail">${number(composition.dps, 1)} DPS · ${number(composition.health, 0)} HP · ${compositionCostMarkup(composition)}</span></span>
+      <span><span class="recommendation-name">${escapeHtml(compositionMix(composition, units))}</span><span class="recommendation-detail">${number(composition.dps, 1)} DPS · ${number(composition.health, 0)} HP · ${compositionCostMarkup(composition)} ${resourcePressureMarkup(composition)}</span></span>
       <span class="recommendation-score">${number(composition.score * 100, 0)}% match</span>
     </button>`;
   }).join("");
@@ -489,7 +555,7 @@ function drawChart(xKey, yKey) {
   if (!compositions.length) {
     context.fillStyle = "#6d747c";
     context.font = "14px Avenir Next, sans-serif";
-    context.fillText("No legal composition under these constraints.", 35, height / 2);
+    context.fillText(isAffordabilityMode() ? "No army fits the available stock." : "No matching population mix found.", 35, height / 2);
     state.chartPoints = [];
     return;
   }
@@ -557,18 +623,29 @@ function drawChart(xKey, yKey) {
 }
 
 function renderResults(units, xKey, yKey) {
-  $("#result-title").textContent = `${CIVILISATION_NAMES[state.civ] || state.civ}: efficient armies`;
+  $("#result-title").textContent = `${CIVILISATION_NAMES[state.civ] || state.civ}: ${isAffordabilityMode() ? "affordable trade-offs" : "combat trade-offs"}`;
   $("#feasible-count").textContent = number(state.compositions.length, 0);
+  $("#feasible-label").textContent = state.truncated ? "candidate armies" : "legal armies";
   $("#frontier-count").textContent = number(state.frontier.length, 0);
   $("#chart-x-label").textContent = AXES[xKey].label;
   $("#chart-y-label").textContent = AXES[yKey].label;
-  const efficiencyView = [xKey, yKey].some((key) => key.endsWith("PerResource"));
-  $("#chart-help").textContent = efficiencyView
-    ? "Efficiency is output per 100 total resource units: food, wood, stone, and metal."
-    : "Dots are legal armies. The line shows the efficient trade-offs.";
+  $("#frontier-chart").setAttribute("aria-label", `${AXES[xKey].label} versus ${AXES[yKey].label}; ${number(state.frontier.length, 0)} frontier choices among ${number(state.compositions.length, 0)} ${state.truncated ? "candidate" : "legal"} armies.`);
+  $(".result-summary").textContent = isAffordabilityMode()
+    ? "Only armies within the available stock are shown. The tightest resource is reported for each choice."
+    : "Population and era define the search. Resource costs are shown for comparison; no stock cap is applied.";
+  const stockAxisView = [xKey, yKey].some((key) => key.endsWith("PerPressure"));
+  $("#chart-help").textContent = stockAxisView
+    ? "Stock-relative axes use the tightest share of available resources. Resource types stay separate."
+    : isAffordabilityMode()
+      ? "Dots are affordable armies. The line shows the efficient trade-offs."
+      : "Dots are population-legal armies. The line shows the efficient trade-offs.";
   $("#search-status").textContent = state.truncated
-    ? `Search limit reached at ${number(MAX_COMPOSITIONS, 0)} armies; results are approximate`
-    : "All checked combinations searched";
+    ? isAffordabilityMode()
+      ? `Search limit reached at ${number(MAX_COMPOSITIONS, 0)} armies; results are approximate`
+      : `Representative search shown after ${number(MAX_COMPOSITIONS, 0)} armies; lower population for a complete view`
+    : isAffordabilityMode()
+      ? "All stock-constrained combinations searched"
+      : "All population mixes in the selected pool searched";
   renderBestFit(state.selected, units);
   renderRecommendations(units);
   drawChart(xKey, yKey);
@@ -621,6 +698,12 @@ function wireControls() {
     renderUnitRoster();
     recalculate();
   });
+  $("#constraint-mode").addEventListener("change", (event) => {
+    state.constraintMode = event.target.value;
+    $("#affordability-controls").hidden = !isAffordabilityMode();
+    renderAxisOptions();
+    recalculateImmediately();
+  });
   ["food", "wood", "stone", "metal", "x-axis", "y-axis", "weight-dps", "weight-health", "weight-range", "weight-speed"].forEach((id) => {
     $("#" + id).addEventListener("input", scheduleRecalculate);
     $("#" + id).addEventListener("change", recalculateImmediately);
@@ -659,6 +742,7 @@ async function init() {
     const civSelect = $("#civilisation");
     civSelect.innerHTML = state.data.civilisations.map((civ) => `<option value="${escapeHtml(civ)}">${escapeHtml(CIVILISATION_NAMES[civ] || civ.toUpperCase())}</option>`).join("");
     civSelect.value = state.civ;
+    renderAxisOptions();
     updateUnitPool(true);
     $("#source-summary").textContent = `0 A.D. snapshot ${state.data.source.commit.slice(0, 12)} · ${state.data.units.length} units`;
     wireControls();

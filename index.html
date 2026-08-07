@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A small Pareto-frontier explorer for 0 A.D. army compositions.">
     <title>0 A.D. — Army frontier</title>
-    <link rel="stylesheet" href="styles.css?v=6">
+    <link rel="stylesheet" href="styles.css?v=7">
   </head>
   <body>
     <header class="site-header">
       <div class="eyebrow">0 A.D. × Pareto</div>
       <h1>Build an army. See the trade-offs.</h1>
       <p class="lede">
-        Pick a civilisation, choose a small set of units, and compare every legal army under the same population and resource budget.
+        Pick a civilisation, choose a small set of units, and compare army trade-offs under the same population and era.
       </p>
       <div class="how-it-works" aria-label="How to use the army planner">
         <div class="how-step">
           <span class="how-step-number">1</span>
-          <span><strong>Set the limits</strong><small>Population and resources</small></span>
+          <span><strong>Set the limits</strong><small>Population and era</small></span>
         </div>
         <div class="how-step">
           <span class="how-step-number">2</span>
@@ -40,7 +40,7 @@
         <div class="section-heading">
           <div class="eyebrow">01 / BUILD</div>
           <h2 id="controls-title">Set your army</h2>
-          <p>These limits define which armies are allowed.</p>
+          <p>Population and era shape the search. Stock checks are optional.</p>
         </div>
 
         <label class="field">
@@ -61,6 +61,15 @@
         </label>
 
         <label class="field">
+          <span class="field-label">Resource treatment</span>
+          <span class="field-help">Explore combat trade-offs first, or check whether armies fit your current stock.</span>
+          <select id="constraint-mode">
+            <option value="explore">Explore trade-offs</option>
+            <option value="affordability">Check available stock</option>
+          </select>
+        </label>
+
+        <label class="field">
           <span class="field-label"><span>Army size</span><output id="population-output"></output></span>
           <span class="population-controls">
             <input id="population" type="range" min="8" max="120" step="1" value="24" aria-label="Army size slider" aria-describedby="population-help">
@@ -69,15 +78,16 @@
           <span class="range-note" id="population-help">Every army uses this many population slots. Drag the slider or type an exact value.</span>
         </label>
 
-        <div class="field-group">
-          <div class="field-label">Resource budget</div>
-          <span class="field-help" id="budget-help">The maximum resources an army may spend.</span>
+        <div id="affordability-controls" class="field-group stock-settings" hidden>
+          <div class="field-label">Available stock</div>
+          <span class="field-help" id="budget-help">Armies must stay within each of these resource ceilings.</span>
           <div class="budget-grid">
             <label><span class="resource-label"><img src="assets/resources/food.png" alt="" width="18" height="18">Food</span><input id="food" type="number" min="0" step="50" value="2400" aria-describedby="budget-help"></label>
             <label><span class="resource-label"><img src="assets/resources/wood.png" alt="" width="18" height="18">Wood</span><input id="wood" type="number" min="0" step="50" value="1800" aria-describedby="budget-help"></label>
             <label><span class="resource-label"><img src="assets/resources/stone.png" alt="" width="18" height="18">Stone</span><input id="stone" type="number" min="0" step="50" value="600" aria-describedby="budget-help"></label>
             <label><span class="resource-label"><img src="assets/resources/metal.png" alt="" width="18" height="18">Metal</span><input id="metal" type="number" min="0" step="50" value="900" aria-describedby="budget-help"></label>
           </div>
+          <span class="range-note">The planner identifies the tightest resource for every affordable army.</span>
         </div>
 
         <div class="section-heading compact-heading">
@@ -95,8 +105,6 @@
               <option value="range">Attack range</option>
               <option value="speed">Movement speed</option>
               <option value="armor">Resistance</option>
-              <option value="dpsPerResource">DPS per 100 total resources</option>
-              <option value="healthPerResource">Health per 100 total resources</option>
             </select>
           </label>
           <label class="field">
@@ -107,12 +115,10 @@
               <option value="range">Attack range</option>
               <option value="speed">Movement speed</option>
               <option value="armor">Resistance</option>
-              <option value="dpsPerResource">DPS per 100 total resources</option>
-              <option value="healthPerResource">Health per 100 total resources</option>
             </select>
           </label>
         </div>
-        <span class="range-note">Efficiency views divide output by the combined food, wood, stone, and metal cost.</span>
+        <span class="range-note" id="axis-help">Resource costs stay visible in the army cards. Stock-relative axes appear when you check available stock.</span>
 
         <div class="field-group preferences">
           <div class="field-label">What matters to you?</div>
@@ -127,6 +133,7 @@
         <details class="model-note">
           <summary>How this estimate works</summary>
           <p>Uses unit costs, population, health, resistance, attack damage, attack timing, range, and movement speed.</p>
+          <p>Explore mode leaves stock uncapped. Available-stock mode keeps food, wood, stone, and metal separate and reports the tightest stock share.</p>
           <p>It does not yet model counters, armour interaction, technologies, formations, terrain, production time, or micro.</p>
         </details>
         </aside>
@@ -139,7 +146,7 @@
             <p class="result-summary">Legal armies appear as dots. The line keeps choices that are not beaten on both measures.</p>
           </div>
           <div class="result-counts" aria-live="polite">
-            <span><strong id="feasible-count">—</strong> legal armies</span>
+            <span><strong id="feasible-count">—</strong> <span id="feasible-label">legal armies</span></span>
             <span><strong id="frontier-count">—</strong> efficient choices</span>
           </div>
         </div>
@@ -196,6 +203,6 @@
       <a href="https://play0ad.com/" target="_blank" rel="noreferrer">0 A.D. official site ↗</a>
     </footer>
 
-    <script src="app.js?v=8" defer></script>
+    <script src="app.js?v=9" defer></script>
   </body>
 </html>

@@ -71,18 +71,28 @@ class SnapshotTests(unittest.TestCase):
         self.assertIn('id="population" type="range" min="8" max="120"', index)
         self.assertIn('id="population-input" type="number" min="8" max="120"', index)
 
-    def test_era_and_resource_efficiency_controls_are_rendered(self):
+    def test_era_and_resource_modes_are_rendered(self):
         index = (ROOT / "index.html").read_text(encoding="utf-8")
         app = (ROOT / "app.js").read_text(encoding="utf-8")
         self.assertIn('id="era"', index)
         self.assertIn('value="village"', index)
         self.assertIn('value="town"', index)
         self.assertIn('value="city"', index)
-        self.assertIn('value="dpsPerResource"', index)
-        self.assertIn('value="healthPerResource"', index)
+        self.assertIn('id="constraint-mode"', index)
+        self.assertIn('value="explore"', index)
+        self.assertIn('value="affordability"', index)
+        self.assertIn('id="affordability-controls"', index)
         self.assertIn("unitAllowedByEra", app)
-        self.assertIn("dpsPerResource", app)
-        self.assertIn("healthPerResource", app)
+        self.assertIn("resourcePressureFor", app)
+        self.assertIn("dpsPerPressure", app)
+        self.assertIn("healthPerPressure", app)
+
+    def test_exploration_mode_does_not_require_resource_caps(self):
+        app = (ROOT / "app.js").read_text(encoding="utf-8")
+        self.assertIn('constraintMode: "explore"', app)
+        self.assertIn("const enforceBudgets = isAffordabilityMode();", app)
+        self.assertIn("if (!enforceBudgets) return true;", app)
+        self.assertIn('id="feasible-label"', (ROOT / "index.html").read_text(encoding="utf-8"))
 
     def test_resource_icons_are_available(self):
         index = (ROOT / "index.html").read_text(encoding="utf-8")

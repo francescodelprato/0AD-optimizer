@@ -31,20 +31,22 @@ The extractor resolves the XML parent chain used by the game. It keeps baseline 
 - Selects a civilisation and up to six unit types.
 - Filters the allowed unit pool by era: all eras, Village, up to Town, or up to City.
 - Fixes the army population exactly, from 8 to 120.
+- Starts in an exploration mode where population and era define the search and resource costs remain visible without becoming hard filters.
+- Offers an advanced available-stock mode with separate food, wood, stone, and metal ceilings.
 - Marks Champion and Non-champion units from the source template classes.
-- Uses official 0 A.D. resource icons in budgets and cost summaries.
-- Applies food, wood, stone, and metal ceilings.
+- Uses official 0 A.D. resource icons in stock controls and cost summaries.
+- Reports the tightest stock share and its binding resource in available-stock mode.
 - Enumerates every composition in the checked unit pool.
 - Shows a two-dimensional Pareto frontier.
 - Ranks frontier points with player weights for raw damage per second, health, range, and speed.
-- Offers DPS-per-100-resource and health-per-100-resource chart views. These sum food, wood, stone, and metal units without treating them as interchangeable in the legality constraints.
+- Offers stock-relative DPS and health chart views in available-stock mode. These use the tightest share of the available stock and do not treat resources as interchangeable.
 - Shows the source commit and the scope of the snapshot.
 
 ## Model boundary
 
 The displayed damage per second is raw template damage divided by the attack repeat time. The prototype does not yet simulate target armour, counter bonuses, formations, terrain, technologies, civilisation bonuses, production buildings, build time, resource gathering, or player micro. A result is therefore a transparent comparison tool, not a claim about the winner of a real battle.
 
-The current search is exhaustive only over the checked pool when it stays below the 400,000-composition browser cap. The six-unit limit keeps the choice set visible. A lower-bound pruning step avoids exploring branches that cannot meet the resource ceilings. Resource ceilings are stock constraints, not a build-order simulation.
+The current search is exhaustive only over the checked pool when it stays below the 400,000-composition browser cap. The six-unit limit keeps the choice set visible. Available-stock mode uses a lower-bound pruning step to avoid exploring branches that cannot meet the resource ceilings. Exploration mode reports when it reaches the cap and therefore shows a representative search, not a complete enumeration. Stock ceilings are stock constraints, not a build-order simulation.
 
 ## Checks
 
