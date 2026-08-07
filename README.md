@@ -24,11 +24,12 @@ python3 scripts/extract_units.py \
   --out data/units.json
 ```
 
-The extractor resolves the XML parent chain used by the game. It keeps baseline (`*_b.xml`) and Champion soldier templates, excluding heroes, healers, ships, and siege units, for the playable civilisations. Each unit keeps its source template path and source-defined `Identity/Icon` path.
+The extractor resolves the XML parent chain used by the game. It keeps baseline (`*_b.xml`) and Champion soldier templates, excluding heroes, healers, ships, and siege units, for the playable civilisations. Each unit keeps its source template path, source-defined `Identity/Icon` path, resolved phase requirements, and a Village/Town/City phase proxy. Special technology requirements are conservatively treated as City-phase access.
 
 ## What the prototype does
 
 - Selects a civilisation and up to six unit types.
+- Filters the allowed unit pool by era: all eras, Village, up to Town, or up to City.
 - Fixes the army population exactly, from 8 to 120.
 - Marks Champion and Non-champion units from the source template classes.
 - Uses official 0 A.D. resource icons in budgets and cost summaries.
@@ -36,6 +37,7 @@ The extractor resolves the XML parent chain used by the game. It keeps baseline 
 - Enumerates every composition in the checked unit pool.
 - Shows a two-dimensional Pareto frontier.
 - Ranks frontier points with player weights for raw damage per second, health, range, and speed.
+- Offers DPS-per-100-resource and health-per-100-resource chart views. These sum food, wood, stone, and metal units without treating them as interchangeable in the legality constraints.
 - Shows the source commit and the scope of the snapshot.
 
 ## Model boundary

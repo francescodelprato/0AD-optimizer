@@ -68,6 +68,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/achae/cavalry_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/achae/cavalry_archer_b.xml"
     },
@@ -110,6 +114,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/achae/cavalry_axeman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/achae/cavalry_axeman_b.xml"
     },
@@ -151,6 +159,8 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/achae/cavalry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/achae/cavalry_javelineer_b.xml"
     },
@@ -192,6 +202,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/achae/cavalry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/achae/cavalry_spearman_b.xml"
     },
@@ -234,6 +248,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "unlock_champion_cavalry"
+      ],
+      "phase": "city",
       "portrait": "units/achae/champion_cavalry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/achae/champion_cavalry.xml"
     },
@@ -275,6 +293,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "unlock_champion_cavalry"
+      ],
+      "phase": "city",
       "portrait": "units/achae/champion_cavalry_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/achae/champion_cavalry_archer.xml"
     },
@@ -317,6 +339,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "unlock_champion_chariots"
+      ],
+      "phase": "city",
       "portrait": "units/achae/chariot_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/achae/champion_chariot.xml"
     },
@@ -356,6 +382,10 @@
         "Human",
         "IndianElephant"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/achae/champion_elephant.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/achae/champion_elephant.xml"
     },
@@ -397,6 +427,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/achae/champion_infantry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/achae/champion_infantry.xml"
     },
@@ -438,6 +472,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/achae/champion_infantry_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/achae/champion_infantry_archer_upgrade.xml"
     },
@@ -480,6 +518,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/achae/infantry_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/achae/infantry_archer_b.xml"
     },
@@ -522,6 +562,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/achae/infantry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/achae/infantry_javelineer_b.xml"
     },
@@ -564,6 +608,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/achae/infantry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/achae/infantry_spearman_b.xml"
     },
@@ -605,6 +651,8 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/athen/cavalry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/athen/cavalry_javelineer_b.xml"
     },
@@ -647,6 +695,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/athen/cavalry_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/athen/cavalry_swordsman_b.xml"
     },
@@ -687,6 +739,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/athen/champion_infantry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/athen/champion_infantry.xml"
     },
@@ -727,6 +783,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/athen/champion_marine.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/athen/champion_marine.xml"
     },
@@ -767,6 +827,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/athen/champion_ranged.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/athen/champion_ranged.xml"
     },
@@ -809,6 +873,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/mace/infantry_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/athen/infantry_archer_b.xml"
     },
@@ -851,6 +919,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/athen/infantry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/athen/infantry_javelineer_b.xml"
     },
@@ -894,6 +966,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/athen/infantry_slinger.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/athen/infantry_slinger_b.xml"
     },
@@ -936,6 +1010,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/athen/infantry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/athen/infantry_spearman_b.xml"
     },
@@ -977,6 +1053,8 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/brit/cavalry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/brit/cavalry_javelineer_b.xml"
     },
@@ -1019,6 +1097,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/brit/cavalry_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/brit/cavalry_swordsman_b.xml"
     },
@@ -1061,6 +1143,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "unlock_champion_chariots"
+      ],
+      "phase": "city",
       "portrait": "units/brit/champion_chariot.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/brit/champion_chariot.xml"
     },
@@ -1101,6 +1187,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/brit/champion_infantry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/brit/champion_infantry_swordsman.xml"
     },
@@ -1143,6 +1233,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/brit/infantry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/brit/infantry_javelineer_b.xml"
     },
@@ -1186,6 +1280,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/gaul/infantry_slinger.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/brit/infantry_slinger_b.xml"
     },
@@ -1228,6 +1324,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/brit/infantry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/brit/infantry_spearman_b.xml"
     },
@@ -1269,6 +1367,8 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/cart/cavalry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/cart/cavalry_javelineer_b.xml"
     },
@@ -1311,6 +1411,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/cart/cavalry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/cart/cavalry_spearman_ital_b.xml"
     },
@@ -1353,6 +1457,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/cart/cavalry_swordsman_2.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/cart/cavalry_swordsman_gaul_b.xml"
     },
@@ -1395,6 +1503,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/cart/cavalry_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/cart/cavalry_swordsman_iber_b.xml"
     },
@@ -1436,6 +1548,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/cart/champion_cavalry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/cart/champion_cavalry.xml"
     },
@@ -1475,6 +1591,10 @@
         "Human",
         "AfricanElephant"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/cart/champion_elephant.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/cart/champion_elephant.xml"
     },
@@ -1515,6 +1635,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/cart/champion_infantry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/cart/champion_infantry.xml"
     },
@@ -1555,6 +1679,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/cart/champion_infantry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/cart/champion_pikeman.xml"
     },
@@ -1597,6 +1725,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/cart/infantry_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/cart/infantry_archer_b.xml"
     },
@@ -1639,6 +1769,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/cart/infantry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/cart/infantry_javelineer_iber_b.xml"
     },
@@ -1681,6 +1815,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/cart/infantry_slinger.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/cart/infantry_slinger_iber_b.xml"
     },
@@ -1723,6 +1861,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/cart/infantry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/cart/infantry_spearman_b.xml"
     },
@@ -1765,6 +1905,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/cart/infantry_spearman_2.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/cart/infantry_spearman_ital_b.xml"
     },
@@ -1807,6 +1951,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/cart/infantry_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/cart/infantry_swordsman_gaul_b.xml"
     },
@@ -1849,6 +1997,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/cart/infantry_swordsman_2.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/cart/infantry_swordsman_ital_b.xml"
     },
@@ -1890,6 +2042,8 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/gaul/cavalry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/cavalry_javelineer_b.xml"
     },
@@ -1932,6 +2086,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/gaul/cavalry_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/cavalry_swordsman_b.xml"
     },
@@ -1973,6 +2131,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "unlock_champion_cavalry"
+      ],
+      "phase": "city",
       "portrait": "units/gaul/champion_cavalry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/champion_cavalry.xml"
     },
@@ -2012,6 +2174,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/gaul/champion_fanatic.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/champion_fanatic.xml"
     },
@@ -2052,6 +2218,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/gaul/champion_infantry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/champion_infantry_swordsman.xml"
     },
@@ -2091,6 +2261,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/gaul/champion_swordsman_carnyx.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/champion_infantry_trumpeter.xml"
     },
@@ -2133,6 +2307,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/gaul/infantry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/infantry_javelineer_b.xml"
     },
@@ -2176,6 +2352,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/gaul/infantry_slinger.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/infantry_slinger_b.xml"
     },
@@ -2218,6 +2398,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/gaul/infantry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/gaul/infantry_spearman_b.xml"
     },
@@ -2259,6 +2441,8 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/germ/cavalry_javelineer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/germ/cavalry_javelineer_b.xml"
     },
@@ -2300,6 +2484,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/germ/cavalry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/germ/cavalry_spearman_b.xml"
     },
@@ -2341,6 +2529,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/germ/champion_cavalry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/germ/champion_cavalry.xml"
     },
@@ -2382,6 +2574,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/germ/champion_infantry_axeman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/germ/champion_infantry_axeman.xml"
     },
@@ -2424,6 +2620,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_village"
+      ],
+      "phase": "village",
       "portrait": "units/germ/infantry_clubman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/germ/champion_infantry_maceman.xml"
     },
@@ -2466,6 +2666,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/germ/infantry_javelineer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/germ/infantry_javelineer_b.xml"
     },
@@ -2509,6 +2713,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/germ/infantry_slinger.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/germ/infantry_slinger_b.xml"
     },
@@ -2552,6 +2758,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/germ/infantry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/germ/infantry_spearman_b.xml"
     },
@@ -2595,6 +2803,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/germ/infantry_axeman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/germ/infantry_swordsman_b.xml"
     },
@@ -2636,6 +2848,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/han/cavalry_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/han/cavalry_archer_b.xml"
     },
@@ -2677,6 +2893,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/han/cavalry_crossbowman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/han/cavalry_crossbowman_b.xml"
     },
@@ -2718,6 +2938,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/han/cavalry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/han/cavalry_spearman_b.xml"
     },
@@ -2760,6 +2984,8 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/han/cavalry_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/han/cavalry_swordsman_b.xml"
     },
@@ -2801,6 +3027,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/han/champion_cavalry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/han/champion_cavalry_spearman_academy.xml"
     },
@@ -2843,6 +3073,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/han/chariot.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/han/champion_chariot_academy.xml"
     },
@@ -2883,6 +3117,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/han/champion_infantry_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/han/champion_infantry_archer_academy.xml"
     },
@@ -2923,6 +3161,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/han/champion_infantry_crossbowman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/han/champion_infantry_crossbowman_academy.xml"
     },
@@ -2963,6 +3205,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/han/champion_infantry_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/han/champion_infantry_spearman_academy.xml"
     },
@@ -3005,6 +3251,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/han/infantry_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/han/infantry_archer_b.xml"
     },
@@ -3047,6 +3297,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/han/infantry_crossbowman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/han/infantry_crossbowman_b.xml"
     },
@@ -3089,6 +3341,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/han/infantry_halberdman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/han/infantry_pikeman_b.xml"
     },
@@ -3131,6 +3387,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/han/infantry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/han/infantry_spearman_b.xml"
     },
@@ -3174,6 +3432,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/han/infantry_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/han/infantry_swordsman_special_b.xml"
     },
@@ -3215,6 +3477,8 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/iber/cavalry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/iber/cavalry_javelineer_b.xml"
     },
@@ -3256,6 +3520,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/iber/cavalry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/iber/cavalry_spearman_b.xml"
     },
@@ -3297,6 +3565,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "unlock_champion_cavalry"
+      ],
+      "phase": "city",
       "portrait": "units/iber/champion_cavalry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/iber/champion_cavalry.xml"
     },
@@ -3337,6 +3609,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/iber/champion_infantry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/iber/champion_infantry_swordsman.xml"
     },
@@ -3379,6 +3655,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/iber/infantry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/iber/infantry_javelineer_b.xml"
     },
@@ -3422,6 +3700,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/iber/infantry_slinger.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/iber/infantry_slinger_b.xml"
     },
@@ -3464,6 +3746,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/iber/infantry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/iber/infantry_spearman_b.xml"
     },
@@ -3507,6 +3793,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/iber/infantry_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/iber/infantry_swordsman_b.xml"
     },
@@ -3548,6 +3836,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_village"
+      ],
+      "phase": "village",
       "portrait": "units/kush/cavalry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/kush/cavalry_javelineer_b.xml"
     },
@@ -3591,6 +3883,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/kush/camel_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/kush/cavalry_javelineer_merc_b.xml"
     },
@@ -3632,6 +3928,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/kush/cavalry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/kush/cavalry_spearman_b.xml"
     },
@@ -3673,6 +3973,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "unlock_champion_cavalry"
+      ],
+      "phase": "city",
       "portrait": "units/kush/champion_cavalry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/kush/champion_cavalry.xml"
     },
@@ -3712,6 +4016,10 @@
         "Human",
         "AfricanElephant"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/kush/champion_elephant.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/kush/champion_elephant.xml"
     },
@@ -3753,6 +4061,10 @@
         "Human",
         "AmunGuard"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/kush/champion_amun.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/kush/champion_infantry_amun.xml"
     },
@@ -3794,6 +4106,10 @@
         "Human",
         "ApedemakGuard"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/kush/champion_apedemak.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/kush/champion_infantry_apedemak.xml"
     },
@@ -3834,6 +4150,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/kush/champion_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/kush/champion_infantry_archer.xml"
     },
@@ -3876,6 +4196,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_village"
+      ],
+      "phase": "village",
       "portrait": "units/kush/infantry_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/kush/infantry_archer_b.xml"
     },
@@ -3918,6 +4242,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/kush/infantry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/kush/infantry_javelineer_merc_b.xml"
     },
@@ -3960,6 +4288,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/kush/infantry_maceman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/kush/infantry_maceman_merc_b.xml"
     },
@@ -4002,6 +4334,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/kush/infantry_pikeman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/kush/infantry_pikeman_b.xml"
     },
@@ -4044,6 +4380,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_village"
+      ],
+      "phase": "village",
       "portrait": "units/kush/infantry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/kush/infantry_spearman_b.xml"
     },
@@ -4087,6 +4427,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/kush/infantry_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/kush/infantry_swordsman_b.xml"
     },
@@ -4129,6 +4473,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/mace/cavalry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/mace/cavalry_javelineer_b.xml"
     },
@@ -4170,6 +4518,8 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/mace/cavalry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/mace/cavalry_spearman_b.xml"
     },
@@ -4211,6 +4561,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "unlock_champion_cavalry"
+      ],
+      "phase": "city",
       "portrait": "units/mace/champion_cavalry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/mace/champion_cavalry.xml"
     },
@@ -4251,6 +4605,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/mace/champion_infantry_crossbowman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/mace/champion_infantry_crossbowman.xml"
     },
@@ -4291,6 +4649,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/mace/hypaspist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/mace/champion_infantry_spearman.xml"
     },
@@ -4331,6 +4693,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/mace/argyraspidai.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/mace/champion_infantry_spearman_02.xml"
     },
@@ -4372,6 +4738,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/thrac/champion_infantry_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/mace/champion_infantry_swordsman.xml"
     },
@@ -4414,6 +4784,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/mace/infantry_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/mace/infantry_archer_b.xml"
     },
@@ -4456,6 +4830,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/mace/infantry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/mace/infantry_javelineer_b.xml"
     },
@@ -4498,6 +4874,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/mace/infantry_pikeman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/mace/infantry_pikeman_b.xml"
     },
@@ -4540,6 +4918,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/mace/infantry_slinger.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/mace/infantry_slinger_b.xml"
     },
@@ -4581,6 +4963,8 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/maur/cavalry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/maur/cavalry_javelineer_b.xml"
     },
@@ -4623,6 +5007,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/maur/cavalry_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/maur/cavalry_swordsman_b.xml"
     },
@@ -4665,6 +5053,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "unlock_champion_chariots"
+      ],
+      "phase": "city",
       "portrait": "units/maur/champion_chariot.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/maur/champion_chariot.xml"
     },
@@ -4704,6 +5096,10 @@
         "Human",
         "IndianElephant"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/maur/champion_elephant.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/maur/champion_elephant.xml"
     },
@@ -4744,6 +5140,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/maur/champion_maceman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/maur/champion_infantry_maceman.xml"
     },
@@ -4783,6 +5183,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/maur/champion_maiden.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/maur/champion_maiden.xml"
     },
@@ -4822,6 +5226,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/maur/champion_maiden_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/maur/champion_maiden_archer.xml"
     },
@@ -4862,6 +5270,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/maur/elephant_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/maur/elephant_archer_b.xml"
     },
@@ -4904,6 +5316,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/maur/infantry_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/maur/infantry_archer_b.xml"
     },
@@ -4946,6 +5360,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/maur/infantry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/maur/infantry_spearman_b.xml"
     },
@@ -4989,6 +5405,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/maur/infantry_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/maur/infantry_swordsman_b.xml"
     },
@@ -5031,6 +5451,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_village"
+      ],
+      "phase": "village",
       "portrait": "units/ptol/camel_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/cavalry_archer_b.xml"
     },
@@ -5073,6 +5497,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/hele/tarentine_cavalry_e.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/cavalry_javelineer_merc_b.xml"
     },
@@ -5115,6 +5543,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/ptol/cavalry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/cavalry_spearman_merc_b.xml"
     },
@@ -5156,6 +5588,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "unlock_champion_cavalry"
+      ],
+      "phase": "city",
       "portrait": "units/ptol/champion_cavalry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/champion_cavalry.xml"
     },
@@ -5195,6 +5631,10 @@
         "Human",
         "AfricanElephant"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/ptol/champion_elephant.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/champion_elephant.xml"
     },
@@ -5235,6 +5675,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/ptol/champion_infantry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/champion_infantry_pikeman.xml"
     },
@@ -5277,6 +5721,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/mace/infantry_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/infantry_archer_b.xml"
     },
@@ -5319,6 +5767,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/ptol/infantry_javelinist_merc.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/infantry_javelineer_b.xml"
     },
@@ -5361,6 +5813,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/ptol/infantry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/infantry_pikeman_b.xml"
     },
@@ -5404,6 +5858,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_village"
+      ],
+      "phase": "village",
       "portrait": "units/ptol/infantry_slinger.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/infantry_slinger_b.xml"
     },
@@ -5446,6 +5904,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/ptol/infantry_spearman_2.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/infantry_spearman_merc_b.xml"
     },
@@ -5488,6 +5950,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/cart/infantry_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/ptol/infantry_swordsman_merc_b.xml"
     },
@@ -5530,6 +5996,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "roman_reforms"
+      ],
+      "phase": "city",
       "portrait": "units/rome/cavalry_javelinist_auxiliary.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/rome/cavalry_javelineer_auxiliary_b.xml"
     },
@@ -5571,6 +6041,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/rome/cavalry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/rome/cavalry_javelineer_b.xml"
     },
@@ -5613,6 +6087,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "roman_reforms"
+      ],
+      "phase": "city",
       "portrait": "units/rome/cavalry_spearman_auxiliary.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/rome/cavalry_spearman_auxiliary_b.xml"
     },
@@ -5654,6 +6132,8 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/rome/cavalry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/rome/cavalry_spearman_b.xml"
     },
@@ -5695,6 +6175,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "unlock_champion_cavalry"
+      ],
+      "phase": "city",
       "portrait": "units/rome/champion_cavalry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/rome/champion_cavalry.xml"
     },
@@ -5735,6 +6219,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/rome/champion_infantry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/rome/champion_infantry_swordsman.xml"
     },
@@ -5775,6 +6263,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/rome/champion_legion_marian.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/rome/champion_infantry_swordsman_02.xml"
     },
@@ -5815,6 +6307,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/rome/champion_legion_imperial.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/rome/champion_infantry_swordsman_03.xml"
     },
@@ -5855,6 +6351,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/rome/champion_legion_centurio.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/rome/champion_infantry_swordsman_04.xml"
     },
@@ -5895,6 +6395,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/rome/champion_legion_centurio.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/rome/champion_infantry_swordsman_05.xml"
     },
@@ -5936,6 +6440,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "roman_reforms"
+      ],
+      "phase": "city",
       "portrait": "units/rome/champion_infantry_centurion.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/rome/champion_infantry_swordsman_centurion.xml"
     },
@@ -5977,6 +6485,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "unlock_champion_infantry"
+      ],
+      "phase": "city",
       "portrait": "units/rome/champion_infantry_first.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/rome/champion_infantry_swordsman_first.xml"
     },
@@ -6019,6 +6531,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/rome/infantry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/rome/infantry_javelineer_b.xml"
     },
@@ -6061,6 +6575,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/rome/infantry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/rome/infantry_spearman_b.xml"
     },
@@ -6104,6 +6622,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/rome/infantry_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/rome/infantry_swordsman_b.xml"
     },
@@ -6145,6 +6665,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/achae/cavalry_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/sele/cavalry_archer_b.xml"
     },
@@ -6186,6 +6710,8 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/sele/cavalry_militia.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/sele/cavalry_javelineer_b.xml"
     },
@@ -6228,6 +6754,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/sele/cavalry_spearman_merc.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/sele/cavalry_spearman_merc_b.xml"
     },
@@ -6270,6 +6800,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "unlock_champion_cavalry"
+      ],
+      "phase": "city",
       "portrait": "units/sele/champion_cavalry.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/sele/champion_cavalry.xml"
     },
@@ -6312,6 +6846,10 @@
         "Human",
         "FastMoving"
       ],
+      "requirements": [
+        "unlock_champion_chariots"
+      ],
+      "phase": "city",
       "portrait": "units/sele/champion_chariot.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/sele/champion_chariot.xml"
     },
@@ -6351,6 +6889,10 @@
         "Human",
         "IndianElephant"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/sele/champion_elephant.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/sele/champion_elephant.xml"
     },
@@ -6391,6 +6933,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "traditional_army_sele"
+      ],
+      "phase": "city",
       "portrait": "units/sele/champion_pikeman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/sele/champion_infantry_pikeman.xml"
     },
@@ -6431,6 +6977,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "reformed_army_sele"
+      ],
+      "phase": "city",
       "portrait": "units/sele/champion_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/sele/champion_infantry_swordsman.xml"
     },
@@ -6473,6 +7023,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/sele/infantry_archer.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/sele/infantry_archer_merc_b.xml"
     },
@@ -6515,6 +7069,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_village"
+      ],
+      "phase": "village",
       "portrait": "units/sele/infantry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/sele/infantry_javelineer_b.xml"
     },
@@ -6557,6 +7115,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/sele/infantry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/sele/infantry_pikeman_b.xml"
     },
@@ -6599,6 +7159,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/sele/infantry_spearman_2.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/sele/infantry_spearman_b.xml"
     },
@@ -6641,6 +7203,10 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/sele/infantry_swordsman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/sele/infantry_swordsman_merc_b.xml"
     },
@@ -6682,6 +7248,8 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/spart/cavalry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/spart/cavalry_javelineer_b.xml"
     },
@@ -6723,6 +7291,10 @@
         "FastMoving",
         "CitizenSoldier"
       ],
+      "requirements": [
+        "phase_town"
+      ],
+      "phase": "town",
       "portrait": "units/spart/cavalry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/spart/cavalry_spearman_b.xml"
     },
@@ -6763,6 +7335,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_city"
+      ],
+      "phase": "city",
       "portrait": "units/spart/champion_infantry_pike.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/spart/champion_infantry_pike.xml"
     },
@@ -6803,6 +7379,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_village"
+      ],
+      "phase": "village",
       "portrait": "units/spart/champion_infantry_spear.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/spart/champion_infantry_spear.xml"
     },
@@ -6843,6 +7423,10 @@
         "ConquestCritical",
         "Human"
       ],
+      "requirements": [
+        "phase_village"
+      ],
+      "phase": "village",
       "portrait": "units/spart/champion_infantry_olympian.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/spart/champion_infantry_spear_olympian.xml"
     },
@@ -6885,6 +7469,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/spart/infantry_javelinist.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/spart/infantry_javelineer_b.xml"
     },
@@ -6927,6 +7513,8 @@
         "Human",
         "CitizenSoldier"
       ],
+      "requirements": [],
+      "phase": "village",
       "portrait": "units/spart/infantry_spearman.png",
       "source_path": "binaries/data/mods/public/simulation/templates/units/spart/infantry_spearman_b.xml"
     }

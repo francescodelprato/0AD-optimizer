@@ -26,6 +26,8 @@ const POPULATION_MIN = 8;
 const POPULATION_MAX = 120;
 const MAX_POOL_SIZE = 6;
 const MAX_COMPOSITIONS = 400000;
+const PHASE_ORDER = { village: 0, town: 1, city: 2 };
+const PHASE_LABELS = { village: "Village", town: "Town", city: "City" };
 
 const AXES = {
   dps: { label: "Damage per second (DPS)", short: "DPS", digits: 1 },
@@ -33,11 +35,14 @@ const AXES = {
   range: { label: "Attack range", short: "range", digits: 1 },
   speed: { label: "Movement speed", short: "speed", digits: 1 },
   armor: { label: "Resistance", short: "resistance", digits: 1 },
+  dpsPerResource: { label: "DPS per 100 total resources", short: "DPS / 100 res.", digits: 2 },
+  healthPerResource: { label: "Health per 100 total resources", short: "HP / 100 res.", digits: 1 },
 };
 
 const state = {
   data: null,
   civ: "athen",
+  era: "all",
   units: [],
   selectedIds: [],
   compositions: [],
@@ -77,6 +82,14 @@ function unitIsChampion(unit) {
 
 function unitTierLabel(unit) {
   return unitIsChampion(unit) ? "Champion" : "Non-champion";
+}
+
+function unitPhaseLabel(unit) {
+  return PHASE_LABELS[unit.phase] || "Village";
+}
+
+function unitAllowedByEra(unit) {
+  return state.era === "all" || (PHASE_ORDER[unit.phase] ?? 0) <= PHASE_ORDER[state.era];
 }
 
 function unitGlyph(unit) {
@@ -134,6 +147,10 @@ function selectedUnits() {
   return state.units.filter((unit) => state.selectedIds.includes(unit.id));
 }
 
+function filteredUnits() {
+  return state.data.units.filter((unit) => unit.civ === state.civ && unitAllowedByEra(unit));
+}
+
 function pickDefaultPool(units) {
   const chosen = [];
   const addFirst = (predicate) => {
@@ -153,6 +170,21 @@ function pickDefaultPool(units) {
     if (!chosen.includes(unit)) chosen.push(unit);
   }
   return chosen.slice(0, MAX_POOL_SIZE).map((unit) => unit.id);
+}
+
+function updateUnitPool(resetSelection = false) {
+  state.units = filteredUnits();
+  if (resetSelection) {
+    state.selectedIds = pickDefaultPool(state.units);
+    return;
+  }
+  const allowedIds = new Set(state.units.map((unit) => unit.id));
+  const retainedIds = state.selectedIds.filter((id) => allowedIds.has(id));
+  for (const id of pickDefaultPool(state.units)) {
+    if (retainedIds.length >= MAX_POOL_SIZE) break;
+    if (!retainedIds.includes(id)) retainedIds.push(id);
+  }
+  state.selectedIds = retainedIds;
 }
 
 function readBudgets() {
@@ -256,6 +288,7 @@ function enumerateCompositions(units, targetPopulation, budgets) {
       return;
     }
     const unitCount = totals.unitCount;
+    const totalResources = resourceKeys.reduce((sum, resource) => sum + resources[resource], 0);
     compositions.push({
       counts: counts.slice(),
       resources: { ...resources },
@@ -266,6 +299,9 @@ function enumerateCompositions(units, targetPopulation, budgets) {
       range: unitCount ? totals.range / unitCount : 0,
       speed: unitCount ? totals.speed / unitCount : 0,
       armor: unitCount ? totals.armor / unitCount : 0,
+      totalResources,
+      dpsPerResource: totalResources ? (totals.dps * 100) / totalResources : 0,
+      healthPerResource: totalResources ? (totals.health * 100) / totalResources : 0,
     });
   };
 
@@ -379,7 +415,7 @@ function renderUnitRoster() {
       ${unitVisual(unit)}
       <span class="unit-card-main">
         <span class="unit-name">${escapeHtml(unit.name)}</span>
-        <span class="unit-role"><span class="unit-tier${unitIsChampion(unit) ? " is-champion" : ""}">${unitTierLabel(unit)}</span><span>${escapeHtml(unit.role)} · ${unitFamily(unit)} · ${escapeHtml(unit.attack_type)}</span></span>
+        <span class="unit-role"><span class="unit-tier${unitIsChampion(unit) ? " is-champion" : ""}">${unitTierLabel(unit)}</span><span class="unit-phase" title="Minimum phase from the official template requirements">${unitPhaseLabel(unit)}</span><span>${escapeHtml(unit.role)} · ${unitFamily(unit)} · ${escapeHtml(unit.attack_type)}</span></span>
         <span class="unit-stats"><span>${stats}</span><span>${costMarkup(unit)}</span></span>
       </span>
     </label>`;
@@ -391,7 +427,8 @@ function renderUnitRoster() {
     }, { once: true });
   });
   const count = state.selectedIds.length;
-  $("#roster-hint").textContent = `${count} of ${state.units.length} units selected. Choose up to ${MAX_POOL_SIZE}; these units define the comparison.`;
+  const eraHint = state.era === "all" ? "All eras" : "Up to " + unitPhaseLabel({ phase: state.era }) + " phase";
+  $("#roster-hint").textContent = `${count} of ${state.units.length} allowed units selected. ${eraHint}; choose up to ${MAX_POOL_SIZE}.`;
   $("#roster-hint").classList.toggle("warning", count >= MAX_POOL_SIZE);
 }
 
@@ -409,7 +446,7 @@ function renderBestFit(composition, units) {
   }
   $("#best-fit-title").textContent = `${number(composition.score * 100, 0)} / 100 match`;
   $("#best-fit-mix").innerHTML = `${escapeHtml(compositionLabel(composition, units))}. <span class="mix-costs">${compositionCostMarkup(composition)}</span>.`;
-  $("#best-fit-metrics").innerHTML = ["dps", "health", "range", "speed"].map((key) => metricMarkup(composition, key)).join("");
+  $("#best-fit-metrics").innerHTML = ["dps", "health", "dpsPerResource", "healthPerResource", "range", "speed"].map((key) => metricMarkup(composition, key)).join("");
 }
 
 function renderRecommendations(units) {
@@ -525,6 +562,10 @@ function renderResults(units, xKey, yKey) {
   $("#frontier-count").textContent = number(state.frontier.length, 0);
   $("#chart-x-label").textContent = AXES[xKey].label;
   $("#chart-y-label").textContent = AXES[yKey].label;
+  const efficiencyView = [xKey, yKey].some((key) => key.endsWith("PerResource"));
+  $("#chart-help").textContent = efficiencyView
+    ? "Efficiency is output per 100 total resource units: food, wood, stone, and metal."
+    : "Dots are legal armies. The line shows the efficient trade-offs.";
   $("#search-status").textContent = state.truncated
     ? `Search limit reached at ${number(MAX_COMPOSITIONS, 0)} armies; results are approximate`
     : "All checked combinations searched";
@@ -570,8 +611,13 @@ function recalculateImmediately() {
 function wireControls() {
   $("#civilisation").addEventListener("change", (event) => {
     state.civ = event.target.value;
-    state.units = state.data.units.filter((unit) => unit.civ === state.civ);
-    state.selectedIds = pickDefaultPool(state.units);
+    updateUnitPool(true);
+    renderUnitRoster();
+    recalculate();
+  });
+  $("#era").addEventListener("change", (event) => {
+    state.era = event.target.value;
+    updateUnitPool();
     renderUnitRoster();
     recalculate();
   });
@@ -613,8 +659,7 @@ async function init() {
     const civSelect = $("#civilisation");
     civSelect.innerHTML = state.data.civilisations.map((civ) => `<option value="${escapeHtml(civ)}">${escapeHtml(CIVILISATION_NAMES[civ] || civ.toUpperCase())}</option>`).join("");
     civSelect.value = state.civ;
-    state.units = state.data.units.filter((unit) => unit.civ === state.civ);
-    state.selectedIds = pickDefaultPool(state.units);
+    updateUnitPool(true);
     $("#source-summary").textContent = `0 A.D. snapshot ${state.data.source.commit.slice(0, 12)} · ${state.data.units.length} units`;
     wireControls();
     renderUnitRoster();

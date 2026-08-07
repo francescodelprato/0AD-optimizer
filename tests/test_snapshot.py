@@ -24,6 +24,14 @@ class SnapshotTests(unittest.TestCase):
             champions_by_civ[unit["civ"]] += 1
         self.assertTrue(all(count > 0 for count in champions_by_civ.values()), champions_by_civ)
 
+    def test_units_have_phase_requirements(self):
+        phases = {unit["phase"] for unit in self.snapshot["units"]}
+        self.assertEqual(phases, {"village", "town", "city"})
+        for unit in self.snapshot["units"]:
+            with self.subTest(unit=unit["id"]):
+                self.assertIsInstance(unit["requirements"], list)
+                self.assertIn(unit["phase"], {"village", "town", "city"})
+
     def test_snapshot_has_no_identical_choices_within_a_civilisation(self):
         signatures = []
         for unit in self.snapshot["units"]:
@@ -62,6 +70,19 @@ class SnapshotTests(unittest.TestCase):
         index = (ROOT / "index.html").read_text(encoding="utf-8")
         self.assertIn('id="population" type="range" min="8" max="120"', index)
         self.assertIn('id="population-input" type="number" min="8" max="120"', index)
+
+    def test_era_and_resource_efficiency_controls_are_rendered(self):
+        index = (ROOT / "index.html").read_text(encoding="utf-8")
+        app = (ROOT / "app.js").read_text(encoding="utf-8")
+        self.assertIn('id="era"', index)
+        self.assertIn('value="village"', index)
+        self.assertIn('value="town"', index)
+        self.assertIn('value="city"', index)
+        self.assertIn('value="dpsPerResource"', index)
+        self.assertIn('value="healthPerResource"', index)
+        self.assertIn("unitAllowedByEra", app)
+        self.assertIn("dpsPerResource", app)
+        self.assertIn("healthPerResource", app)
 
     def test_resource_icons_are_available(self):
         index = (ROOT / "index.html").read_text(encoding="utf-8")

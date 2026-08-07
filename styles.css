@@ -219,7 +219,7 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 .best-fit-body { display: flex; justify-content: space-between; gap: 28px; align-items: start; margin-top: 10px; }
 .best-fit h2 { font-size: 1.8rem; }
 .mix-line { max-width: 520px; margin: 8px 0 0; color: var(--muted); line-height: 1.5; }
-.metric-grid { display: grid; grid-template-columns: repeat(4, minmax(70px, 1fr)); gap: 10px; min-width: min(100%, 430px); }
+.metric-grid { display: grid; grid-template-columns: repeat(3, minmax(70px, 1fr)); gap: 10px; min-width: min(100%, 430px); }
 .metric { padding-left: 10px; border-left: 1px solid var(--line); }
 .metric-label { display: block; color: var(--muted); font-size: 0.68rem; }
 .metric-value { display: block; margin-top: 4px; font-size: 1rem; font-weight: 800; font-variant-numeric: tabular-nums; }
@@ -263,6 +263,7 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
 .unit-role { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin-top: 2px; color: var(--muted); font-size: 0.68rem; }
 .unit-tier { display: inline-flex; align-items: center; border: 1px solid rgba(46, 100, 128, 0.22); border-radius: 999px; padding: 2px 6px; background: rgba(46, 100, 128, 0.1); color: var(--blue); font-size: 0.61rem; font-weight: 800; line-height: 1.2; white-space: nowrap; }
 .unit-tier.is-champion { border-color: rgba(186, 77, 43, 0.32); background: rgba(186, 77, 43, 0.12); color: var(--accent-dark); }
+.unit-phase { display: inline-flex; align-items: center; border: 1px solid rgba(109, 116, 124, 0.24); border-radius: 999px; padding: 2px 6px; background: rgba(109, 116, 124, 0.08); color: var(--muted); font-size: 0.61rem; font-weight: 800; line-height: 1.2; white-space: nowrap; }
 .unit-stats { display: flex; flex-wrap: wrap; gap: 5px 9px; margin-top: 9px; color: var(--muted); font-size: 0.68rem; line-height: 1.4; }
 .unit-stats > span { white-space: nowrap; }
 .unit-stats .resource-costs { color: var(--muted); }

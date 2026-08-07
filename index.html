@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A small Pareto-frontier explorer for 0 A.D. army compositions.">
     <title>0 A.D. — Army frontier</title>
-    <link rel="stylesheet" href="styles.css?v=5">
+    <link rel="stylesheet" href="styles.css?v=6">
   </head>
   <body>
     <header class="site-header">
@@ -50,6 +50,17 @@
         </label>
 
         <label class="field">
+          <span class="field-label">Era cutoff</span>
+          <span class="field-help">Include units available by this phase. Special technology unlocks count as City.</span>
+          <select id="era">
+            <option value="all">All eras</option>
+            <option value="village">Village phase only</option>
+            <option value="town">Up to Town phase</option>
+            <option value="city">Up to City phase</option>
+          </select>
+        </label>
+
+        <label class="field">
           <span class="field-label"><span>Army size</span><output id="population-output"></output></span>
           <span class="population-controls">
             <input id="population" type="range" min="8" max="120" step="1" value="24" aria-label="Army size slider" aria-describedby="population-help">
@@ -84,6 +95,8 @@
               <option value="range">Attack range</option>
               <option value="speed">Movement speed</option>
               <option value="armor">Resistance</option>
+              <option value="dpsPerResource">DPS per 100 total resources</option>
+              <option value="healthPerResource">Health per 100 total resources</option>
             </select>
           </label>
           <label class="field">
@@ -94,9 +107,12 @@
               <option value="range">Attack range</option>
               <option value="speed">Movement speed</option>
               <option value="armor">Resistance</option>
+              <option value="dpsPerResource">DPS per 100 total resources</option>
+              <option value="healthPerResource">Health per 100 total resources</option>
             </select>
           </label>
         </div>
+        <span class="range-note">Efficiency views divide output by the combined food, wood, stone, and metal cost.</span>
 
         <div class="field-group preferences">
           <div class="field-label">What matters to you?</div>
@@ -180,6 +196,6 @@
       <a href="https://play0ad.com/" target="_blank" rel="noreferrer">0 A.D. official site ↗</a>
     </footer>
 
-    <script src="app.js?v=7" defer></script>
+    <script src="app.js?v=8" defer></script>
   </body>
 </html>

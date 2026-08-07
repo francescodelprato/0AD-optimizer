@@ -21,6 +21,7 @@ from typing import Iterable
 
 RESOURCES = ("food", "wood", "stone", "metal")
 DAMAGE_TYPES = ("Hack", "Pierce", "Crush", "Poison")
+PHASES = ("village", "town", "city")
 DEFAULT_CIVS = (
     "achae", "athen", "brit", "cart", "gaul", "germ", "han", "iber",
     "kush", "mace", "maur", "ptol", "rome", "sele", "spart",
@@ -143,6 +144,19 @@ def _portrait_path(root: ET.Element) -> str:
     return icon if icon.startswith("units/") else ""
 
 
+def _requirements(root: ET.Element) -> list[str]:
+    return _tokens(_text(root, "Identity/Requirements/Techs"))
+
+
+def _required_phase(requirements: list[str]) -> str:
+    for phase in reversed(PHASES):
+        if f"phase_{phase}" in requirements:
+            return phase
+    if any(not requirement.startswith("phase_") for requirement in requirements):
+        return "city"
+    return "village"
+
+
 def _tokens(value: str) -> list[str]:
     return [token for token in re.split(r"\s+", value.strip()) if token]
 
@@ -185,6 +199,7 @@ def _unit_from_template(resolver: TemplateResolver, template_name: str, civ: str
     root = resolver.resolve(template_name)
     identity_classes = _tokens(_text(root, "Identity/Classes"))
     visible_classes = _tokens(_text(root, "Identity/VisibleClasses"))
+    requirements = _requirements(root)
     attack = _attack(root)
     resources = {resource: _number(root, f"Cost/Resources/{resource}") for resource in RESOURCES}
     resistances = {damage_type.lower(): _number(root, f"Resistance/Entity/Damage/{damage_type}") for damage_type in DAMAGE_TYPES[:3]}
@@ -206,6 +221,8 @@ def _unit_from_template(resolver: TemplateResolver, template_name: str, civ: str
         "cost": {resource: round(value, 3) for resource, value in resources.items() if value},
         "rank": _text(root, "Identity/Rank", "Basic"),
         "identity_classes": identity_classes,
+        "requirements": requirements,
+        "phase": _required_phase(requirements),
         "portrait": _portrait_path(root),
     }
 
